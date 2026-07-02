@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USHL — Suivi des gardiens Y21</title>
+<style>
+  :root {
+    --glace: #0b1420;
+    --glace-2: #101c2c;
+    --panneau: #16253a;
+    --panneau-2: #1c2e47;
+    --ligne: #24395a;
+    --texte: #dce8f5;
+    --texte-2: #8fa6c0;
+    --texte-3: #5d7391;
+    --bleu: #4da3ff;
+    --ok: #35c977;
+    --alerte: #f5b53f;
+    --lampe: #ff3b3b;
+    --lampe-fonce: #7a1010;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background:
+      radial-gradient(1200px 500px at 50% -200px, #16304f 0%, transparent 60%),
+      var(--glace);
+    color: var(--texte);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+  /* ---------- En-tête ---------- */
+  header {
+    border-bottom: 1px solid var(--ligne);
+    background: linear-gradient(180deg, rgba(20,36,58,.9), rgba(11,20,32,.6));
+    padding: 22px 28px 18px;
+    position: sticky; top: 0; z-index: 20;
+    backdrop-filter: blur(6px);
+  }
+  .header-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .titre-bloc { flex: 1; min-width: 260px; }
+  h1 {
+    font-size: 26px; letter-spacing: .12em; text-transform: uppercase;
+    font-weight: 800; line-height: 1.1;
+  }
+  h1 .accent { color: var(--bleu); }
+  .sous-titre { color: var(--texte-2); font-size: 13px; margin-top: 4px; letter-spacing: .04em; }
+  .maj { color: var(--texte-3); font-size: 12px; margin-top: 2px; }
+  .maj b { color: var(--texte-2); font-weight: 600; }
+
+  #btnActualiser {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(180deg, #2a68b8, #1d4f92);
+    color: #fff; border: 1px solid #3f7fd0; border-radius: 8px;
+    font-size: 15px; font-weight: 700; letter-spacing: .05em;
+    padding: 12px 22px; cursor: pointer; text-transform: uppercase;
+    transition: transform .1s ease, box-shadow .2s ease;
+    box-shadow: 0 4px 14px rgba(29,79,146,.45);
+  }
+  #btnActualiser:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(45,110,190,.55); }
+  #btnActualiser:disabled { opacity: .55; cursor: wait; }
+  #btnActualiser .ico { display: inline-block; }
+  #btnActualiser.chargement .ico { animation: tourner 1s linear infinite; }
+  @keyframes tourner { to { transform: rotate(360deg); } }
+
+  /* ---------- Sommaire ---------- */
+  .conteneur { max-width: 1180px; margin: 0 auto; padding: 22px 28px 0; }
+  .sommaire { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .puce {
+    background: var(--panneau); border: 1px solid var(--ligne); border-radius: 10px;
+    padding: 10px 18px; min-width: 130px;
+  }
+  .puce .val { font-size: 24px; font-weight: 800; }
+  .puce .lab { font-size: 11px; text-transform: uppercase; letter-spacing: .09em; color: var(--texte-2); margin-top: 2px; }
+  .puce.v-ok .val { color: var(--ok); }
+  .puce.v-alerte .val { color: var(--alerte); }
+  .puce.v-lampe .val { color: var(--lampe); }
+
+  /* ---------- Filtres ---------- */
+  .filtres { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
+  .filtres input[type="search"] {
+    background: var(--glace-2); border: 1px solid var(--ligne); color: var(--texte);
+    border-radius: 8px; padding: 9px 14px; font-size: 14px; width: 240px;
+  }
+  .filtres input::placeholder { color: var(--texte-3); }
+  .filtres select {
+    background: var(--glace-2); border: 1px solid var(--ligne); color: var(--texte);
+    border-radius: 8px; padding: 9px 12px; font-size: 14px;
+  }
+  .filtre-btn {
+    background: var(--glace-2); border: 1px solid var(--ligne); color: var(--texte-2);
+    border-radius: 20px; padding: 7px 16px; font-size: 13px; cursor: pointer;
+  }
+  .filtre-btn.actif { background: var(--panneau-2); color: var(--texte); border-color: var(--bleu); }
+
+  /* ---------- Cartes d'équipe ---------- */
+  .grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 16px; }
+  @media (max-width: 540px) { .grille { grid-template-columns: 1fr; } .filtres input[type="search"] { width: 100%; } }
+  .equipe {
+    background: var(--panneau); border: 1px solid var(--ligne); border-radius: 12px;
+    overflow: hidden;
+  }
+  .equipe-tete {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 12px 16px; background: var(--panneau-2); border-bottom: 1px solid var(--ligne);
+  }
+  .equipe-tete .abbr {
+    font-weight: 800; font-size: 15px; letter-spacing: .08em; color: var(--bleu);
+    background: rgba(77,163,255,.12); border: 1px solid rgba(77,163,255,.35);
+    border-radius: 6px; padding: 2px 9px;
+  }
+  .equipe-tete .nom { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--texte-2); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead th {
+    text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--texte-3); padding: 9px 10px 7px; border-bottom: 1px solid var(--ligne);
+    white-space: nowrap;
+  }
+  thead th.centre, td.centre { text-align: center; }
+  tbody td { padding: 10px; border-bottom: 1px solid rgba(36,57,90,.5); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: rgba(77,163,255,.05); }
+
+  .g-nom { font-weight: 650; white-space: nowrap; }
+  .g-nom .recrue { color: var(--alerte); font-size: 11px; margin-left: 4px; vertical-align: super; }
+  .g-nom .badge { display: inline-block; margin-top: 5px; }
+  .fiche { color: var(--texte-2); white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+
+  /* Piste de progression façon patinoire */
+  .piste-cell { width: 32%; min-width: 120px; }
+  .piste {
+    position: relative; height: 14px; border-radius: 7px;
+    background: var(--glace-2); border: 1px solid var(--ligne); overflow: hidden;
+  }
+  .piste .ligne-centre {
+    position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+    background: rgba(255,255,255,.14);
+  }
+  .piste .rempli {
+    position: absolute; left: 0; top: 0; bottom: 0; border-radius: 7px 0 0 7px;
+    background: linear-gradient(90deg, #2f8f5e, var(--ok));
+    transition: width .5s ease;
+  }
+  .piste .rempli.n-alerte { background: linear-gradient(90deg, #b07f1f, var(--alerte)); }
+  .piste .rempli.n-lampe { background: linear-gradient(90deg, var(--lampe-fonce), var(--lampe)); }
+  .piste-txt { font-size: 11px; color: var(--texte-3); margin-top: 4px; }
+
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; border-radius: 6px; padding: 3px 9px; white-space: nowrap;
+  }
+  .b-ok { color: var(--ok); background: rgba(53,201,119,.12); border: 1px solid rgba(53,201,119,.35); }
+  .b-alerte { color: var(--alerte); background: rgba(245,181,63,.12); border: 1px solid rgba(245,181,63,.4); }
+  .b-lampe {
+    color: #fff; background: var(--lampe); border: 1px solid #ff7070;
+    animation: lampe 1.1s ease-in-out infinite;
+  }
+  .b-depasse { color: #fff; background: #a30f0f; border: 1px solid var(--lampe); animation: lampe 1.1s ease-in-out infinite; }
+  .b-inconnu { color: var(--texte-3); background: rgba(93,115,145,.12); border: 1px solid var(--ligne); }
+  @keyframes lampe {
+    0%, 100% { box-shadow: 0 0 4px rgba(255,59,59,.6); }
+    50% { box-shadow: 0 0 16px rgba(255,59,59,.95); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .b-lampe, .b-depasse { animation: none; }
+    #btnActualiser.chargement .ico { animation: none; }
+  }
+
+  .limite-cell { cursor: pointer; }
+  .limite-cell:hover .limite-val { text-decoration: underline dotted; }
+  .limite-val { font-weight: 700; }
+  .tag-manuel { font-size: 9.5px; color: var(--bleu); text-transform: uppercase; letter-spacing: .08em; margin-left: 4px; }
+
+  /* ---------- Admin ---------- */
+  #lienAdmin {
+    background: none; border: 1px solid var(--ligne); color: var(--texte-3);
+    border-radius: 6px; padding: 8px 14px; font-size: 12px; cursor: pointer;
+    letter-spacing: .08em; text-transform: uppercase;
+  }
+  #lienAdmin:hover { color: var(--texte); border-color: var(--bleu); }
+  #lienAdmin.connecte { color: var(--bleu); border-color: var(--bleu); }
+  #voileAdmin {
+    position: fixed; inset: 0; background: rgba(5, 10, 18, .75); z-index: 50;
+    display: none; align-items: center; justify-content: center; padding: 20px;
+    backdrop-filter: blur(3px);
+  }
+  #voileAdmin.visible { display: flex; }
+  .boite-admin {
+    background: var(--panneau); border: 1px solid var(--ligne); border-radius: 12px;
+    width: 100%; max-width: 380px; padding: 24px;
+  }
+  .boite-admin h2 {
+    font-size: 15px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .boite-admin p { color: var(--texte-3); font-size: 12.5px; margin-bottom: 14px; }
+  .boite-admin label {
+    display: block; margin: 12px 0 4px; color: var(--texte-3);
+    font-size: 12px; text-transform: uppercase; letter-spacing: .07em;
+  }
+  .boite-admin input {
+    width: 100%; background: var(--glace-2); border: 1px solid var(--ligne);
+    color: var(--texte); border-radius: 6px; padding: 9px 12px; font-size: 14px;
+  }
+  .boite-admin .actions { display: flex; gap: 8px; margin-top: 18px; }
+  .boite-admin .actions button {
+    flex: 1; border-radius: 6px; padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  #btnConnexion { background: linear-gradient(180deg, #2a68b8, #1d4f92); color: #fff; border: 1px solid #3f7fd0; }
+  #btnAnnulerConnexion { background: var(--glace-2); color: var(--texte-2); border: 1px solid var(--ligne); }
+  #erreurConnexion { color: var(--lampe); font-size: 12.5px; margin-top: 10px; min-height: 16px; }
+
+  /* ---------- Panneaux repliables ---------- */
+  details.panneau {
+    background: var(--panneau); border: 1px solid var(--ligne); border-radius: 10px;
+    margin-top: 22px; overflow: hidden;
+  }
+  details.panneau summary {
+    cursor: pointer; padding: 12px 16px; font-size: 13px; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--texte-2);
+    user-select: none;
+  }
+  details.panneau summary:hover { color: var(--texte); }
+  .panneau-corps { padding: 4px 16px 16px; font-size: 13px; color: var(--texte-2); }
+  .panneau-corps label { display: block; margin: 12px 0 4px; color: var(--texte-3); font-size: 12px; text-transform: uppercase; letter-spacing: .07em; }
+  .panneau-corps input[type="url"] {
+    width: 100%; background: var(--glace-2); border: 1px solid var(--ligne); color: var(--texte);
+    border-radius: 6px; padding: 8px 10px; font-size: 12.5px; font-family: ui-monospace, monospace;
+  }
+  .panneau-corps button {
+    margin-top: 12px; margin-right: 8px; background: var(--panneau-2); color: var(--texte);
+    border: 1px solid var(--ligne); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer;
+  }
+  .panneau-corps button:hover { border-color: var(--bleu); }
+  #journal { font-family: ui-monospace, monospace; font-size: 11.5px; white-space: pre-wrap; line-height: 1.55; color: var(--texte-3); max-height: 260px; overflow: auto; }
+  #journal .ok { color: var(--ok); } #journal .err { color: var(--lampe); } #journal .info { color: var(--texte-2); }
+
+  /* ---------- États ---------- */
+  #message {
+    margin: 14px 0; padding: 12px 16px; border-radius: 8px; font-size: 14px; display: none;
+  }
+  #message.visible { display: block; }
+  #message.erreur { background: rgba(255,59,59,.1); border: 1px solid rgba(255,59,59,.4); color: #ffb0b0; }
+  #message.info { background: rgba(77,163,255,.08); border: 1px solid rgba(77,163,255,.3); color: #a8cef5; }
+  .vide { color: var(--texte-3); text-align: center; padding: 60px 20px; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="titre-bloc">
+      <h1>Suivi des gardiens <span class="accent">USHL</span></h1>
+      <div class="sous-titre">Matchs joués (V + D + N) vs limite d’utilisation — Y21</div>
+      <div class="maj num" id="lignesMaj">
+        <span id="majDonnees"></span>
+        <span id="majSource"></span>
+      </div>
+    </div>
+    <button id="btnActualiser" type="button">
+      <span class="ico">⟳</span> Actualiser
+    </button>
+    <button id="lienAdmin" type="button" title="Administration des sources">Admin</button>
+  </div>
+</header>
+
+<div class="conteneur">
+  <div id="message"></div>
+
+  <div class="sommaire" id="sommaire" hidden>
+    <div class="puce"><div class="val num" id="sGardiens">–</div><div class="lab">Gardiens</div></div>
+    <div class="puce v-ok"><div class="val num" id="sOk">–</div><div class="lab">En règle</div></div>
+    <div class="puce v-alerte"><div class="val num" id="sAlerte">–</div><div class="lab">En alerte (≤ 5 restants)</div></div>
+    <div class="puce v-lampe"><div class="val num" id="sLampe">–</div><div class="lab">Limite atteinte</div></div>
+  </div>
+
+  <div class="filtres" id="filtres" hidden>
+    <input type="search" id="recherche" placeholder="Chercher un gardien ou une équipe…">
+    <button class="filtre-btn actif" data-filtre="tous" type="button">Tous</button>
+    <button class="filtre-btn" data-filtre="alerte" type="button">En alerte</button>
+    <button class="filtre-btn" data-filtre="lampe" type="button">Limite atteinte</button>
+    <select id="tri">
+      <option value="equipe">Trier par équipe</option>
+      <option value="restants">Trier par matchs restants</option>
+      <option value="mj">Trier par matchs joués</option>
+    </select>
+  </div>
+
+  <div id="contenu"><div class="vide">Clique sur « Actualiser » pour charger les données de la ligue.</div></div>
+
+  <details class="panneau" id="panneauNonAssocies" hidden>
+    <summary>Limites non associées automatiquement (<span id="nbNonAssocies">0</span>)</summary>
+    <div class="panneau-corps" id="corpsNonAssocies"></div>
+  </details>
+
+  <details class="panneau">
+    <summary>Importer les limites par collage</summary>
+    <div class="panneau-corps">
+      <p>Si la lecture automatique du tableau des limites échoue, sélectionne le tableau directement sur la page de gestion des gardiens (Ctrl+A, Ctrl+C), colle-le ici, puis clique sur « Importer ». L'interface repère les noms et les limites automatiquement.</p>
+      <label for="zoneCollage">Contenu collé du tableau des limites</label>
+      <textarea id="zoneCollage" rows="8" style="width:100%;background:var(--glace-2);border:1px solid var(--ligne);color:var(--texte);border-radius:6px;padding:8px 10px;font-size:12.5px;font-family:ui-monospace,monospace;"></textarea>
+      <button type="button" id="btnImporterCollage">Importer ces limites</button>
+      <button type="button" id="btnEffacerCollage">Effacer les limites importées</button>
+      <span id="resultatCollage" style="margin-left:8px"></span>
+    </div>
+  </details>
+
+  <details class="panneau" id="panneauSources" hidden>
+    <summary>Sources de données (admin)</summary>
+    <div class="panneau-corps">
+      <label for="urlStats">Page des statistiques des gardiens</label>
+      <input type="url" id="urlStats">
+      <label for="urlLimites">Page des limites de matchs (gestion des gardiens)</label>
+      <input type="url" id="urlLimites">
+      <label for="urlProxyPerso">Proxy personnel (optionnel — ex. Cloudflare Worker)</label>
+      <input type="url" id="urlProxyPerso" placeholder="https://ton-worker.ton-compte.workers.dev">
+      <button type="button" id="btnSauverUrls">Enregistrer les sources</button>
+      <button type="button" id="btnResetUrls">Rétablir les sources par défaut</button>
+      <button type="button" id="btnRechargerLimites">Recharger les limites maintenant</button>
+      <button type="button" id="btnResetManuel">Effacer les limites saisies manuellement</button>
+      <button type="button" id="btnDeconnexion">Se déconnecter</button>
+      <p style="margin-top:10px;color:var(--texte-3)">Les limites sont fixes pour la saison : une fois lues, elles sont conservées 7 jours. « Actualiser » ne recharge que les statistiques des matchs, ce qui est plus rapide et plus fiable.</p>
+    </div>
+  </details>
+
+  <details class="panneau">
+    <summary>Journal technique</summary>
+    <div class="panneau-corps">
+      <button type="button" id="btnCopierJournal" style="margin:0 0 10px">Copier le journal</button>
+      <div id="journal"></div>
+    </div>
+  </details>
+</div>
+
+<div id="voileAdmin" role="dialog" aria-modal="true" aria-labelledby="titreAdmin">
+  <div class="boite-admin">
+    <h2 id="titreAdmin">Administration</h2>
+    <p>Réservé à la gestion des liens de sources de données.</p>
+    <label for="champUtilisateur">Nom d'utilisateur</label>
+    <input type="text" id="champUtilisateur" autocomplete="username">
+    <label for="champMdp">Mot de passe</label>
+    <input type="password" id="champMdp" autocomplete="current-password">
+    <div id="erreurConnexion"></div>
+    <div class="actions">
+      <button type="button" id="btnAnnulerConnexion">Annuler</button>
+      <button type="button" id="btnConnexion">Se connecter</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* =====================================================================
+   CONFIGURATION
+===================================================================== */
+const DEFAUTS = {
+  urlStats: "https://ushl.ca/ushl/menu_sim/USHL-pro/jamesishot/StatsGoalies.php?seasonId=&seasonType=PLF",
+  urlScoringSecours: "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL21PLFTeamScoring.html",
+  urlLimites: "https://ushl.ca/ushl/menu_ushl/gestion_dg/gestion_gardiens/y21/gestiongardiensy21.htm",
+  fichierLimitesJson: "limites.json", // produit par le robot GitHub Actions, lu sans proxy
+  proxyPerso: ""
+};
+const CLE_CACHE = "ushl_gardiens_cache_v2";
+const CLE_URLS = "ushl_gardiens_urls_v1";
+const CLE_MANUEL = "ushl_gardiens_limites_manuelles_v1";
+const CLE_COLLAGE = "ushl_gardiens_limites_collees_v1";
+const SEUIL_ALERTE = 5; // matchs restants
+
+const etat = {
+  gardiens: [],
+  equipes: {},
+  limites: [],        // [{nom, nomNorm, limite, brut}]
+  nonAssocies: [],
+  asOf: null,
+  horodatage: null,
+  filtre: "tous",
+  recherche: "",
+  tri: "equipe"
+};
+
+/* =====================================================================
+   JOURNAL
+===================================================================== */
+const journalEl = document.getElementById("journal");
+function log(msg, type) {
+  const t = new Date().toLocaleTimeString("fr-CA");
+  const span = document.createElement("span");
+  span.className = type || "";
+  span.textContent = "[" + t + "] " + msg + "\n";
+  journalEl.appendChild(span);
+  journalEl.scrollTop = journalEl.scrollHeight;
+}
+
+/* =====================================================================
+   RÉCUPÉRATION RÉSEAU — chaîne de proxys CORS avec repli
+===================================================================== */
+const CLE_PROXY = "ushl_gardiens_proxy_prefere_v1";
+let derniereRequete = 0;
+function pause(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function canaux(url) {
+  const enc = encodeURIComponent(url);
+  const liste = [
+    { nom: "direct", url: url, json: false },
+    { nom: "allorigins", url: "https://api.allorigins.win/raw?url=" + enc, json: false },
+    { nom: "allorigins-get", url: "https://api.allorigins.win/get?url=" + enc, json: true },
+    { nom: "codetabs", url: "https://api.codetabs.com/v1/proxy?quest=" + enc, json: false },
+    { nom: "corsproxy.io", url: "https://corsproxy.io/?url=" + enc, json: false },
+    { nom: "cors.workers.dev", url: "https://test.cors.workers.dev/?" + url, json: false }
+  ];
+  // Proxy « collant » : celui qui a fonctionné récemment passe en premier
+  const prefere = localStorage.getItem(CLE_PROXY);
+  if (prefere) liste.sort((a, b) => (a.nom === prefere ? -1 : 0) - (b.nom === prefere ? -1 : 0));
+  // Proxy personnel (ex. Cloudflare Worker) : toujours en tête s'il est configuré
+  const perso = urlsCourantes().proxyPerso;
+  if (perso) {
+    const p = perso.trim();
+    const urlPerso = /[?&]url=$|=$/i.test(p) ? p + enc
+      : p.includes("?") ? p + "&url=" + enc
+      : p.replace(/\/+$/, "") + "/?url=" + enc;
+    liste.unshift({ nom: "perso", url: urlPerso, json: false });
+  }
+  return liste;
+}
+
+function decoderTexte(buffer) {
+  let texte = new TextDecoder("utf-8").decode(buffer);
+  // Détection d'un mauvais décodage (pages Excel souvent en windows-1252)
+  if (/\uFFFD|Ã[©¨´¢«»‰€]|â€™/.test(texte)) {
+    try { texte = new TextDecoder("windows-1252").decode(buffer); } catch (e) {}
+  }
+  return texte;
+}
+
+async function recupererTexte(urlCible) {
+  const cible = urlCible + (urlCible.includes("?") ? "&" : "?") + "_anticache=" + Date.now();
+  let derniereErreur = null;
+  for (let passe = 0; passe < 2; passe++) {
+    if (passe > 0) { log("Nouvelle passe dans 2 s…", "info"); await pause(2000); }
+    for (const p of canaux(cible)) {
+      try {
+        // Espacer les requêtes pour ne pas déclencher les limites de débit des proxys
+        const ecart = Date.now() - derniereRequete;
+        if (ecart < 450) await pause(450 - ecart);
+        derniereRequete = Date.now();
+        log("Tentative (" + p.nom + ") : " + urlCible);
+        const ctrl = new AbortController();
+        const minuterie = setTimeout(() => ctrl.abort(), 20000);
+        const rep = await fetch(p.url, { signal: ctrl.signal, cache: "no-store" });
+        clearTimeout(minuterie);
+        if (!rep.ok) throw new Error("HTTP " + rep.status);
+        let texte;
+        if (p.json) {
+          const j = await rep.json();
+          texte = j && j.contents ? String(j.contents) : "";
+        } else {
+          texte = decoderTexte(await rep.arrayBuffer());
+        }
+        if (texte.length < 50) throw new Error("réponse vide");
+        localStorage.setItem(CLE_PROXY, p.nom);
+        log("Réussi via " + p.nom + " (" + texte.length + " caractères)", "ok");
+        return texte;
+      } catch (e) {
+        derniereErreur = e;
+        log("Échec (" + p.nom + ") : " + (e.name === "AbortError" ? "délai dépassé" : e.message), "err");
+      }
+    }
+  }
+  throw new Error("Impossible de récupérer " + urlCible + " — " + (derniereErreur ? derniereErreur.message : ""));
+}
+
+/* =====================================================================
+   ANALYSE DES STATISTIQUES (blocs GOALTENDING)
+   Matchs joués = V + D + N — jamais la colonne GP.
+===================================================================== */
+function texteDepuisHtml(html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  doc.querySelectorAll("script,style").forEach(n => n.remove());
+  return doc.body ? doc.body.innerText || doc.body.textContent || "" : "";
+}
+
+function parseGardiens(texte) {
+  const gardiens = [];
+  const equipes = {};
+  const lignes = texte.split(/\r?\n/);
+  let dansGoaltending = false;
+  for (const brut of lignes) {
+    const ligne = brut.replace(/\u00a0/g, " ");
+    if (/^\s*GOALTENDING\s*$/.test(ligne)) { dansGoaltending = true; continue; }
+    if (/^\s*SCORING\s*$/.test(ligne)) { dansGoaltending = false; continue; }
+    const tot = ligne.match(/^([A-Z][A-Z\.\-]+)\s+Totals\s+([A-Z]{1,4})\s/);
+    if (tot) { equipes[tot[2]] = tot[1]; if (dansGoaltending) dansGoaltending = false; continue; }
+    if (!dansGoaltending) continue;
+    const tokens = ligne.trim().split(/\s+/);
+    if (tokens.length < 15) continue;
+    if (!/^\d+$/.test(tokens[0])) continue;
+    const equipe = tokens[tokens.length - 13];
+    if (!/^[A-Z]{1,4}$/.test(equipe)) continue;
+    const nums = tokens.slice(-12); // GP MIN AVG W L T SO GA SA PCT PIM AS
+    let partiesNom = tokens.slice(1, tokens.length - 13);
+    let recrue = false;
+    if (partiesNom[0] && partiesNom[0].startsWith("*")) {
+      recrue = true;
+      partiesNom[0] = partiesNom[0].slice(1);
+      if (partiesNom[0] === "") partiesNom.shift();
+    }
+    const v = parseInt(nums[3], 10), d = parseInt(nums[4], 10), n = parseInt(nums[5], 10);
+    if ([v, d, n].some(isNaN) || partiesNom.length === 0) continue;
+    gardiens.push({
+      nom: partiesNom.join(" "),
+      recrue,
+      equipe,
+      v, d, n,
+      mj: v + d + n
+    });
+  }
+  return { gardiens, equipes };
+}
+
+/* =====================================================================
+   ANALYSE DE LA PAGE DES LIMITES (export Excel avec cadres)
+===================================================================== */
+function extraireSrcCadres(html) {
+  const srcs = [];
+  // frames et iframes, avec ou sans guillemets
+  const re = /<i?frame[^>]+src\s*=\s*(?:["']([^"']+)["']|([^\s>"']+))/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) srcs.push(m[1] || m[2]);
+  return srcs;
+}
+
+function extraireLiensHtm(html) {
+  const liens = [];
+  const re = /<a[^>]+href\s*=\s*(?:["']([^"']+)["']|([^\s>"']+))/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const h = (m[1] || m[2] || "").split("#")[0];
+    if (/\.html?($|\?)/i.test(h)) liens.push(h);
+  }
+  return liens;
+}
+
+function resoudreUrl(base, relative) {
+  try { return new URL(relative, base).href; } catch (e) { return null; }
+}
+
+function normaliserNom(nom) {
+  return String(nom)
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z]/g, "");
+}
+
+// Décompose « Jacob Markstrom », « Markstrom, Jacob », « J. Markstrom », « J.Markstrom »
+function decomposerNom(nom) {
+  let t = String(nom).replace(/\u00a0/g, " ").trim();
+  if (t.includes(",")) {
+    const [fam, pre] = t.split(",").map(s => s.trim());
+    if (fam && pre) return { prenom: pre, famille: fam };
+  }
+  const mDot = t.match(/^([A-Za-zÀ-ÿ])\.\s*([A-Za-zÀ-ÿ'\-]{2,}(?:\s+[A-Za-zÀ-ÿ'\-]+)*)$/);
+  if (mDot) return { prenom: mDot[1], famille: mDot[2] };
+  const mots = t.split(/\s+/).filter(Boolean);
+  if (mots.length >= 2) return { prenom: mots[0], famille: mots.slice(1).join(" ") };
+  return { prenom: "", famille: t };
+}
+
+function clesNom(nom) {
+  const { prenom, famille } = decomposerNom(nom);
+  const cles = new Set();
+  const complet = normaliserNom(prenom + famille);
+  const inverse = normaliserNom(famille + prenom);
+  if (complet.length > 2) { cles.add(complet); cles.add(inverse); }
+  if (prenom && famille) cles.add(normaliserNom(prenom[0]) + normaliserNom(famille)); // « j » + famille
+  return { cles: Array.from(cles), famille: normaliserNom(famille) };
+}
+
+function ressembleANom(texte) {
+  const t = String(texte).replace(/\u00a0/g, " ").trim();
+  if (t.length < 4 || t.length > 45) return false;
+  if (/\d/.test(t)) return false;
+  if (!/^[A-Za-zÀ-ÿ'.,\- ]+$/.test(t)) return false;
+  const mots = t.replace(",", " ").split(/\s+/).filter(Boolean);
+  if (mots.length >= 2 && mots.length <= 4) return true;
+  // « J.Markstrom » collé en un seul mot
+  return /^[A-Za-zÀ-ÿ]\.[A-Za-zÀ-ÿ'\-]{3,}$/.test(t);
+}
+
+function estMotSeul(texte) {
+  const t = String(texte).trim();
+  if (/^[A-Z]{2,4}$/.test(t)) return false; // code d'équipe (NJ, PHI, NSH...), pas un prénom
+  return t.length >= 2 && t.length <= 20 && /^[A-Za-zÀ-ÿ'.\-]+$/.test(t) && !/^\d/.test(t);
+}
+
+// Analyse générique de rangées (issues d'un tableau HTML ou d'un collage)
+function analyserRangees(rangees, journalPrefixe) {
+  // 1) Colonne « limite » repérée par mot-clé d'en-tête
+  let colLimiteEntete = -1;
+  for (const r of rangees.slice(0, 40)) {
+    for (let i = 0; i < r.length; i++) {
+      const c = String(r[i]).toLowerCase();
+      if (/(max|limite|nb|quota).{0,14}(match|partie|mj)|(match|partie|mj).{0,14}(max|limite)|^max$/.test(c)) {
+        colLimiteEntete = i; break;
+      }
+    }
+    if (colLimiteEntete >= 0) break;
+  }
+
+  // 2) Rangées candidates : un nom + des cellules numériques
+  const candidats = [];
+  for (const r of rangees) {
+    let nomTrouve = null;
+    let idxNomFin = -1;
+    for (let i = 0; i < r.length; i++) {
+      if (ressembleANom(r[i])) { nomTrouve = String(r[i]).trim(); idxNomFin = i; break; }
+    }
+    // Prénom et nom dans deux colonnes adjacentes
+    if (!nomTrouve) {
+      for (let i = 0; i + 1 < r.length; i++) {
+        if (estMotSeul(r[i]) && estMotSeul(r[i + 1])) {
+          const joint = String(r[i]).trim() + " " + String(r[i + 1]).trim();
+          if (ressembleANom(joint)) { nomTrouve = joint; idxNomFin = i + 1; break; }
+        }
+      }
+    }
+    if (!nomTrouve) continue;
+    const numeriques = [];
+    for (let i = 0; i < r.length; i++) {
+      if (i <= idxNomFin && i >= idxNomFin - 1) continue;
+      const val = String(r[i]).replace(",", ".").replace(/\s/g, "");
+      if (/^\d{1,3}(\.\d+)?$/.test(val)) numeriques.push({ col: i, val: Math.round(parseFloat(val)) });
+    }
+    if (numeriques.length === 0) continue;
+    candidats.push({ nom: nomTrouve, numeriques });
+  }
+
+  if (candidats.length === 0) {
+    // Diagnostic : montrer un échantillon brut dans le journal
+    const echantillon = rangees.filter(r => r.some(c => String(c).trim() !== "")).slice(0, 8)
+      .map(r => r.map(c => String(c).trim()).filter(Boolean).join(" | ")).join("\n    ");
+    if (echantillon) log((journalPrefixe || "") + "aucune rangée reconnue. Échantillon :\n    " + echantillon, "info");
+    return [];
+  }
+
+  // 3) Choisir la colonne de la limite
+  let colChoisie = colLimiteEntete;
+  if (colChoisie < 0) {
+    // La règle USHL borne la limite entre ~30 et 66 : choisir la colonne dont
+    // le plus de valeurs tombent dans [25, 66] (à égalité : la plus à droite)
+    const scores = {};
+    for (const c of candidats) {
+      for (const nq of c.numeriques) {
+        if (nq.val >= 25 && nq.val <= 66) scores[nq.col] = (scores[nq.col] || 0) + 1;
+      }
+    }
+    let meilleur = -1, meilleurScore = 0;
+    for (const col of Object.keys(scores)) {
+      const cc = parseInt(col, 10);
+      if (scores[col] > meilleurScore || (scores[col] === meilleurScore && cc > meilleur)) {
+        meilleur = cc; meilleurScore = scores[col];
+      }
+    }
+    colChoisie = meilleur;
+  }
+  if (colChoisie < 0) {
+    log((journalPrefixe || "") + candidats.length + " rangées avec noms, mais aucune colonne de limite plausible.", "info");
+    return [];
+  }
+
+  const limites = [];
+  for (const c of candidats) {
+    const nq = c.numeriques.find(x => x.col === colChoisie);
+    if (!nq || nq.val < 1 || nq.val > 82) continue;
+    limites.push({ nom: c.nom, nomNorm: normaliserNom(c.nom), limite: nq.val });
+  }
+  return limites;
+}
+
+function parseLimites(htmlFeuille, journalPrefixe) {
+  const doc = new DOMParser().parseFromString(htmlFeuille, "text/html");
+  const rangees = [];
+  doc.querySelectorAll("tr").forEach(tr => {
+    const cellules = Array.from(tr.querySelectorAll("td,th"))
+      .map(td => (td.textContent || "").replace(/\u00a0/g, " ").trim());
+    if (cellules.some(c => c !== "")) rangees.push(cellules);
+  });
+  return analyserRangees(rangees, journalPrefixe);
+}
+
+// Analyse d'un collage brut (copier-coller du tableau depuis le navigateur)
+function parseCollage(texte) {
+  const rangees = String(texte).split(/\r?\n/).map(ligne => {
+    if (ligne.includes("\t")) return ligne.split("\t").map(c => c.trim());
+    return ligne.trim().split(/\s{2,}/).map(c => c.trim());
+  }).filter(r => r.some(c => c !== ""));
+  // Repli : lignes en espaces simples « Prénom Nom 58 »
+  const res = analyserRangees(rangees, "collage : ");
+  if (res.length > 0) return res;
+  const secours = [];
+  for (const ligne of String(texte).split(/\r?\n/)) {
+    const m = ligne.trim().match(/^(.+?)\s+(\d{1,2})\s*$/);
+    if (m && ressembleANom(m[1])) {
+      const val = parseInt(m[2], 10);
+      if (val >= 1 && val <= 82) secours.push({ nom: m[1].trim(), nomNorm: normaliserNom(m[1]), limite: val });
+    }
+  }
+  return secours;
+}
+
+/* =====================================================================
+   APPARIEMENT gardien ↔ limite
+===================================================================== */
+function chargerManuel() {
+  try { return JSON.parse(localStorage.getItem(CLE_MANUEL) || "{}"); } catch (e) { return {}; }
+}
+function sauverManuel(obj) {
+  localStorage.setItem(CLE_MANUEL, JSON.stringify(obj));
+}
+function chargerCollage() {
+  try { return JSON.parse(localStorage.getItem(CLE_COLLAGE) || "[]"); } catch (e) { return []; }
+}
+
+function associerLimites() {
+  const manuel = chargerManuel();
+  // Les limites lues en ligne + celles importées par collage (le collage a priorité)
+  const sources = chargerCollage().concat(etat.limites);
+  const parCle = new Map();
+  const parFamille = new Map();
+  for (const lim of sources) {
+    const { cles, famille } = clesNom(lim.nom);
+    for (const c of cles) if (!parCle.has(c)) parCle.set(c, lim);
+    if (famille) parFamille.set(famille, parFamille.has(famille) ? null : lim); // null = ambigu
+  }
+  const utilisees = new Set();
+  for (const g of etat.gardiens) {
+    const { cles, famille } = clesNom(g.nom);
+    let lim = null;
+    for (const c of cles) { if (parCle.has(c)) { lim = parCle.get(c); break; } }
+    if (!lim && famille && parFamille.get(famille)) lim = parFamille.get(famille);
+    const cleManuel = normaliserNom(g.nom);
+    if (manuel[cleManuel] !== undefined) {
+      g.limite = manuel[cleManuel];
+      g.limiteManuelle = true;
+      if (lim) utilisees.add(lim.nomNorm);
+    } else if (lim) {
+      g.limite = lim.limite;
+      g.limiteManuelle = false;
+      utilisees.add(lim.nomNorm);
+    } else {
+      g.limite = null;
+      g.limiteManuelle = false;
+    }
+  }
+  etat.nonAssocies = sources.filter(l => !utilisees.has(l.nomNorm));
+}
+
+function statutGardien(g) {
+  if (g.limite === null || g.limite === undefined) return "inconnu";
+  const restants = g.limite - g.mj;
+  if (restants < 0) return "depasse";
+  if (restants === 0) return "lampe";
+  if (restants <= SEUIL_ALERTE) return "alerte";
+  return "ok";
+}
+
+/* =====================================================================
+   RENDU
+===================================================================== */
+const contenuEl = document.getElementById("contenu");
+
+function echapper(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function rendre() {
+  const rech = etat.recherche.trim().toLowerCase();
+  let liste = etat.gardiens.filter(g => {
+    if (etat.filtre === "alerte") {
+      const s = statutGardien(g);
+      if (s !== "alerte" && s !== "lampe" && s !== "depasse") return false;
+    }
+    if (etat.filtre === "lampe") {
+      const s = statutGardien(g);
+      if (s !== "lampe" && s !== "depasse") return false;
+    }
+    if (rech) {
+      const nomEquipe = (etat.equipes[g.equipe] || "").toLowerCase();
+      if (!g.nom.toLowerCase().includes(rech) && !g.equipe.toLowerCase().includes(rech) && !nomEquipe.includes(rech)) return false;
+    }
+    return true;
+  });
+
+  // Sommaire (sur l'ensemble, pas la sélection filtrée)
+  const tous = etat.gardiens;
+  const nAlerte = tous.filter(g => statutGardien(g) === "alerte").length;
+  const nLampe = tous.filter(g => ["lampe", "depasse"].includes(statutGardien(g))).length;
+  document.getElementById("sGardiens").textContent = tous.length;
+  document.getElementById("sOk").textContent = tous.filter(g => statutGardien(g) === "ok").length;
+  document.getElementById("sAlerte").textContent = nAlerte;
+  document.getElementById("sLampe").textContent = nLampe;
+  document.getElementById("sommaire").hidden = tous.length === 0;
+  document.getElementById("filtres").hidden = tous.length === 0;
+
+  if (liste.length === 0) {
+    let msgVide;
+    if (tous.length === 0) {
+      msgVide = "Aucune donnée chargée.";
+    } else if ((etat.filtre === "alerte" || etat.filtre === "lampe") &&
+               tous.every(g => g.limite === null)) {
+      msgVide = "Aucune limite de matchs n'est chargée pour l'instant : les filtres d'alerte n'ont donc rien à afficher. Reviens au filtre « Tous », puis charge les limites (Actualiser, ou « Importer les limites par collage » plus bas).";
+    } else if (etat.filtre === "alerte") {
+      msgVide = "Bonne nouvelle : aucun gardien en alerte pour le moment.";
+    } else if (etat.filtre === "lampe") {
+      msgVide = "Aucun gardien n'a atteint sa limite pour le moment.";
+    } else {
+      msgVide = "Aucun gardien ne correspond aux filtres.";
+    }
+    contenuEl.innerHTML = '<div class="vide">' + msgVide + "</div>";
+    return;
+  }
+
+  // Tri
+  const cmp = {
+    equipe: (a, b) => a.equipe.localeCompare(b.equipe) || b.mj - a.mj,
+    restants: (a, b) => {
+      const ra = a.limite === null ? Infinity : a.limite - a.mj;
+      const rb = b.limite === null ? Infinity : b.limite - b.mj;
+      return ra - rb;
+    },
+    mj: (a, b) => b.mj - a.mj
+  }[etat.tri];
+  liste = liste.slice().sort(cmp);
+
+  // Regroupement par équipe (ordre = premier gardien rencontré après tri)
+  const groupes = new Map();
+  for (const g of liste) {
+    if (!groupes.has(g.equipe)) groupes.set(g.equipe, []);
+    groupes.get(g.equipe).push(g);
+  }
+
+  let html = '<div class="grille">';
+  for (const [abbr, gardiens] of groupes) {
+    const nomComplet = etat.equipes[abbr] || "";
+    html += '<div class="equipe">';
+    html += '<div class="equipe-tete"><span class="abbr">' + echapper(abbr) + '</span><span class="nom">' + echapper(nomComplet) + "</span></div>";
+    html += '<div class="table-scroll"><table><thead><tr>' +
+      "<th>Gardien</th><th class=\"centre\">V-D-N</th><th class=\"centre\">MJ</th>" +
+      "<th class=\"centre\">Limite</th><th class=\"centre\">Restants</th><th class=\"piste-cell\">Utilisation</th>" +
+      "</tr></thead><tbody>";
+    for (const g of gardiens) {
+      const statut = statutGardien(g);
+      const restants = g.limite === null ? null : g.limite - g.mj;
+      const pc = g.limite ? Math.min(100, Math.max(0, (g.mj / g.limite) * 100)) : 0;
+      const classeRempli = statut === "alerte" ? "n-alerte" : (statut === "lampe" || statut === "depasse") ? "n-lampe" : "";
+      const badge = {
+        ok: '<span class="badge b-ok">En règle</span>',
+        alerte: '<span class="badge b-alerte">Alerte</span>',
+        lampe: '<span class="badge b-lampe">Limite atteinte</span>',
+        depasse: '<span class="badge b-depasse">Dépassement</span>',
+        inconnu: '<span class="badge b-inconnu">Limite ?</span>'
+      }[statut];
+      html += "<tr>" +
+        '<td class="g-nom">' + echapper(g.nom) + (g.recrue ? '<span class="recrue">R</span>' : "") +
+          "<br>" + badge + "</td>" +
+        '<td class="centre fiche num">' + g.v + "-" + g.d + "-" + g.n + "</td>" +
+        '<td class="centre num" style="font-weight:700">' + g.mj + "</td>" +
+        '<td class="centre num limite-cell" data-nom="' + echapper(g.nom) + '" title="Cliquer pour corriger la limite manuellement">' +
+          '<span class="limite-val">' + (g.limite === null ? "—" : g.limite) + "</span>" +
+          (g.limiteManuelle ? '<span class="tag-manuel">man.</span>' : "") + "</td>" +
+        '<td class="centre num" style="font-weight:700;color:' +
+          (restants === null ? "var(--texte-3)" : restants < 0 ? "var(--lampe)" : restants === 0 ? "var(--lampe)" : restants <= SEUIL_ALERTE ? "var(--alerte)" : "var(--ok)") + '">' +
+          (restants === null ? "—" : restants) + "</td>" +
+        '<td class="piste-cell"><div class="piste"><div class="ligne-centre"></div>' +
+          (g.limite ? '<div class="rempli ' + classeRempli + '" style="width:' + pc.toFixed(1) + '%"></div>' : "") +
+          '</div><div class="piste-txt num">' + (g.limite ? g.mj + " / " + g.limite + " matchs" : "limite inconnue") + "</div></td>" +
+        "</tr>";
+    }
+    html += "</tbody></table></div></div>";
+  }
+  html += "</div>";
+  contenuEl.innerHTML = html;
+
+  // Correction manuelle des limites
+  contenuEl.querySelectorAll(".limite-cell").forEach(td => {
+    td.addEventListener("click", () => {
+      const nom = td.getAttribute("data-nom");
+      const g = etat.gardiens.find(x => x.nom === nom);
+      if (!g) return;
+      const rep = prompt(
+        "Limite de matchs pour " + nom + "\n(laisser vide pour revenir à la valeur automatique) :",
+        g.limite === null ? "" : String(g.limite)
+      );
+      if (rep === null) return;
+      const manuel = chargerManuel();
+      const cle = normaliserNom(nom);
+      if (rep.trim() === "") {
+        delete manuel[cle];
+      } else {
+        const val = parseInt(rep.trim(), 10);
+        if (isNaN(val) || val < 0 || val > 99) { alert("Valeur invalide."); return; }
+        manuel[cle] = val;
+      }
+      sauverManuel(manuel);
+      associerLimites();
+      rendre();
+      rendreNonAssocies();
+      sauverCache();
+    });
+  });
+}
+
+function rendreNonAssocies() {
+  const panneau = document.getElementById("panneauNonAssocies");
+  const corps = document.getElementById("corpsNonAssocies");
+  const totalSources = etat.limites.length + chargerCollage().length;
+  document.getElementById("nbNonAssocies").textContent = etat.nonAssocies.length;
+  if (etat.nonAssocies.length === 0 && totalSources > 0) {
+    panneau.hidden = true;
+    return;
+  }
+  panneau.hidden = totalSources === 0;
+  corps.innerHTML = etat.nonAssocies.length === 0 ? "" :
+    "<p>Ces entrées du tableau des limites n’ont pas trouvé de gardien correspondant dans les statistiques (souvent : gardiens qui n’ont pas encore joué) :</p>" +
+    "<p style='margin-top:8px'>" +
+    etat.nonAssocies.map(l => echapper(l.nom) + " <span class='num' style='color:var(--bleu)'>(" + l.limite + ")</span>").join(" · ") +
+    "</p>";
+}
+
+function rendreHorodatage() {
+  document.getElementById("majDonnees").innerHTML = etat.horodatage
+    ? "Dernière actualisation : <b>" + new Date(etat.horodatage).toLocaleString("fr-CA") + "</b>"
+    : "";
+  document.getElementById("majSource").innerHTML = etat.asOf
+    ? " · Données de la ligue en date du : <b>" + echapper(etat.asOf) + "</b>"
+    : "";
+}
+
+function afficherMessage(txt, type) {
+  const m = document.getElementById("message");
+  if (!txt) { m.className = ""; m.textContent = ""; return; }
+  m.className = "visible " + type;
+  m.textContent = txt;
+}
+
+/* =====================================================================
+   CACHE LOCAL
+===================================================================== */
+function sauverCache() {
+  try {
+    localStorage.setItem(CLE_CACHE, JSON.stringify({
+      gardiens: etat.gardiens, equipes: etat.equipes, limites: etat.limites,
+      asOf: etat.asOf, horodatage: etat.horodatage
+    }));
+  } catch (e) {}
+}
+function chargerCache() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CLE_CACHE) || "null");
+    if (!c || !Array.isArray(c.gardiens) || c.gardiens.length === 0) return false;
+    etat.gardiens = c.gardiens;
+    etat.equipes = c.equipes || {};
+    etat.limites = c.limites || [];
+    etat.asOf = c.asOf || null;
+    etat.horodatage = c.horodatage || null;
+    associerLimites();
+    return true;
+  } catch (e) { return false; }
+}
+
+/* =====================================================================
+   URLS CONFIGURABLES
+===================================================================== */
+function urlsCourantes() {
+  try {
+    const u = JSON.parse(localStorage.getItem(CLE_URLS) || "null");
+    if (u && u.urlStats && u.urlLimites) {
+      if (u.proxyPerso === undefined) u.proxyPerso = "";
+      return u;
+    }
+  } catch (e) {}
+  return { urlStats: DEFAUTS.urlStats, urlLimites: DEFAUTS.urlLimites, proxyPerso: DEFAUTS.proxyPerso };
+}
+function initChampsUrls() {
+  const u = urlsCourantes();
+  document.getElementById("urlStats").value = u.urlStats;
+  document.getElementById("urlLimites").value = u.urlLimites;
+  document.getElementById("urlProxyPerso").value = u.proxyPerso || "";
+}
+
+/* =====================================================================
+   ACTUALISATION
+===================================================================== */
+const CLE_LIMITES_CACHE = "ushl_gardiens_limites_cache_v1";
+const CLE_SCORING_URL = "ushl_gardiens_url_scoring_v1";
+const DUREE_CACHE_LIMITES = 7 * 24 * 3600 * 1000; // les limites sont fixes pour la saison
+const DUREE_CACHE_SCORING = 24 * 3600 * 1000;
+
+// limites.json est produit par le robot GitHub Actions et servi par la même
+// origine que l'interface : aucune barrière CORS, aucun proxy, fiable à 100 %.
+async function limitesDepuisJson() {
+  try {
+    const rep = await fetch(DEFAUTS.fichierLimitesJson + "?_anticache=" + Date.now(), { cache: "no-store" });
+    if (!rep.ok) throw new Error("HTTP " + rep.status);
+    const j = await rep.json();
+    if (j && Array.isArray(j.limites) && j.limites.length > 0) {
+      log("limites.json lu : " + j.limites.length + " limites (généré le " +
+          (j.horodatage ? new Date(j.horodatage).toLocaleString("fr-CA") : "?") + ").", "ok");
+      return j.limites
+        .filter(l => l && l.nom && Number.isFinite(Number(l.limite)))
+        .map(l => ({ nom: String(l.nom), nomNorm: normaliserNom(l.nom), limite: Math.round(Number(l.limite)) }));
+    }
+    throw new Error("fichier vide");
+  } catch (e) {
+    log("limites.json indisponible (" + e.message + ") — autres méthodes.", "info");
+    return null;
+  }
+}
+
+function limitesEnCache() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CLE_LIMITES_CACHE) || "null");
+    if (c && Array.isArray(c.limites) && c.limites.length > 0 &&
+        Date.now() - c.horodatage < DUREE_CACHE_LIMITES) return c.limites;
+  } catch (e) {}
+  return null;
+}
+
+async function chargerLimitesEnLigne(urls) {
+  const limites = [];
+  const htmlCadres = await recupererTexte(urls.urlLimites);
+  const feuilles = new Set();
+  const tabstrips = [];
+  for (const src of extraireSrcCadres(htmlCadres)) {
+    const abs = resoudreUrl(urls.urlLimites, src);
+    if (!abs || !/\.html?($|\?)/i.test(abs)) continue; // ignorer tout ce qui n'est pas une page .htm
+    if (/tabstrip/i.test(abs)) tabstrips.push(abs);
+    else feuilles.add(abs);
+  }
+  // La barre d'onglets liste TOUTES les pages du classeur
+  let tabstripLu = false;
+  for (const t of tabstrips) {
+    try {
+      const htmlTab = await recupererTexte(t);
+      tabstripLu = true;
+      for (const lien of extraireLiensHtm(htmlTab)) {
+        const abs = resoudreUrl(t, lien);
+        if (abs && !/tabstrip/i.test(abs) && /\.html?($|\?)/i.test(abs)) feuilles.add(abs);
+      }
+    } catch (e) {
+      log("Barre d'onglets inaccessible : " + t, "err");
+    }
+  }
+  // Sondage séquentiel prudent, seulement si la barre d'onglets n'a rien donné
+  if (!tabstripLu && feuilles.size <= 1) {
+    const modele = Array.from(feuilles).find(f => /sheet0*\d+\.html?/i.test(f));
+    if (modele) {
+      const m = modele.match(/sheet0*(\d+)(\.html?)/i);
+      const base = modele.slice(0, modele.search(/sheet0*\d+\.html?/i));
+      for (let n = parseInt(m[1], 10) + 1; n <= parseInt(m[1], 10) + 4; n++) {
+        const candidate = base + "sheet" + String(n).padStart(3, "0") + m[2];
+        try {
+          const htmlF = await recupererTexte(candidate);
+          if (/<table|<tr/i.test(htmlF)) feuilles.add(candidate);
+          else break;
+        } catch (e) { break; }
+      }
+    }
+  }
+  if (feuilles.size === 0) feuilles.add(urls.urlLimites); // la page contient peut-être directement le tableau
+
+  log(feuilles.size + " feuille(s) du classeur à lire.", "info");
+  for (const f of feuilles) {
+    try {
+      const htmlFeuille = f === urls.urlLimites ? htmlCadres : await recupererTexte(f);
+      const lims = parseLimites(htmlFeuille, "feuille " + f.split("/").pop().split("?")[0] + " : ");
+      log(lims.length + " limites extraites de " + f.split("/").pop().split("?")[0], lims.length ? "ok" : "info");
+      for (const l of lims) limites.push(l);
+    } catch (e) {
+      log("Feuille inaccessible : " + f, "err");
+    }
+  }
+  // Dédoublonnage par nom normalisé
+  const vues = new Set();
+  return limites.filter(l => {
+    if (vues.has(l.nomNorm)) return false;
+    vues.add(l.nomNorm); return true;
+  });
+}
+
+async function actualiser(forcerLimites) {
+  const btn = document.getElementById("btnActualiser");
+  btn.disabled = true;
+  btn.classList.add("chargement");
+  afficherMessage("", "");
+  const urls = urlsCourantes();
+
+  try {
+    /* --- 1. Statistiques des gardiens --- */
+    let urlScoring = null;
+
+    // URL « Originale » mémorisée pour éviter une requête inutile à chaque actualisation
+    try {
+      const cs = JSON.parse(localStorage.getItem(CLE_SCORING_URL) || "null");
+      if (cs && cs.url && Date.now() - cs.horodatage < DUREE_CACHE_SCORING) urlScoring = cs.url;
+    } catch (e) {}
+
+    // Sinon, la page PHP charge son tableau en JavaScript : on y repère plutôt
+    // le lien « Originale » vers la page texte de la saison en cours.
+    if (!urlScoring) {
+      try {
+        const htmlPhp = await recupererTexte(urls.urlStats);
+        const m = htmlPhp.match(/href\s*=\s*["']([^"']*TeamScoring[^"']*\.html?[^"']*)["']/i);
+        if (m) {
+          urlScoring = resoudreUrl(urls.urlStats, m[1].split("#")[0]);
+          log("Page « Originale » repérée : " + urlScoring, "info");
+        }
+      } catch (e) {
+        log("Page PHP inaccessible, passage à la page de secours.", "info");
+      }
+    }
+    if (!urlScoring) urlScoring = DEFAUTS.urlScoringSecours;
+
+    let htmlScoring;
+    try {
+      htmlScoring = await recupererTexte(urlScoring);
+    } catch (e) {
+      // L'URL mémorisée est peut-être périmée : on la redécouvre une fois
+      localStorage.removeItem(CLE_SCORING_URL);
+      if (urlScoring !== DEFAUTS.urlScoringSecours) {
+        urlScoring = DEFAUTS.urlScoringSecours;
+        htmlScoring = await recupererTexte(urlScoring);
+      } else throw e;
+    }
+    localStorage.setItem(CLE_SCORING_URL, JSON.stringify({ url: urlScoring, horodatage: Date.now() }));
+
+    const texteBrut = /<html|<body|<pre/i.test(htmlScoring) ? texteDepuisHtml(htmlScoring) : htmlScoring;
+    const resStats = parseGardiens(texteBrut);
+    if (resStats.gardiens.length === 0) {
+      throw new Error("Aucun gardien trouvé dans la page des statistiques. Le format de la page a peut-être changé.");
+    }
+    log(resStats.gardiens.length + " gardiens extraits, " + Object.keys(resStats.equipes).length + " équipes.", "ok");
+
+    const mDate = texteBrut.match(/\(As of ([^)]+)\)/i);
+    etat.asOf = mDate ? mDate[1].trim() : null;
+    etat.gardiens = resStats.gardiens;
+    etat.equipes = resStats.equipes;
+
+    /* --- 2. Limites : 1) limites.json (robot), 2) cache 7 jours, 3) lecture en ligne --- */
+    const limitesJson = await limitesDepuisJson();
+    if (limitesJson) {
+      etat.limites = limitesJson;
+      localStorage.setItem(CLE_LIMITES_CACHE, JSON.stringify({ limites: etat.limites, horodatage: Date.now() }));
+    } else {
+      const enCache = forcerLimites ? null : limitesEnCache();
+      if (enCache) {
+        etat.limites = enCache;
+        log("Limites lues du cache local (" + enCache.length + ") — utilisez « Recharger les limites » pour forcer une relecture.", "info");
+      } else {
+        etat.limites = [];
+        try {
+          etat.limites = await chargerLimitesEnLigne(urls);
+          log("Total : " + etat.limites.length + " limites uniques.", etat.limites.length ? "ok" : "info");
+          if (etat.limites.length > 0) {
+            localStorage.setItem(CLE_LIMITES_CACHE, JSON.stringify({ limites: etat.limites, horodatage: Date.now() }));
+          }
+        } catch (e) {
+          log("Page des limites inaccessible : " + e.message, "err");
+        }
+      }
+    }
+
+    associerLimites();
+    etat.horodatage = Date.now();
+    sauverCache();
+    rendre();
+    rendreNonAssocies();
+    rendreHorodatage();
+
+    if (etat.limites.length === 0) {
+      afficherMessage("Statistiques chargées, mais le tableau des limites n’a pas pu être lu. Tu peux saisir les limites manuellement en cliquant sur la colonne « Limite ».", "info");
+    } else {
+      const sansLimite = etat.gardiens.filter(g => g.limite === null).length;
+      if (sansLimite > 0) {
+        afficherMessage(sansLimite + " gardien(s) sans limite associée automatiquement — clique sur « — » dans la colonne Limite pour les saisir.", "info");
+      }
+    }
+  } catch (e) {
+    log("ERREUR : " + e.message, "err");
+    afficherMessage("Actualisation impossible : " + e.message + " Les dernières données en cache restent affichées.", "erreur");
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove("chargement");
+  }
+}
+
+/* =====================================================================
+   ÉVÉNEMENTS
+===================================================================== */
+document.getElementById("btnActualiser").addEventListener("click", () => actualiser(false));
+
+document.getElementById("recherche").addEventListener("input", e => {
+  etat.recherche = e.target.value;
+  rendre();
+});
+// Délégation : les filtres fonctionnent instantanément, sans aucune actualisation réseau
+document.getElementById("filtres").addEventListener("click", e => {
+  const b = e.target.closest(".filtre-btn");
+  if (!b) return;
+  document.querySelectorAll(".filtre-btn").forEach(x => x.classList.remove("actif"));
+  b.classList.add("actif");
+  etat.filtre = b.getAttribute("data-filtre");
+  rendre();
+});
+document.getElementById("tri").addEventListener("change", e => {
+  etat.tri = e.target.value;
+  rendre();
+});
+document.getElementById("btnRechargerLimites").addEventListener("click", () => {
+  localStorage.removeItem(CLE_LIMITES_CACHE);
+  actualiser(true);
+});
+document.getElementById("btnSauverUrls").addEventListener("click", () => {
+  const u = {
+    urlStats: document.getElementById("urlStats").value.trim() || DEFAUTS.urlStats,
+    urlLimites: document.getElementById("urlLimites").value.trim() || DEFAUTS.urlLimites,
+    proxyPerso: document.getElementById("urlProxyPerso").value.trim()
+  };
+  localStorage.setItem(CLE_URLS, JSON.stringify(u));
+  initChampsUrls();
+  afficherMessage("Sources enregistrées. Clique sur « Actualiser » pour recharger.", "info");
+});
+document.getElementById("btnResetUrls").addEventListener("click", () => {
+  localStorage.removeItem(CLE_URLS);
+  initChampsUrls();
+  afficherMessage("Sources par défaut rétablies.", "info");
+});
+document.getElementById("btnResetManuel").addEventListener("click", () => {
+  if (!confirm("Effacer toutes les limites saisies manuellement ?")) return;
+  localStorage.removeItem(CLE_MANUEL);
+  associerLimites();
+  rendre();
+  rendreNonAssocies();
+});
+document.getElementById("btnImporterCollage").addEventListener("click", () => {
+  const texte = document.getElementById("zoneCollage").value;
+  const resultat = document.getElementById("resultatCollage");
+  const lims = parseCollage(texte);
+  if (lims.length === 0) {
+    resultat.textContent = "Aucune limite reconnue dans le texte collé.";
+    resultat.style.color = "var(--lampe)";
+    return;
+  }
+  localStorage.setItem(CLE_COLLAGE, JSON.stringify(lims));
+  resultat.textContent = lims.length + " limites importées.";
+  resultat.style.color = "var(--ok)";
+  associerLimites();
+  rendre();
+  rendreNonAssocies();
+  sauverCache();
+});
+document.getElementById("btnEffacerCollage").addEventListener("click", () => {
+  localStorage.removeItem(CLE_COLLAGE);
+  document.getElementById("resultatCollage").textContent = "Limites importées effacées.";
+  document.getElementById("resultatCollage").style.color = "var(--texte-2)";
+  associerLimites();
+  rendre();
+  rendreNonAssocies();
+});
+document.getElementById("btnCopierJournal").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(journalEl.textContent || "");
+    document.getElementById("btnCopierJournal").textContent = "Journal copié !";
+    setTimeout(() => { document.getElementById("btnCopierJournal").textContent = "Copier le journal"; }, 2000);
+  } catch (e) {
+    alert("Copie impossible — sélectionne le texte du journal manuellement.");
+  }
+});
+
+/* =====================================================================
+   ADMINISTRATION — accès au panneau des sources
+   Les identifiants ne sont jamais stockés en clair : seules leurs
+   empreintes SHA-256 salées figurent ici et sont comparées à la saisie.
+===================================================================== */
+const EMPREINTE_UTILISATEUR = "478b387dd6c6a67bda6752294a320e9fcefe03f539944cd1ade507bf30ac28de";
+const EMPREINTE_MDP = "97355af80b4e0a55318a6560992f67154ed5d368bd931499143bf41a0a0f7b3e";
+const CLE_SESSION_ADMIN = "ushl_gardiens_admin_session";
+
+async function empreinte(texte) {
+  const donnees = new TextEncoder().encode("ushl-sel|" + texte);
+  const h = await crypto.subtle.digest("SHA-256", donnees);
+  return Array.from(new Uint8Array(h)).map(o => o.toString(16).padStart(2, "0")).join("");
+}
+function estAdmin() { return sessionStorage.getItem(CLE_SESSION_ADMIN) === "1"; }
+
+function majAffichageAdmin() {
+  const admin = estAdmin();
+  const panneau = document.getElementById("panneauSources");
+  panneau.hidden = !admin;
+  if (!admin) panneau.open = false;
+  const lien = document.getElementById("lienAdmin");
+  lien.textContent = admin ? "Admin ✓" : "Admin";
+  lien.classList.toggle("connecte", admin);
+}
+
+function ouvrirConnexion() {
+  document.getElementById("erreurConnexion").textContent = "";
+  document.getElementById("champUtilisateur").value = "";
+  document.getElementById("champMdp").value = "";
+  document.getElementById("voileAdmin").classList.add("visible");
+  document.getElementById("champUtilisateur").focus();
+}
+function fermerConnexion() {
+  document.getElementById("voileAdmin").classList.remove("visible");
+}
+
+async function tenterConnexion() {
+  const u = document.getElementById("champUtilisateur").value;
+  const m = document.getElementById("champMdp").value;
+  const erreur = document.getElementById("erreurConnexion");
+  try {
+    const [hu, hm] = await Promise.all([empreinte(u), empreinte(m)]);
+    if (hu === EMPREINTE_UTILISATEUR && hm === EMPREINTE_MDP) {
+      sessionStorage.setItem(CLE_SESSION_ADMIN, "1");
+      fermerConnexion();
+      majAffichageAdmin();
+      const panneau = document.getElementById("panneauSources");
+      panneau.open = true;
+      panneau.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+      erreur.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+      document.getElementById("champMdp").value = "";
+    }
+  } catch (e) {
+    erreur.textContent = "Vérification impossible : ouvre la page en https (ou localhost). " + e.message;
+  }
+}
+
+document.getElementById("lienAdmin").addEventListener("click", () => {
+  if (estAdmin()) {
+    const panneau = document.getElementById("panneauSources");
+    panneau.open = true;
+    panneau.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    ouvrirConnexion();
+  }
+});
+document.getElementById("btnConnexion").addEventListener("click", tenterConnexion);
+document.getElementById("btnAnnulerConnexion").addEventListener("click", fermerConnexion);
+document.getElementById("voileAdmin").addEventListener("click", e => {
+  if (e.target === document.getElementById("voileAdmin")) fermerConnexion();
+});
+document.getElementById("champMdp").addEventListener("keydown", e => {
+  if (e.key === "Enter") tenterConnexion();
+});
+document.getElementById("champUtilisateur").addEventListener("keydown", e => {
+  if (e.key === "Enter") document.getElementById("champMdp").focus();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && document.getElementById("voileAdmin").classList.contains("visible")) fermerConnexion();
+});
+document.getElementById("btnDeconnexion").addEventListener("click", () => {
+  sessionStorage.removeItem(CLE_SESSION_ADMIN);
+  majAffichageAdmin();
+  afficherMessage("Session admin terminée.", "info");
+});
+
+/* =====================================================================
+   DÉMARRAGE
+===================================================================== */
+initChampsUrls();
+majAffichageAdmin();
+if (chargerCache()) {
+  rendre();
+  rendreNonAssocies();
+  rendreHorodatage();
+  afficherMessage("Données en cache affichées — clique sur « Actualiser » pour la mise à jour en ligne.", "info");
+}
+</script>
+</body>
+</html>
