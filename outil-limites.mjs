@@ -99,8 +99,11 @@ function analyserRangees(rangees, etiquette) {
   let colLimiteEntete = -1;
   for (const r of rangees.slice(0, 40)) {
     for (let i = 0; i < r.length; i++) {
-      const c = String(r[i]).toLowerCase();
-      if (/(max|limite|nb|quota).{0,14}(match|partie|mj)|(match|partie|mj).{0,14}(max|limite)|^max$/.test(c)) {
+      const c = String(r[i]).toLowerCase().trim();
+      // Une vraie cellule d'en-tête est courte et sans chiffre (sinon c'est
+      // une phrase explicative comme « Max 55 matchs » qui fausse tout)
+      if (c.length === 0 || c.length > 40 || /\d/.test(c)) continue;
+      if (/(max|limite|nb|quota|nombre).{0,14}(match|partie|mj)|(match|partie|mj).{0,14}(max|limite|permis)|partie[s]? permise|^max$/.test(c)) {
         colLimiteEntete = i; break;
       }
     }
@@ -134,7 +137,20 @@ function analyserRangees(rangees, etiquette) {
     console.log("  [" + etiquette + "] aucune rangée reconnue. Échantillon :\n    " + (echantillon || "(vide)"));
     return [];
   }
-  let colChoisie = colLimiteEntete;
+  // Extraction pour une colonne donnée (sert aussi à valider l'en-tête)
+  const extrairePour = (col) => {
+    const out = [];
+    for (const c of candidats) {
+      const nq = c.numeriques.find(x => x.col === col);
+      if (nq && nq.val >= 1 && nq.val <= 82) out.push({ nom: c.nom, nomNorm: normaliserNom(c.nom), limite: nq.val });
+    }
+    return out;
+  };
+  let colChoisie = -1;
+  // L'en-tête ne fait foi que si sa colonne produit réellement des valeurs
+  if (colLimiteEntete >= 0 && extrairePour(colLimiteEntete).length >= Math.max(3, Math.floor(candidats.length / 3))) {
+    colChoisie = colLimiteEntete;
+  }
   if (colChoisie < 0) {
     const scores = {};
     for (const c of candidats)
@@ -153,13 +169,7 @@ function analyserRangees(rangees, etiquette) {
     console.log("  [" + etiquette + "] " + candidats.length + " noms trouvés, mais aucune colonne de limite plausible.");
     return [];
   }
-  const limites = [];
-  for (const c of candidats) {
-    const nq = c.numeriques.find(x => x.col === colChoisie);
-    if (nq && nq.val >= 1 && nq.val <= 82)
-      limites.push({ nom: c.nom, nomNorm: normaliserNom(c.nom), limite: nq.val });
-  }
-  return limites;
+  return extrairePour(colChoisie);
 }
 
 // ------------------------------------------------------------- exécution
