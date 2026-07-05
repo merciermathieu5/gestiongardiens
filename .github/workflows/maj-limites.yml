@@ -1,8 +1,11 @@
 # =====================================================================
-# Mise à jour automatique de limites.json pour le suivi des gardiens
+# Mise à jour automatique de limites.json + alerte courriel de
+# dépassement de limite des gardiens.
 # À placer dans le dépôt sous : .github/workflows/maj-limites.yml
-# Le fichier outil-limites.mjs doit être à la racine du dépôt,
-# à côté de suivi-gardiens-ushl.html.
+# Fichiers requis à la racine : outil-limites.mjs et outil-alertes.mjs.
+# Secrets requis (Settings → Secrets and variables → Actions) :
+#   MAIL_USERNAME : gardienushl@gmail.com
+#   MAIL_PASSWORD : le mot de passe d'application Google (16 lettres)
 # =====================================================================
 name: Mise à jour des limites de gardiens
 
@@ -24,14 +27,32 @@ jobs:
       - name: Lire le classeur des limites
         run: node outil-limites.mjs
 
-      - name: Publier limites.json s'il a changé
+      - name: Vérifier les dépassements de limite
+        id: alertes
+        run: node outil-alertes.mjs
+
+      - name: Envoyer le courriel d'alerte
+        if: steps.alertes.outputs.envoyer == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.alertes.outputs.objet }}
+          to: ushl_pro@hotmail.com
+          from: Robot USHL — Suivi des gardiens <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://courriel-alerte.html
+
+      - name: Publier les fichiers modifiés
         run: |
           git config user.name "robot-limites"
           git config user.email "actions@users.noreply.github.com"
-          git add limites.json debug-limites/ || true
+          git add limites.json debug-limites/ alertes-envoyees.json || true
           if git diff --cached --quiet; then
             echo "Aucun changement."
           else
-            git commit -m "Mise à jour automatique des limites de gardiens"
+            git commit -m "Mise à jour automatique (limites et alertes de gardiens)"
             git push
           fi

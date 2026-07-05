@@ -1,6 +1,359 @@
 {
  "source": "https://ushl.ca/ushl/menu_ushl/gestion_dg/gestion_gardiens/y21/gestiongardiensy21.htm",
- "horodatage": "2026-07-02T23:44:52.192Z",
- "nombre": 0,
- "limites": []
+ "horodatage": "2026-07-05T11:26:02.764Z",
+ "nombre": 88,
+ "limites": [
+  {
+   "nom": "Philippe Desrosiers",
+   "limite": 65
+  },
+  {
+   "nom": "Mark Visentin",
+   "limite": 65
+  },
+  {
+   "nom": "Andrey Vasilevskiy",
+   "limite": 64
+  },
+  {
+   "nom": "Ilya Samsonov",
+   "limite": 64
+  },
+  {
+   "nom": "Alex Nedeljkovic",
+   "limite": 64
+  },
+  {
+   "nom": "Olivier Rodrigue",
+   "limite": 64
+  },
+  {
+   "nom": "Daniil Tarasov",
+   "limite": 63
+  },
+  {
+   "nom": "Frederik Andersen",
+   "limite": 62
+  },
+  {
+   "nom": "Jake Oettinger",
+   "limite": 62
+  },
+  {
+   "nom": "Filip Gustavsson",
+   "limite": 62
+  },
+  {
+   "nom": "Mack Blackwood",
+   "limite": 62
+  },
+  {
+   "nom": "Connor Hellebuyck",
+   "limite": 61
+  },
+  {
+   "nom": "Michael McNiven",
+   "limite": 61
+  },
+  {
+   "nom": "Joseph Woll",
+   "limite": 61
+  },
+  {
+   "nom": "Pyotr Kochetkov",
+   "limite": 61
+  },
+  {
+   "nom": "Oscar Dansk",
+   "limite": 60
+  },
+  {
+   "nom": "Jacob Markstrom",
+   "limite": 60
+  },
+  {
+   "nom": "Juuse Saros",
+   "limite": 60
+  },
+  {
+   "nom": "Joel Blomqvist",
+   "limite": 60
+  },
+  {
+   "nom": "Magnus Chrona",
+   "limite": 60
+  },
+  {
+   "nom": "Yaroslav Askarov",
+   "limite": 60
+  },
+  {
+   "nom": "Ukko-Pekka Luukkonen",
+   "limite": 60
+  },
+  {
+   "nom": "Ilya Sorokin",
+   "limite": 59
+  },
+  {
+   "nom": "Carter Hart",
+   "limite": 59
+  },
+  {
+   "nom": "Jordan Binnington",
+   "limite": 59
+  },
+  {
+   "nom": "Jesper Wallstedt",
+   "limite": 59
+  },
+  {
+   "nom": "Spencer Knight",
+   "limite": 59
+  },
+  {
+   "nom": "Logan Thompson",
+   "limite": 59
+  },
+  {
+   "nom": "Remi Poirier",
+   "limite": 59
+  },
+  {
+   "nom": "Ales Stezka",
+   "limite": 58
+  },
+  {
+   "nom": "John Gibson",
+   "limite": 58
+  },
+  {
+   "nom": "Jeremy Swayman",
+   "limite": 58
+  },
+  {
+   "nom": "Calle Clang",
+   "limite": 58
+  },
+  {
+   "nom": "Chris Gibson",
+   "limite": 57
+  },
+  {
+   "nom": "Thatcher Demko",
+   "limite": 57
+  },
+  {
+   "nom": "Alexandar Georgiev",
+   "limite": 57
+  },
+  {
+   "nom": "Devon Levi",
+   "limite": 57
+  },
+  {
+   "nom": "Elvis Merzlikins",
+   "limite": 57
+  },
+  {
+   "nom": "Karel Vejmelka",
+   "limite": 57
+  },
+  {
+   "nom": "Samuel Montembeault",
+   "limite": 57
+  },
+  {
+   "nom": "Cole Brady",
+   "limite": 57
+  },
+  {
+   "nom": "Tristan Jarry",
+   "limite": 56
+  },
+  {
+   "nom": "Igor Shestyorkin",
+   "limite": 56
+  },
+  {
+   "nom": "Lukas Dostal",
+   "limite": 56
+  },
+  {
+   "nom": "Adin Hill",
+   "limite": 56
+  },
+  {
+   "nom": "Alex Lyon",
+   "limite": 56
+  },
+  {
+   "nom": "Hugo Hanefelt",
+   "limite": 56
+  },
+  {
+   "nom": "Drew Commesso",
+   "limite": 56
+  },
+  {
+   "nom": "Isaiah Saville",
+   "limite": 56
+  },
+  {
+   "nom": "Jiri Patera",
+   "limite": 56
+  },
+  {
+   "nom": "Joel Hofer",
+   "limite": 56
+  },
+  {
+   "nom": "Stuart Skinner",
+   "limite": 55
+  },
+  {
+   "nom": "Charlie Lindgren",
+   "limite": 55
+  },
+  {
+   "nom": "Dan Vladar",
+   "limite": 55
+  },
+  {
+   "nom": "Erik Portillo",
+   "limite": 55
+  },
+  {
+   "nom": "Joonas Korpisalo",
+   "limite": 55
+  },
+  {
+   "nom": "Kevin Lankinen",
+   "limite": 55
+  },
+  {
+   "nom": "Samuel Ersson",
+   "limite": 55
+  },
+  {
+   "nom": "Ville Husso",
+   "limite": 55
+  },
+  {
+   "nom": "Vitek Vanecek",
+   "limite": 55
+  },
+  {
+   "nom": "Filip Lindberg",
+   "limite": 55
+  },
+  {
+   "nom": "Arturs Silovs",
+   "limite": 55
+  },
+  {
+   "nom": "Vadim Zherenko",
+   "limite": 55
+  },
+  {
+   "nom": "Sebastian Cossa",
+   "limite": 55
+  },
+  {
+   "nom": "Darcy Kuemper",
+   "limite": 54
+  },
+  {
+   "nom": "Calvin Pickard",
+   "limite": 54
+  },
+  {
+   "nom": "David Rittich",
+   "limite": 54
+  },
+  {
+   "nom": "Jake Allen",
+   "limite": 54
+  },
+  {
+   "nom": "Petr Mrazek",
+   "limite": 54
+  },
+  {
+   "nom": "Pheonix Copley",
+   "limite": 54
+  },
+  {
+   "nom": "Casey DeSmith",
+   "limite": 54
+  },
+  {
+   "nom": "Cayden Primeau",
+   "limite": 54
+  },
+  {
+   "nom": "Jan Bednar",
+   "limite": 54
+  },
+  {
+   "nom": "Kaapo Kahkonen",
+   "limite": 54
+  },
+  {
+   "nom": "Benjamin Gaudreau",
+   "limite": 54
+  },
+  {
+   "nom": "Tristan Lennox",
+   "limite": 54
+  },
+  {
+   "nom": "Linus Ullmark",
+   "limite": 53
+  },
+  {
+   "nom": "Scott Wedgewood",
+   "limite": 53
+  },
+  {
+   "nom": "Tyler Wall",
+   "limite": 53
+  },
+  {
+   "nom": "Connor Ingram",
+   "limite": 53
+  },
+  {
+   "nom": "David Tendeck",
+   "limite": 53
+  },
+  {
+   "nom": "Eric Comrie",
+   "limite": 52
+  },
+  {
+   "nom": "Martin Jones",
+   "limite": 52
+  },
+  {
+   "nom": "Will Cranley",
+   "limite": 52
+  },
+  {
+   "nom": "Cal Petersen",
+   "limite": 51
+  },
+  {
+   "nom": "Philipp Grubauer",
+   "limite": 51
+  },
+  {
+   "nom": "Filip Larsson",
+   "limite": 51
+  },
+  {
+   "nom": "Matt Murray",
+   "limite": 48
+  }
+ ]
 }

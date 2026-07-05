@@ -54,3 +54,30 @@ que dans le navigateur de la personne qui les change, le risque réel est nul.
 - Matchs joués = V + D + N, jamais la colonne GP.
 - Les limites lues sont conservées 7 jours (elles sont fixes pour la saison).
 - Dépannage express : panneau « Importer les limites par collage ».
+
+## Alerte courriel de dépassement de limite
+Le workflow envoie maintenant un courriel à `ushl_pro@hotmail.com` dès qu'un
+gardien **dépasse** sa limite de matchs (MJ = V + D + N > limite). Le fichier
+`alertes-envoyees.json`, commité par le robot, garantit qu'un gardien n'est
+signalé qu'une seule fois — sauf si son écart augmente ensuite.
+
+### Configuration (une seule fois)
+1. Sur le compte expéditeur Gmail (`gardienushl@gmail.com`) :
+   myaccount.google.com → **Sécurité** → active la **validation en deux
+   étapes**, puis crée un **mot de passe d'application** (16 lettres).
+   Le mot de passe régulier du compte ne fonctionne pas avec le robot.
+2. Dans le dépôt GitHub : **Settings → Secrets and variables → Actions →
+   New repository secret**, crée :
+   - `MAIL_USERNAME` = `gardienushl@gmail.com`
+   - `MAIL_PASSWORD` = le mot de passe d'application (16 lettres, sans espaces)
+3. Remplace `outil-alertes.mjs` (nouveau) à la racine et
+   `.github/workflows/maj-limites.yml` (mis à jour).
+4. Test : onglet **Actions** → « Mise à jour des limites de gardiens » →
+   **Run workflow**. S'il y a des dépassements non encore signalés, le
+   courriel part immédiatement.
+
+### Détails
+- Vérification au même horaire que le robot des limites : 6 h et 18 h.
+- Test local possible : `node outil-limites.mjs && node outil-alertes.mjs`.
+- Pour repartir à zéro (re-signaler tous les dépassements), supprime
+  `alertes-envoyees.json` du dépôt.
