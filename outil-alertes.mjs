@@ -13,7 +13,7 @@
 // Aucune dépendance.
 // =====================================================================
 
-import { readFileSync, writeFileSync, existsSync, appendFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, appendFileSync, mkdirSync } from "node:fs";
 
 const URL_STATS = process.env.URL_STATS ||
   "https://ushl.ca/ushl/menu_sim/USHL-pro/jamesishot/StatsGoalies.php?seasonId=&seasonType=PLF";
@@ -196,9 +196,20 @@ async function principal() {
     htmlStats = await recuperer(URL_STATS);
     console.log("Stats récupérées (" + htmlStats.length + " caractères)");
   }
-  const { gardiens, equipes } = parseGardiens(texteDepuisHtml(htmlStats));
+  const texteStats = texteDepuisHtml(htmlStats);
+  const { gardiens, equipes } = parseGardiens(texteStats);
   console.log(gardiens.length + " gardiens lus dans les statistiques.");
-  if (gardiens.length === 0) throw new Error("Aucun gardien lu : structure de page inattendue.");
+  if (gardiens.length === 0) {
+    // Saison morte (page vide) ou structure inattendue : on n'échoue pas,
+    // on dépose un diagnostic et on réessaiera au prochain passage.
+    mkdirSync("debug-alertes", { recursive: true });
+    writeFileSync("debug-alertes/stats-brut.html", htmlStats, "utf8");
+    writeFileSync("debug-alertes/stats-texte.txt", texteStats, "utf8");
+    console.log("AVERTISSEMENT : aucun gardien lu — page vide (saison morte?) ou structure inattendue.");
+    console.log("Diagnostic déposé dans debug-alertes/ (stats-brut.html et stats-texte.txt).");
+    sortieWorkflow("envoyer", "false");
+    return;
+  }
 
   // 2) Limites
   if (!existsSync(FICHIER_LIMITES)) throw new Error(FICHIER_LIMITES + " introuvable — exécuter outil-limites.mjs d'abord.");
