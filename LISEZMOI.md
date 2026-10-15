@@ -1,83 +1,113 @@
-# Suivi des gardiens USHL — installation
+# Suivi des gardiens USHL
 
-## Contenu
+L'interface affiche les 32 équipes avec leurs gardiens, leurs matchs joués
+(V + D + N, jamais la colonne GP) et leur limite d'utilisation pour la saison.
+
+Un robot GitHub Actions relève les données deux fois par jour, vers 8 h 20 et
+18 h 20 (7 h 20 et 17 h 20 en hiver), et les dépose dans `data/gardiens.json`. L'interface lit ce fichier
+dès l'ouverture, en même origine : aucun relais public, et ça fonctionne aussi
+sur mobile. C'est le même principe que les interfaces de DG avec
+`data/rosters.json`.
+
+## Fichiers
+
 | Fichier | Rôle |
 |---|---|
-| `index.html` | L'interface (servie automatiquement à la racine de GitHub Pages) |
-| `outil-limites.mjs` | Robot qui lit le classeur Excel des limites et écrit `limites.json` |
-| `maj-limites.yml` | Workflow GitHub Actions qui exécute le robot automatiquement |
-| `worker-proxy.js` | Proxy personnel Cloudflare (optionnel, solution B) |
+| `index.html` | L'interface (servie à la racine de GitHub Pages) |
+| `data/gardiens.json` | Relevé produit par le robot (ne pas modifier à la main) |
+| `limites.json` | Limites de la saison en cours, même format qu'avant : les interfaces de DG le lisent |
+| `data/alertes-envoyees.json` | Alertes déjà envoyées (créé par le robot au premier dépassement) |
+| `scripts/releve-gardiens.mjs` | Robot de relève |
+| `scripts/alertes-gardiens.mjs` | Robot d'alerte courriel |
+| `.github/workflows/releve-gardiens.yml` | Workflow qui fait tourner les deux robots |
+| `valide.js`, `tests/fixtures/` | Banc d'essai (`npm test`) |
+| `diagnostic/` | Copies brutes, déposées seulement si le classeur des limites est illisible |
 
-## Solution A (recommandée) : robot GitHub Actions
-Le classeur Excel des limites est lu **côté serveur** par GitHub, où il n'y a
-ni barrière CORS ni proxys capricieux. Le robot écrit `limites.json` à côté de
-l'interface, qui le lit alors localement — fiable à 100 %.
+## D'où viennent les données
 
-1. Dans ton dépôt GitHub Pages, place à la racine :
-   `index.html` et `outil-limites.mjs`.
-2. Place `maj-limites.yml` dans `.github/workflows/maj-limites.yml`.
-3. Dans **Settings → Actions → General → Workflow permissions**, coche
+1. **Gardiens par équipe** : le relevé quotidien des 32 alignements déjà
+   produit par le dépôt des Sharks (`data/rosters.json`). Aucune requête de
+   plus à ushl.ca.
+2. **Matchs** : la page texte de la saison régulière, par exemple
+   `USHL22TeamScoring.html` (blocs GOALTENDING). Le robot trouve seul la
+   saison en cours : le jour où `USHL23TeamScoring.html` apparaît, il passe à
+   Y23 et remet les compteurs à zéro.
+3. **Limites** : le classeur Excel publié dans `gestion_gardiens/y22/`. Tant
+   que le dossier de la saison n'existe pas, les limites sont « à venir » :
+   le robot n'applique jamais celles d'une saison précédente. Le nom du
+   fichier est lu dans l'index du dossier (il a déjà varié d'une année à
+   l'autre).
+
+## Garde-fous
+
+- Page anti-robot ou panne : la relève échoue sans rien écrire, et un job de
+  reprise réessaie cinq minutes plus tard sur un autre runner.
+- Une page des matchs qui se vide en cours de saison n'efface pas les matchs
+  déjà relevés.
+- Une source momentanément inaccessible (alignements, dossier des limites) :
+  les données précédentes de la même saison sont reprises et un avertissement
+  apparaît dans l'interface.
+- Un gardien échangé en cours de saison : ses matchs des deux équipes sont
+  additionnés et l'interface le précise.
+- L'interface avertit si le dernier relevé date de plus de 36 heures (robot
+  arrêté, par exemple).
+
+## Alertes courriel
+
+- Un courriel part à `ushl_pro@hotmail.com` dès qu'un gardien dépasse sa
+  limite (MJ > limite).
+- Chaque gardien n'est signalé qu'une fois par saison, sauf si son écart
+  augmente.
+- L'état des alertes n'avance que si le courriel est vraiment parti. Si
+  l'envoi échoue, le relevé est quand même publié et l'alerte est retentée au
+  passage suivant (avertissement dans le résumé du workflow).
+
+## Installation (une seule fois)
+
+1. **Settings → Actions → General → Workflow permissions** : coche
    **Read and write permissions**.
-4. Onglet **Actions** → « Mise à jour des limites de gardiens » →
-   **Run workflow** pour la première exécution. Ensuite, il roule tout seul
-   deux fois par jour.
-5. Vérifie que `limites.json` est apparu à la racine du dépôt. C'est tout :
-   l'interface le détecte automatiquement à chaque « Actualiser ».
+2. **Settings → Secrets and variables → Actions** : les secrets
+   `MAIL_USERNAME` (`gardienushl@gmail.com`) et `MAIL_PASSWORD` (mot de passe
+   d'application Google, 16 lettres) doivent exister. Le mot de passe régulier
+   du compte ne fonctionne pas avec le robot.
+3. Onglet **Actions** → « Relève des gardiens USHL » → **Run workflow** pour
+   le premier passage. Ensuite, il roule tout seul.
 
-En cas de pépin, le robot dépose aussi une copie brute des feuilles Excel dans
-`debug-limites/` — utile pour diagnostiquer (ou pour me la montrer).
+## Lancer une relève à la main
 
-Tu peux aussi tester le robot sur ton ordinateur : `node outil-limites.mjs`
-(Node 18+). Il crée `limites.json` dans le dossier courant.
+Onglet **Actions** → « Relève des gardiens USHL » → **Run workflow**, par
+exemple juste après une simulation. Le panneau Admin de l'interface a un
+lien direct vers cette page.
 
-## Solution B (optionnelle) : proxy personnel Cloudflare
-Si tu préfères tout garder « en direct » sans robot :
-1. Sur dash.cloudflare.com → **Workers** → crée un worker et colle
-   `worker-proxy.js`.
-2. Copie son adresse (ex. `https://ushl-proxy.toncompte.workers.dev`) dans le
-   champ **Proxy personnel** du panneau « Sources de données » de l'interface,
-   puis « Enregistrer les sources ».
-3. Ce canal passe alors en premier pour toutes les requêtes (stats comprises),
-   sans limite de débit. Le worker n'accepte que le domaine ushl.ca.
+## Saisies dans l'interface
+
+- Un clic sur la colonne **Limite** permet de saisir une limite à la main.
+- Le panneau **Importer les limites par collage** accepte un tableau copié
+  depuis la page de gestion des gardiens.
+- Ces deux saisies restent dans le navigateur de la personne qui les fait et
+  ont priorité sur les limites du robot. Elles n'influencent pas les alertes.
 
 ## Page admin
-Le bouton **Admin** (en haut à droite) ouvre le panneau de gestion des liens
-de sources de données — et rien d'autre. Identifiants : nom d'utilisateur en
-majuscules, mot de passe fourni en privé. La session dure tant que l'onglet
-est ouvert. À savoir : sur un site statique public comme GitHub Pages, cette
-protection décourage les curieux (aucun identifiant n'est en clair dans le
-code, seulement des empreintes SHA-256), mais elle n'équivaut pas à une
-authentification serveur. Comme les sources modifiées ne sont enregistrées
-que dans le navigateur de la personne qui les change, le risque réel est nul.
 
-## Rappels
-- Matchs joués = V + D + N, jamais la colonne GP.
-- Les limites lues sont conservées 7 jours (elles sont fixes pour la saison).
-- Dépannage express : panneau « Importer les limites par collage ».
+Le bouton **Admin** ouvre le panneau du robot : saison, date du dernier
+relevé, sources, état des limites, lien pour lancer une relève et effacement
+des limites saisies à la main. Identifiants inchangés. Sur un site statique,
+cette protection décourage les curieux (aucun identifiant en clair, seulement
+des empreintes SHA-256), sans équivaloir à une authentification serveur.
 
-## Alerte courriel de dépassement de limite
-Le workflow envoie maintenant un courriel à `ushl_pro@hotmail.com` dès qu'un
-gardien **dépasse** sa limite de matchs (MJ = V + D + N > limite). Le fichier
-`alertes-envoyees.json`, commité par le robot, garantit qu'un gardien n'est
-signalé qu'une seule fois — sauf si son écart augmente ensuite.
+## Tester sur ton ordinateur
 
-### Configuration (une seule fois)
-1. Sur le compte expéditeur Gmail (`gardienushl@gmail.com`) :
-   myaccount.google.com → **Sécurité** → active la **validation en deux
-   étapes**, puis crée un **mot de passe d'application** (16 lettres).
-   Le mot de passe régulier du compte ne fonctionne pas avec le robot.
-2. Dans le dépôt GitHub : **Settings → Secrets and variables → Actions →
-   New repository secret**, crée :
-   - `MAIL_USERNAME` = `gardienushl@gmail.com`
-   - `MAIL_PASSWORD` = le mot de passe d'application (16 lettres, sans espaces)
-3. Remplace `outil-alertes.mjs` (nouveau) à la racine et
-   `.github/workflows/maj-limites.yml` (mis à jour).
-4. Test : onglet **Actions** → « Mise à jour des limites de gardiens » →
-   **Run workflow**. S'il y a des dépassements non encore signalés, le
-   courriel part immédiatement.
+Dans PowerShell, à la racine du dépôt :
 
-### Détails
-- Vérification au même horaire que le robot des limites : 6 h et 18 h.
-- Test local possible : `node outil-limites.mjs && node outil-alertes.mjs`.
-- Pour repartir à zéro (re-signaler tous les dépassements), supprime
-  `alertes-envoyees.json` du dépôt.
+```powershell
+npm install
+npm test
+```
+
+Le banc d'essai n'utilise pas le réseau : les pages de la ligue sont
+simulées à partir de fixtures réelles (feuille des limites Y21, relevé des
+alignements du 14 octobre 2026, lignes de matchs Y21).
+
+Pour une vraie relève locale (Node 20 ou plus) : `npm run releve`. La
+variable `SAISON` force une saison au besoin, par exemple
+`$env:SAISON = "22"; npm run releve`.

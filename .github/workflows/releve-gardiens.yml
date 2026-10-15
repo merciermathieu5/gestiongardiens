@@ -1,0 +1,147 @@
+name: Relève des gardiens USHL
+
+# Deux passages par jour, et à la demande depuis l'onglet Actions
+# (bouton « Run workflow »), par exemple juste après une simulation.
+#
+# Même principe que la relève des alignements des interfaces de DG :
+# ushl.ca sert parfois une page de vérification anti-robot au runner
+# GitHub. Quand ça arrive, le premier job échoue sans rien écrire; un job
+# de reprise tourne alors sur un runner neuf (donc une autre adresse IP)
+# après une pause. Le workflow n'est en échec que si les deux tentatives
+# sont bloquées.
+#
+# Secrets requis pour les alertes (Settings → Secrets and variables → Actions) :
+#   MAIL_USERNAME : gardienushl@gmail.com
+#   MAIL_PASSWORD : le mot de passe d'application Google (16 lettres)
+on:
+  schedule:
+    - cron: '23 12,22 * * *'   # 12:23 et 22:23 UTC : 08:23 et 18:23 à Québec (07:23 et 17:23 en hiver)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: releve-gardiens
+  cancel-in-progress: false
+
+jobs:
+  relever:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Un échec ici ne met pas le workflow en échec : c'est le job de
+    # reprise qui tranche.
+    continue-on-error: true
+    outputs:
+      ok: ${{ steps.releve.outputs.ok }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      # Le script sort en erreur si la relève n'est pas fiable : les étapes
+      # suivantes sont alors sautées et les fichiers restent tels quels.
+      - name: Relever gardiens, matchs et limites
+        id: releve
+        run: node scripts/releve-gardiens.mjs && echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      - name: Vérifier les dépassements de limite
+        id: alertes
+        run: node scripts/alertes-gardiens.mjs
+
+      - name: Envoyer le courriel d'alerte
+        id: courriel
+        if: steps.alertes.outputs.envoyer == 'true'
+        continue-on-error: true
+        uses: dawidd6/action-send-mail@v22
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.alertes.outputs.objet }}
+          to: ushl_pro@hotmail.com
+          from: Robot USHL · Suivi des gardiens <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://courriel-alerte.html
+
+      # L'état des alertes n'avance que si le courriel est vraiment parti.
+      - name: Retenir les alertes envoyées
+        if: steps.courriel.outcome == 'success'
+        run: mv alertes-etat-candidat.json data/alertes-envoyees.json
+
+      - name: Signaler un courriel non envoyé
+        if: steps.courriel.outcome == 'failure'
+        run: echo "::warning::Le courriel d'alerte n'est pas parti (secrets MAIL_USERNAME et MAIL_PASSWORD?). Il sera retenté au prochain passage."
+
+      - name: Committer si les données ont changé
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Gardiens USHL : relevé du $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push || { git pull --rebase && git push; }
+
+  reprise:
+    needs: relever
+    if: ${{ !cancelled() && needs.relever.outputs.ok != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Attendre avant de réessayer
+        run: sleep 300
+
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      - name: Relever gardiens, matchs et limites (reprise)
+        run: node scripts/releve-gardiens.mjs
+
+      - name: Vérifier les dépassements de limite
+        id: alertes
+        run: node scripts/alertes-gardiens.mjs
+
+      - name: Envoyer le courriel d'alerte
+        id: courriel
+        if: steps.alertes.outputs.envoyer == 'true'
+        continue-on-error: true
+        uses: dawidd6/action-send-mail@v22
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.alertes.outputs.objet }}
+          to: ushl_pro@hotmail.com
+          from: Robot USHL · Suivi des gardiens <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://courriel-alerte.html
+
+      - name: Retenir les alertes envoyées
+        if: steps.courriel.outcome == 'success'
+        run: mv alertes-etat-candidat.json data/alertes-envoyees.json
+
+      - name: Signaler un courriel non envoyé
+        if: steps.courriel.outcome == 'failure'
+        run: echo "::warning::Le courriel d'alerte n'est pas parti (secrets MAIL_USERNAME et MAIL_PASSWORD?). Il sera retenté au prochain passage."
+
+      - name: Committer si les données ont changé
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Gardiens USHL : relevé du $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push || { git pull --rebase && git push; }

@@ -1,0 +1,43 @@
+## NEWJERSEY
+
+SCORING
+                            TEAM GP   G   A   P +/- PIM PP SH GW GT   HT    S  PCTG GS PS
+C 35  Cole Sillinger        NJ   11   5   5  10   3  16  0  0  1  0    8   25  20,0  0  1
+G 28  Jacob Markstrom       NJ   11   0   1   1   0   0  0  0  0  0    0    0   0.0  0  0
+-----------------------------------------------------------------------------------------
+NEWJERSEY Totals            NJ   11  34  58  92      74  7  0  6  0  380  327  10,4
+
+GOALTENDING
+                           TEAM  GP  MIN   AVG   W   L   T  SO  GA   SA   PCT PIM AS
+  28  Jacob Markstrom       NJ   11  667  2,43   6   5   0   0  27  289  ,907   0  1
+  31  Hugo Hanefelt         NJ    1   12 10,00   0   0   0   0   2    9  ,778   0  0
+------------------------------------------------------------------------------------
+NEWJERSEY Totals            NJ   11  679  2,56   6   5   0   0  29  298  ,903
+
+## NASHVILLE
+
+GOALTENDING
+                           TEAM  GP  MIN   AVG   W   L   T  SO  GA   SA   PCT PIM AS
+  74  Ilya Samsonov         NSH  27 1601  3,30  15  12   0   1  88  786  ,888   0  1
+  56  Joel Blomqvist        NSH   6   68  6,18   0   0   0   0   7   33  ,788   0  0
+------------------------------------------------------------------------------------
+NASHVILLE Totals            NSH  27 1669  3,42  15  12   0   1  95  819  ,884
+
+## PHILLY
+
+GOALTENDING
+                           TEAM  GP  MIN   AVG   W   L   T  SO  GA   SA   PCT PIM AS
+  14  Joseph Woll           PHI   7  382  3,93   4   3   0   0  25  193  ,870   0  1
+  70 *Drew Commesso         PHI   2   21  2,86   0   0   0   0   1   14  ,929   0  0
+  18  Devon Levi            PHI  13  693  3,20   6   5   0   0  37  328  ,887   4  1
+------------------------------------------------------------------------------------
+PHILLY Totals               PHI  18 1096  3,45  10   8   0   0  63  535  ,882
+
+## SEATTLE
+
+GOALTENDING
+                           TEAM  GP  MIN   AVG   W   L   T  SO  GA   SA   PCT PIM AS
+  35  Olivier Rodrigue      SEA   7  399  3,91   3   4   0   0  26  175  ,851   0  0
+   4  *Erik Portillo        SEA   3   21  5,71   0   0   0   0   2   15  ,867   0  0
+------------------------------------------------------------------------------------
+SEATTLE Totals              SEA   7  420  4,00   3   4   0   0  28  190  ,853

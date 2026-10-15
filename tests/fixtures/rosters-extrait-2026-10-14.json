@@ -1,0 +1,2762 @@
+{
+ "genere": "2026-10-14T15:58:36.019Z",
+ "maj": "oct 13 2026",
+ "source": "ushl.ca — TeamRosters.php (PRO)",
+ "nbEquipes": 32,
+ "reprises": [],
+ "note": "Extrait du relevé réel des Sharks (data/rosters.json, généré le 2026-10-14T15:58:36Z) : tous les gardiens, plus des patineurs pour atteindre 10 joueurs par équipe. Champs réduits à ceux que lit le robot.",
+ "equipes": {
+  "ANAHEIM": {
+   "fiche": "ANAHEIM 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Michael McNiven",
+     "po": "G",
+     "ov": 83,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Cole Brady",
+     "po": "G",
+     "ov": 79,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sidney Crosby",
+     "po": "C",
+     "ov": 84,
+     "age": 39,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Curtis Douglas",
+     "po": "C",
+     "ov": 73,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Owen Beck",
+     "po": "C",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ethan Phillips",
+     "po": "C",
+     "ov": 77,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Semyon Arguchintsev",
+     "po": "C",
+     "ov": 79,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Eric Florchuk",
+     "po": "AG",
+     "ov": 75,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Quentin Musty",
+     "po": "AG",
+     "ov": 77,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Denis Gurianov",
+     "po": "AG",
+     "ov": 82,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "BOSTON": {
+   "fiche": "BOSTON 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Joel Blomqvist",
+     "po": "G",
+     "ov": 81,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Matthew Thiessen",
+     "po": "G",
+     "ov": 77,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joel Hofer",
+     "po": "G",
+     "ov": 78,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Anthony Cirelli",
+     "po": "C",
+     "ov": 81,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jordan Kyrou",
+     "po": "C",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Matt Duchene",
+     "po": "C",
+     "ov": 81,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Casey Cizikas",
+     "po": "C",
+     "ov": 77,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brad Marchand",
+     "po": "AG",
+     "ov": 81,
+     "age": 38,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tim Bozon",
+     "po": "AG",
+     "ov": 83,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Andrew Mangiapane",
+     "po": "AG",
+     "ov": 76,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "BUFFALO": {
+   "fiche": "BUFFALO 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Will Cranley",
+     "po": "G",
+     "ov": 76,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "David Rittich",
+     "po": "G",
+     "ov": 78,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ilya Sorokin",
+     "po": "G",
+     "ov": 84,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mika Zibanejad",
+     "po": "C",
+     "ov": 83,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dylan Larkin",
+     "po": "C",
+     "ov": 82,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Shane Pinto",
+     "po": "C",
+     "ov": 80,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Erik Haula",
+     "po": "C",
+     "ov": 78,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jakub Vrana",
+     "po": "AG",
+     "ov": 81,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joel ErikssonEk",
+     "po": "AG",
+     "ov": 81,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "William Carrier",
+     "po": "AG",
+     "ov": 78,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "CALGARY": {
+   "fiche": "CALGARY 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Samuel Montembeault",
+     "po": "G",
+     "ov": 81,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dustin Wolf",
+     "po": "G",
+     "ov": 78,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jesper Wallstedt",
+     "po": "G",
+     "ov": 80,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Olivier Nadeau",
+     "po": "C",
+     "ov": 77,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mackie Samoskevich",
+     "po": "C",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Drake Batherson",
+     "po": "C",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Leo Carlsson",
+     "po": "C",
+     "ov": 81,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Kyle Connor",
+     "po": "AG",
+     "ov": 81,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Oliver Wahlstrom",
+     "po": "AG",
+     "ov": 80,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Matthew Knies",
+     "po": "AG",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "CAROLINA": {
+   "fiche": "CAROLINA 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Gage Alexander",
+     "po": "G",
+     "ov": 77,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Pyotr Kochetkov",
+     "po": "G",
+     "ov": 80,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Yaroslav Askarov",
+     "po": "G",
+     "ov": 81,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Evan Vierling",
+     "po": "C",
+     "ov": 76,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Shane Wright",
+     "po": "C",
+     "ov": 80,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jonathan Drouin",
+     "po": "C",
+     "ov": 83,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Teuvo Taravainen",
+     "po": "C",
+     "ov": 81,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tristan Broz",
+     "po": "C",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jake DeBrusk",
+     "po": "AG",
+     "ov": 83,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jeff Skinner",
+     "po": "AG",
+     "ov": 82,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "CHICAGO": {
+   "fiche": "CHICAGO 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Thatcher Demko",
+     "po": "G",
+     "ov": 83,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Vadim Zherenko",
+     "po": "G",
+     "ov": 76,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Filip Gustavsson",
+     "po": "G",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tim Stutzle",
+     "po": "C",
+     "ov": 79,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brock Nelson",
+     "po": "C",
+     "ov": 81,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Macklin Celebrini",
+     "po": "C",
+     "ov": 78,
+     "age": 20,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Scott Laughton",
+     "po": "C",
+     "ov": 79,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "William Karlsson",
+     "po": "C",
+     "ov": 78,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dalibor Dvorsky",
+     "po": "AG",
+     "ov": 78,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jonathan Huberdeau",
+     "po": "AG",
+     "ov": 80,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "COLORADO": {
+   "fiche": "COLORADO 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Alex Lyon",
+     "po": "G",
+     "ov": 79,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Benjamin Gaudreau",
+     "po": "G",
+     "ov": 76,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Spencer Knight",
+     "po": "G",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "John Beecher",
+     "po": "C",
+     "ov": 79,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Noah Ostlund",
+     "po": "C",
+     "ov": 78,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor McDavid",
+     "po": "C",
+     "ov": 86,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sam Bennett",
+     "po": "C",
+     "ov": 84,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Taylor Hall",
+     "po": "AG",
+     "ov": 83,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nicholas Robertson",
+     "po": "AG",
+     "ov": 79,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nicolas Petan",
+     "po": "AG",
+     "ov": 81,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "COLUMBUS": {
+   "fiche": "COLUMBUS 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Ales Stezka",
+     "po": "G",
+     "ov": 82,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Casey DeSmith",
+     "po": "G",
+     "ov": 79,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan McLeod",
+     "po": "C",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Claude Giroux",
+     "po": "C",
+     "ov": 79,
+     "age": 38,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Pierre-Luc Dubois",
+     "po": "C",
+     "ov": 82,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Roope Hintz",
+     "po": "C",
+     "ov": 82,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor Bunnaman",
+     "po": "C",
+     "ov": 79,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Carter Verhaeghe",
+     "po": "AG",
+     "ov": 80,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jason Robertson",
+     "po": "AG",
+     "ov": 83,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Vitali Kravtsov",
+     "po": "AG",
+     "ov": 81,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "DALLAS": {
+   "fiche": "DALLAS 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Calle Clang",
+     "po": "G",
+     "ov": 79,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Eric Comrie",
+     "po": "G",
+     "ov": 78,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mack Blackwood",
+     "po": "G",
+     "ov": 81,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Gabriel Vilardi",
+     "po": "C",
+     "ov": 76,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tomas Hertl",
+     "po": "C",
+     "ov": 80,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan Suzuki",
+     "po": "AG",
+     "ov": 79,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ozzy Wiesblatt",
+     "po": "AG",
+     "ov": 79,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Pavel Dorofeyev",
+     "po": "AG",
+     "ov": 80,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tyler Boucher",
+     "po": "AG",
+     "ov": 79,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor Brown",
+     "po": "AG",
+     "ov": 78,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "DETROIT": {
+   "fiche": "DETROIT 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Stuart Skinner",
+     "po": "G",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Filip Lindberg",
+     "po": "G",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Scott Wedgewood",
+     "po": "G",
+     "ov": 82,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Martin Necas",
+     "po": "C",
+     "ov": 81,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jaromir Pytlik",
+     "po": "C",
+     "ov": 75,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Boone Jenner",
+     "po": "C",
+     "ov": 80,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan Nugent-Hopkins",
+     "po": "C",
+     "ov": 79,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jake Evans",
+     "po": "C",
+     "ov": 76,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Alexander Wennberg",
+     "po": "C",
+     "ov": 76,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Noah Cates",
+     "po": "C",
+     "ov": 79,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "EDMONTON": {
+   "fiche": "EDMONTON 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Dennis Hildeby",
+     "po": "G",
+     "ov": 77,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Frederik Andersen",
+     "po": "G",
+     "ov": 83,
+     "age": 36,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Vitek Vanecek",
+     "po": "G",
+     "ov": 78,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Xavier Bourgault",
+     "po": "C",
+     "ov": 77,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Leon Draisaitl",
+     "po": "C",
+     "ov": 84,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Chaz Lucius",
+     "po": "C",
+     "ov": 77,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan Johansen",
+     "po": "C",
+     "ov": 80,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sam Lafferty",
+     "po": "C",
+     "ov": 76,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "John Tavares",
+     "po": "C",
+     "ov": 81,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nico Hischier",
+     "po": "AG",
+     "ov": 81,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "FLORIDE": {
+   "fiche": "FLORIDE 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Filip Larsson",
+     "po": "G",
+     "ov": 73,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dan Vladar",
+     "po": "G",
+     "ov": 79,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jordan Binnington",
+     "po": "G",
+     "ov": 80,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sam Reinhart",
+     "po": "C",
+     "ov": 82,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dylan Strome",
+     "po": "C",
+     "ov": 83,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Oliver Johansson",
+     "po": "C",
+     "ov": 75,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nic Dowd",
+     "po": "C",
+     "ov": 79,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jason Dickinson",
+     "po": "C",
+     "ov": 78,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Rory Kerins",
+     "po": "AG",
+     "ov": 77,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Kirill Kabanov",
+     "po": "AG",
+     "ov": 78,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "ISLANDERS": {
+   "fiche": "ISLANDERS 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Connor Hellebuyck",
+     "po": "G",
+     "ov": 83,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Anton Forsberg",
+     "po": "G",
+     "ov": 79,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jiri Patera",
+     "po": "G",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jack Hughes",
+     "po": "C",
+     "ov": 83,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Berkly Catton",
+     "po": "C",
+     "ov": 76,
+     "age": 20,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nick Schmaltz",
+     "po": "C",
+     "ov": 80,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nick Paul",
+     "po": "C",
+     "ov": 78,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor McMichael",
+     "po": "AG",
+     "ov": 81,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ivan Demidov",
+     "po": "AG",
+     "ov": 79,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Parker Kelly",
+     "po": "AG",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "LOSANGELES": {
+   "fiche": "LOSANGELES 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Tristan Jarry",
+     "po": "G",
+     "ov": 83,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joey Daccord",
+     "po": "G",
+     "ov": 80,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Matt Murray",
+     "po": "G",
+     "ov": 78,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brayden Yager",
+     "po": "C",
+     "ov": 76,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Marco Rossi",
+     "po": "C",
+     "ov": 82,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Michael Misa",
+     "po": "C",
+     "ov": 76,
+     "age": 19,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Radek Faksa",
+     "po": "C",
+     "ov": 75,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Cole Perfetti",
+     "po": "C",
+     "ov": 82,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Kasper Simontaival",
+     "po": "AG",
+     "ov": 80,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dawson Mercer",
+     "po": "AG",
+     "ov": 81,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "MINNESOTA": {
+   "fiche": "MINNESOTA 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Linus Ullmark",
+     "po": "G",
+     "ov": 81,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Charlie Lindgren",
+     "po": "G",
+     "ov": 79,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joonas Korpisalo",
+     "po": "G",
+     "ov": 78,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Patrick Guay",
+     "po": "C",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Peyton Krebs",
+     "po": "C",
+     "ov": 79,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tyler Seguin",
+     "po": "C",
+     "ov": 78,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Arseni Gritsyuk",
+     "po": "AG",
+     "ov": 79,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Roman Kantserov",
+     "po": "AG",
+     "ov": 76,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Thomas Novak",
+     "po": "AG",
+     "ov": 78,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Bobby McMann",
+     "po": "AG",
+     "ov": 78,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "MONTREAL": {
+   "fiche": "MONTREAL 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Erik Portillo",
+     "po": "G",
+     "ov": 79,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Magnus Chrona",
+     "po": "G",
+     "ov": 81,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Petr Mrazek",
+     "po": "G",
+     "ov": 78,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Steven Stamkos",
+     "po": "C",
+     "ov": 80,
+     "age": 36,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Alexei Protas",
+     "po": "C",
+     "ov": 75,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tij Iginla",
+     "po": "C",
+     "ov": 76,
+     "age": 20,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ridly Greig",
+     "po": "C",
+     "ov": 79,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Matthew Savoie",
+     "po": "C",
+     "ov": 80,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Travis Konecny",
+     "po": "AG",
+     "ov": 81,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Adrian Kempe",
+     "po": "AG",
+     "ov": 81,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "NASHVILLE": {
+   "fiche": "NASHVILLE 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Ilya Samsonov",
+     "po": "G",
+     "ov": 86,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Philipp Grubauer",
+     "po": "G",
+     "ov": 79,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor Ingram",
+     "po": "G",
+     "ov": 77,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nazem Kadri",
+     "po": "C",
+     "ov": 79,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mavrik Bourque",
+     "po": "C",
+     "ov": 81,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Anthony Beauvillier",
+     "po": "C",
+     "ov": 79,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tage Thompson",
+     "po": "C",
+     "ov": 82,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Anthony Duclair",
+     "po": "AG",
+     "ov": 79,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Yegor Sharangovich",
+     "po": "AG",
+     "ov": 79,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Rasmus Kupari",
+     "po": "AG",
+     "ov": 80,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "NEWJERSEY": {
+   "fiche": "NEWJERSEY 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Topias Leinonen",
+     "po": "G",
+     "ov": 78,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Hugo Hanefelt",
+     "po": "G",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Samuel Ersson",
+     "po": "G",
+     "ov": 79,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Morgan Frost",
+     "po": "C",
+     "ov": 82,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jakub Lauko",
+     "po": "C",
+     "ov": 77,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Adam Lowry",
+     "po": "C",
+     "ov": 79,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Casey Mittelstadt",
+     "po": "C",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joel Farabee",
+     "po": "AG",
+     "ov": 82,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Kirill Kaprizov",
+     "po": "AG",
+     "ov": 83,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Cole Sillinger",
+     "po": "AG",
+     "ov": 80,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "NYRANGERS": {
+   "fiche": "NYRANGERS 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Remi Poirier",
+     "po": "G",
+     "ov": 77,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Igor Shestyorkin",
+     "po": "G",
+     "ov": 80,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Daniil Tarasov",
+     "po": "G",
+     "ov": 80,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Calum Ritchie",
+     "po": "C",
+     "ov": 76,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Alex Turcotte",
+     "po": "C",
+     "ov": 81,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Josh Doan",
+     "po": "C",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Will Smith",
+     "po": "C",
+     "ov": 79,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "David Pastrnak",
+     "po": "AG",
+     "ov": 84,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Yakov Trenin",
+     "po": "AG",
+     "ov": 81,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nils Hoglander",
+     "po": "AG",
+     "ov": 76,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "OTTAWA": {
+   "fiche": "OTTAWA 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Carter Hart",
+     "po": "G",
+     "ov": 83,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Samuel Jonsson",
+     "po": "G",
+     "ov": 77,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ukko-Pekka Luukkonen",
+     "po": "G",
+     "ov": 77,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan Poehling",
+     "po": "C",
+     "ov": 83,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Elias Lindholm",
+     "po": "C",
+     "ov": 80,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Alex Newhook",
+     "po": "C",
+     "ov": 78,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sam Steel",
+     "po": "C",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Samuel Honzek",
+     "po": "AG",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Artur Kayumov",
+     "po": "AG",
+     "ov": 77,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jesse Ylonen",
+     "po": "AG",
+     "ov": 79,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "PHILLY": {
+   "fiche": "PHILLY 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Devon Levi",
+     "po": "G",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Drew Commesso",
+     "po": "G",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joseph Woll",
+     "po": "G",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sebastian Aho",
+     "po": "C",
+     "ov": 84,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Auston Matthews",
+     "po": "C",
+     "ov": 84,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sean Kuraly",
+     "po": "C",
+     "ov": 77,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jiri Kulich",
+     "po": "AG",
+     "ov": 79,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brady Tkachuk",
+     "po": "AG",
+     "ov": 86,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Sean Couturier",
+     "po": "AG",
+     "ov": 82,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Barclay Goodrow",
+     "po": "AG",
+     "ov": 77,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "PITTSBURGH": {
+   "fiche": "PITTSBURGH 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Jeremy Swayman",
+     "po": "G",
+     "ov": 80,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tristan Lennox",
+     "po": "G",
+     "ov": 75,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Karel Vejmelka",
+     "po": "G",
+     "ov": 82,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan Strome",
+     "po": "C",
+     "ov": 80,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Roni Hirvonen",
+     "po": "C",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Julian Lutz",
+     "po": "C",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Andrew Cristall",
+     "po": "AG",
+     "ov": 76,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Roby Jarventie",
+     "po": "AG",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jared McCann",
+     "po": "AG",
+     "ov": 80,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nikolaj Ehlers",
+     "po": "AG",
+     "ov": 84,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "SANJOSE": {
+   "fiche": "SANJOSE 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Philippe Desrosiers",
+     "po": "G",
+     "ov": 83,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Rasmus Korhonen",
+     "po": "G",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Tyler Wall",
+     "po": "G",
+     "ov": 76,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jesperi Kotkaniemi",
+     "po": "C",
+     "ov": 82,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Cameron Lund",
+     "po": "C",
+     "ov": 76,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ryan O'Reilly",
+     "po": "C",
+     "ov": 81,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jaden Schwartz",
+     "po": "C",
+     "ov": 81,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brad Lambert",
+     "po": "AG",
+     "ov": 77,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brendan Brisson",
+     "po": "AG",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nathan Legare",
+     "po": "AG",
+     "ov": 82,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "SEATTLE": {
+   "fiche": "SEATTLE 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Alexei Kolosov",
+     "po": "G",
+     "ov": 78,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Olivier Rodrigue",
+     "po": "G",
+     "ov": 83,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "T.J. Tynan",
+     "po": "C",
+     "ov": 81,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jakob Pelletier",
+     "po": "C",
+     "ov": 81,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Charlie Coyle",
+     "po": "C",
+     "ov": 80,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Fyodor Svechkov",
+     "po": "C",
+     "ov": 78,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Yanni Gourde",
+     "po": "C",
+     "ov": 78,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jonathan Lekkerimaki",
+     "po": "AG",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Alexander Suzdalev",
+     "po": "AG",
+     "ov": 76,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "J.T. Miller",
+     "po": "AG",
+     "ov": 82,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "ST.LOUIS": {
+   "fiche": "ST.LOUIS 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Elvis Merzlikins",
+     "po": "G",
+     "ov": 79,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ilya Nabokov",
+     "po": "G",
+     "ov": 76,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Juuse Saros",
+     "po": "G",
+     "ov": 81,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jack Roslovic",
+     "po": "C",
+     "ov": 80,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Zach Dean",
+     "po": "C",
+     "ov": 76,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Ivan Barbashev",
+     "po": "C",
+     "ov": 79,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Quinton Byfield",
+     "po": "C",
+     "ov": 82,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Filip Bystedt",
+     "po": "C",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Bo Horvat",
+     "po": "AG",
+     "ov": 82,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mikhail Grigorenko",
+     "po": "AG",
+     "ov": 81,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "TAMPABAY": {
+   "fiche": "TAMPABAY 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Oscar Dansk",
+     "po": "G",
+     "ov": 83,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jakub Malek",
+     "po": "G",
+     "ov": 77,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Trey Augustine",
+     "po": "G",
+     "ov": 76,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Aleksander Barkov",
+     "po": "C",
+     "ov": 82,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jacob de la Rose",
+     "po": "C",
+     "ov": 82,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Lucas Raymond",
+     "po": "AG",
+     "ov": 82,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Colby Barlow",
+     "po": "AG",
+     "ov": 77,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Arthur Kaliyev",
+     "po": "AG",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Zach Benson",
+     "po": "AG",
+     "ov": 77,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jake Neighbours",
+     "po": "AG",
+     "ov": 81,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "TORONTO": {
+   "fiche": "TORONTO 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Chris Gibson",
+     "po": "G",
+     "ov": 83,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Michael Hrabal",
+     "po": "G",
+     "ov": 76,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Kevin Lankinen",
+     "po": "G",
+     "ov": 79,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mathew Barzal",
+     "po": "C",
+     "ov": 81,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Rutger McGroarty",
+     "po": "C",
+     "ov": 78,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Barrett Hayton",
+     "po": "C",
+     "ov": 81,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Vassili Zaitsev",
+     "po": "AG",
+     "ov": 80,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Filip Mesar",
+     "po": "AG",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Teddy Blueger",
+     "po": "AG",
+     "ov": 78,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor Bedard",
+     "po": "AG",
+     "ov": 82,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "UTAH": {
+   "fiche": "UTAH 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Jake Oettinger",
+     "po": "G",
+     "ov": 85,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Adam Gajan",
+     "po": "G",
+     "ov": 76,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": true
+    },
+    {
+     "nom": "Nick Suzuki",
+     "po": "C",
+     "ov": 82,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Wyatt Johnston",
+     "po": "C",
+     "ov": 81,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Morgan Geekie",
+     "po": "C",
+     "ov": 77,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Nathan MacKinnon",
+     "po": "C",
+     "ov": 82,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brandon Hagel",
+     "po": "AG",
+     "ov": 81,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dmitri Voronkov",
+     "po": "AG",
+     "ov": 78,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Connor Dewar",
+     "po": "AG",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Dylan Holloway",
+     "po": "AG",
+     "ov": 77,
+     "age": 25,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "VANCOUVER": {
+   "fiche": "VANCOUVER 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Jan Bednar",
+     "po": "G",
+     "ov": 79,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Lukas Dostal",
+     "po": "G",
+     "ov": 80,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joseph Veleno",
+     "po": "C",
+     "ov": 82,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Thomas Bordeleau",
+     "po": "C",
+     "ov": 77,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Evgeni Malkin",
+     "po": "C",
+     "ov": 82,
+     "age": 40,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Marcus Johansson",
+     "po": "C",
+     "ov": 79,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Conor Geekie",
+     "po": "C",
+     "ov": 79,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Joakim Kemell",
+     "po": "AG",
+     "ov": 79,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Liam Ohgren",
+     "po": "AG",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Daniil But",
+     "po": "AG",
+     "ov": 76,
+     "age": 21,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "VEGAS": {
+   "fiche": "VEGAS 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Sebastian Cossa",
+     "po": "G",
+     "ov": 76,
+     "age": 24,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Logan Thompson",
+     "po": "G",
+     "ov": 80,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Adin Hill",
+     "po": "G",
+     "ov": 80,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "James Hagens",
+     "po": "C",
+     "ov": 75,
+     "age": 20,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jack Eichel",
+     "po": "C",
+     "ov": 84,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mitch Marner",
+     "po": "C",
+     "ov": 82,
+     "age": 29,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Michael Pezzetta",
+     "po": "AG",
+     "ov": 76,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Matyas Sapovaliv",
+     "po": "AG",
+     "ov": 77,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Jakub Brabenec",
+     "po": "AG",
+     "ov": 74,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brett Howden",
+     "po": "AG",
+     "ov": 78,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "WASHINGTON": {
+   "fiche": "WASHINGTON 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "John Gibson",
+     "po": "G",
+     "ov": 80,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Andrey Vasilevskiy",
+     "po": "G",
+     "ov": 85,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Cayden Primeau",
+     "po": "G",
+     "ov": 78,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Danton Heinen",
+     "po": "C",
+     "ov": 81,
+     "age": 31,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Eetu Luostarinen",
+     "po": "C",
+     "ov": 77,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Cayden Lidstrom",
+     "po": "C",
+     "ov": 77,
+     "age": 20,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Josh Norris",
+     "po": "C",
+     "ov": 81,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "David Goyette",
+     "po": "C",
+     "ov": 76,
+     "age": 22,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Mark Scheifele",
+     "po": "C",
+     "ov": 84,
+     "age": 33,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Michael Rasmussen",
+     "po": "AG",
+     "ov": 81,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  },
+  "WINNIPEG": {
+   "fiche": "WINNIPEG 0-0-0",
+   "maj": "oct 13 2026",
+   "joueurs": [
+    {
+     "nom": "Alex Nedeljkovic",
+     "po": "G",
+     "ov": 83,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Isaiah Saville",
+     "po": "G",
+     "ov": 79,
+     "age": 26,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Calvin Pickard",
+     "po": "G",
+     "ov": 77,
+     "age": 34,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Brayden Point",
+     "po": "C",
+     "ov": 82,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Robert Thomas",
+     "po": "C",
+     "ov": 82,
+     "age": 27,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Elias Pettersson",
+     "po": "C",
+     "ov": 83,
+     "age": 28,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Chandler Stephenson",
+     "po": "C",
+     "ov": 80,
+     "age": 32,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Kevin Fiala",
+     "po": "AG",
+     "ov": 80,
+     "age": 30,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Artemi Panarin",
+     "po": "AG",
+     "ov": 82,
+     "age": 35,
+     "backup": false,
+     "horsAlignement": false
+    },
+    {
+     "nom": "Danila Yurov",
+     "po": "AG",
+     "ov": 78,
+     "age": 23,
+     "backup": false,
+     "horsAlignement": false
+    }
+   ]
+  }
+ }
+}

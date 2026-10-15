@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USHL — Suivi des gardiens Y21</title>
+<title>USHL · Suivi des gardiens</title>
 <style>
   :root {
     --glace: #0b1420;
@@ -48,6 +48,7 @@
   }
   h1 .accent { color: var(--bleu); }
   .sous-titre { color: var(--texte-2); font-size: 13px; margin-top: 4px; letter-spacing: .04em; }
+  .sous-titre .saison { color: var(--texte); font-weight: 700; }
   .maj { color: var(--texte-3); font-size: 12px; margin-top: 2px; }
   .maj b { color: var(--texte-2); font-weight: 600; }
 
@@ -65,25 +66,41 @@
   #btnActualiser .ico { display: inline-block; }
   #btnActualiser.chargement .ico { animation: tourner 1s linear infinite; }
   @keyframes tourner { to { transform: rotate(360deg); } }
+  @media (max-width: 540px) {
+    header { padding: 16px 16px 14px; position: static; }
+    h1 { font-size: 21px; }
+    #btnActualiser { padding: 10px 16px; font-size: 14px; }
+  }
 
   /* ---------- Sommaire ---------- */
   .conteneur { max-width: 1180px; margin: 0 auto; padding: 22px 28px 0; }
+  @media (max-width: 540px) { .conteneur { padding: 16px 16px 0; } }
   .sommaire { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
   .puce {
     background: var(--panneau); border: 1px solid var(--ligne); border-radius: 10px;
     padding: 10px 18px; min-width: 130px;
   }
+  @media (max-width: 540px) { .puce { min-width: 0; flex: 1 1 40%; padding: 9px 12px; } }
   .puce .val { font-size: 24px; font-weight: 800; }
   .puce .lab { font-size: 11px; text-transform: uppercase; letter-spacing: .09em; color: var(--texte-2); margin-top: 2px; }
   .puce.v-ok .val { color: var(--ok); }
   .puce.v-alerte .val { color: var(--alerte); }
   .puce.v-lampe .val { color: var(--lampe); }
+  .puce.v-avenir .val { color: var(--texte-2); }
+
+  /* ---------- Avis ---------- */
+  #avis { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  #avis:empty { display: none; }
+  .avis-item { padding: 11px 15px; border-radius: 8px; font-size: 13.5px; line-height: 1.45; }
+  .avis-item.info { background: rgba(77,163,255,.08); border: 1px solid rgba(77,163,255,.3); color: #a8cef5; }
+  .avis-item.alerte { background: rgba(245,181,63,.08); border: 1px solid rgba(245,181,63,.35); color: #f3d79a; }
+  .avis-item.erreur { background: rgba(255,59,59,.1); border: 1px solid rgba(255,59,59,.4); color: #ffb0b0; }
 
   /* ---------- Filtres ---------- */
   .filtres { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
   .filtres input[type="search"] {
     background: var(--glace-2); border: 1px solid var(--ligne); color: var(--texte);
-    border-radius: 8px; padding: 9px 14px; font-size: 14px; width: 240px;
+    border-radius: 8px; padding: 9px 14px; font-size: 14px; width: 290px;
   }
   .filtres input::placeholder { color: var(--texte-3); }
   .filtres select {
@@ -113,6 +130,7 @@
     border-radius: 6px; padding: 2px 9px;
   }
   .equipe-tete .nom { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--texte-2); }
+  .equipe-tete .fiche-equipe { margin-left: auto; font-size: 12px; color: var(--texte-3); white-space: nowrap; }
 
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   thead th {
@@ -128,8 +146,23 @@
   .g-nom { font-weight: 650; white-space: nowrap; }
   .g-nom .recrue { color: var(--alerte); font-size: 11px; margin-left: 4px; vertical-align: super; }
   .g-nom .badge { display: inline-block; margin-top: 5px; }
+  .g-nom .tag {
+    display: inline-block; margin-left: 6px; font-size: 9.5px; font-weight: 600; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--texte-3); border: 1px solid var(--ligne); border-radius: 5px; padding: 1px 6px;
+    vertical-align: 2px;
+  }
+  .g-nom .note { display: block; font-size: 11px; font-weight: 400; color: var(--texte-3); margin-top: 3px; white-space: normal; }
   .fiche { color: var(--texte-2); white-space: nowrap; }
   .table-scroll { overflow-x: auto; }
+  .g-nom .ligne-2 { white-space: normal; }
+  .g-nom .vdn-mobile { display: none; font-size: 11px; font-weight: 400; color: var(--texte-2); margin-top: 4px; }
+  @media (max-width: 540px) {
+    .col-vdn, .piste-cell { display: none; }
+    thead th, tbody td { padding-left: 7px; padding-right: 7px; }
+    .g-nom { white-space: normal; }
+    .g-nom .vdn-mobile { display: block; }
+    .equipe-tete { padding: 11px 12px; }
+  }
 
   /* Piste de progression façon patinoire */
   .piste-cell { width: 32%; min-width: 120px; }
@@ -162,6 +195,7 @@
   }
   .b-depasse { color: #fff; background: #a30f0f; border: 1px solid var(--lampe); animation: lampe 1.1s ease-in-out infinite; }
   .b-inconnu { color: var(--texte-3); background: rgba(93,115,145,.12); border: 1px solid var(--ligne); }
+  .b-avenir { color: var(--texte-2); background: rgba(143,166,192,.08); border: 1px dashed var(--ligne); }
   @keyframes lampe {
     0%, 100% { box-shadow: 0 0 4px rgba(255,59,59,.6); }
     50% { box-shadow: 0 0 16px rgba(255,59,59,.95); }
@@ -227,26 +261,23 @@
   details.panneau summary:hover { color: var(--texte); }
   .panneau-corps { padding: 4px 16px 16px; font-size: 13px; color: var(--texte-2); }
   .panneau-corps label { display: block; margin: 12px 0 4px; color: var(--texte-3); font-size: 12px; text-transform: uppercase; letter-spacing: .07em; }
-  .panneau-corps input[type="url"] {
-    width: 100%; background: var(--glace-2); border: 1px solid var(--ligne); color: var(--texte);
-    border-radius: 6px; padding: 8px 10px; font-size: 12.5px; font-family: ui-monospace, monospace;
-  }
-  .panneau-corps button {
-    margin-top: 12px; margin-right: 8px; background: var(--panneau-2); color: var(--texte);
+  .panneau-corps button, .panneau-corps .bouton-lien {
+    display: inline-block; margin-top: 12px; margin-right: 8px; background: var(--panneau-2); color: var(--texte);
     border: 1px solid var(--ligne); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer;
+    text-decoration: none; font-family: inherit;
   }
-  .panneau-corps button:hover { border-color: var(--bleu); }
+  .panneau-corps button:hover, .panneau-corps .bouton-lien:hover { border-color: var(--bleu); }
+  .panneau-corps ul { margin: 8px 0 0 18px; }
+  .panneau-corps li { margin: 4px 0; }
+  .fiche-robot { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin-top: 6px; }
+  .fiche-robot dt { color: var(--texte-3); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+  .fiche-robot dd { color: var(--texte); word-break: break-word; }
+  .fiche-robot a { color: var(--bleu); }
+  @media (max-width: 540px) { .fiche-robot { grid-template-columns: 1fr; gap: 2px; } .fiche-robot dd { margin-bottom: 6px; } }
   #journal { font-family: ui-monospace, monospace; font-size: 11.5px; white-space: pre-wrap; line-height: 1.55; color: var(--texte-3); max-height: 260px; overflow: auto; }
   #journal .ok { color: var(--ok); } #journal .err { color: var(--lampe); } #journal .info { color: var(--texte-2); }
 
-  /* ---------- États ---------- */
-  #message {
-    margin: 14px 0; padding: 12px 16px; border-radius: 8px; font-size: 14px; display: none;
-  }
-  #message.visible { display: block; }
-  #message.erreur { background: rgba(255,59,59,.1); border: 1px solid rgba(255,59,59,.4); color: #ffb0b0; }
-  #message.info { background: rgba(77,163,255,.08); border: 1px solid rgba(77,163,255,.3); color: #a8cef5; }
-  .vide { color: var(--texte-3); text-align: center; padding: 60px 20px; font-size: 15px; }
+  .vide { color: var(--texte-3); text-align: center; padding: 60px 20px; font-size: 15px; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -255,27 +286,28 @@
   <div class="header-inner">
     <div class="titre-bloc">
       <h1>Suivi des gardiens <span class="accent">USHL</span></h1>
-      <div class="sous-titre">Matchs joués (V + D + N) vs limite d’utilisation — Y21</div>
+      <div class="sous-titre">Matchs joués (V + D + N) et limite d’utilisation<span id="etiquetteSaison"></span></div>
       <div class="maj num" id="lignesMaj">
-        <span id="majDonnees"></span>
-        <span id="majSource"></span>
+        <span id="majReleve"></span>
+        <span id="majLigue"></span>
       </div>
     </div>
     <button id="btnActualiser" type="button">
       <span class="ico">⟳</span> Actualiser
     </button>
-    <button id="lienAdmin" type="button" title="Administration des sources">Admin</button>
+    <button id="lienAdmin" type="button" title="Suivi du robot de relève">Admin</button>
   </div>
 </header>
 
 <div class="conteneur">
-  <div id="message"></div>
+  <div id="avis"></div>
 
   <div class="sommaire" id="sommaire" hidden>
-    <div class="puce"><div class="val num" id="sGardiens">–</div><div class="lab">Gardiens</div></div>
-    <div class="puce v-ok"><div class="val num" id="sOk">–</div><div class="lab">En règle</div></div>
-    <div class="puce v-alerte"><div class="val num" id="sAlerte">–</div><div class="lab">En alerte (≤ 5 restants)</div></div>
-    <div class="puce v-lampe"><div class="val num" id="sLampe">–</div><div class="lab">Limite atteinte</div></div>
+    <div class="puce"><div class="val num" id="sGardiens">0</div><div class="lab">Gardiens</div></div>
+    <div class="puce v-ok"><div class="val num" id="sOk">0</div><div class="lab">En règle</div></div>
+    <div class="puce v-alerte"><div class="val num" id="sAlerte">0</div><div class="lab">En alerte (≤ 5 restants)</div></div>
+    <div class="puce v-lampe"><div class="val num" id="sLampe">0</div><div class="lab">Limite atteinte</div></div>
+    <div class="puce v-avenir" id="puceSansLimite" hidden><div class="val num" id="sSansLimite">0</div><div class="lab" id="libSansLimite">Limite à venir</div></div>
   </div>
 
   <div class="filtres" id="filtres" hidden>
@@ -290,7 +322,12 @@
     </select>
   </div>
 
-  <div id="contenu"><div class="vide">Clique sur « Actualiser » pour charger les données de la ligue.</div></div>
+  <div id="contenu"><div class="vide">Chargement du relevé des gardiens…</div></div>
+
+  <details class="panneau" id="panneauAvertissements" hidden>
+    <summary>Avertissements du robot (<span id="nbAvertissements">0</span>)</summary>
+    <div class="panneau-corps"><ul id="listeAvertissements"></ul></div>
+  </details>
 
   <details class="panneau" id="panneauNonAssocies" hidden>
     <summary>Limites non associées automatiquement (<span id="nbNonAssocies">0</span>)</summary>
@@ -300,7 +337,7 @@
   <details class="panneau">
     <summary>Importer les limites par collage</summary>
     <div class="panneau-corps">
-      <p>Si la lecture automatique du tableau des limites échoue, sélectionne le tableau directement sur la page de gestion des gardiens (Ctrl+A, Ctrl+C), colle-le ici, puis clique sur « Importer ». L'interface repère les noms et les limites automatiquement.</p>
+      <p>Pour essayer des limites avant que le robot les lise, ou si sa lecture échoue : sélectionne le tableau des limites sur la page de gestion des gardiens (Ctrl+A, Ctrl+C), colle-le ici, puis clique sur « Importer ». Les limites importées restent dans ce navigateur seulement et ont priorité sur celles du robot.</p>
       <label for="zoneCollage">Contenu collé du tableau des limites</label>
       <textarea id="zoneCollage" rows="8" style="width:100%;background:var(--glace-2);border:1px solid var(--ligne);color:var(--texte);border-radius:6px;padding:8px 10px;font-size:12.5px;font-family:ui-monospace,monospace;"></textarea>
       <button type="button" id="btnImporterCollage">Importer ces limites</button>
@@ -309,21 +346,14 @@
     </div>
   </details>
 
-  <details class="panneau" id="panneauSources" hidden>
-    <summary>Sources de données (admin)</summary>
+  <details class="panneau" id="panneauRobot" hidden>
+    <summary>Robot de relève (admin)</summary>
     <div class="panneau-corps">
-      <label for="urlStats">Page des statistiques des gardiens</label>
-      <input type="url" id="urlStats">
-      <label for="urlLimites">Page des limites de matchs (gestion des gardiens)</label>
-      <input type="url" id="urlLimites">
-      <label for="urlProxyPerso">Proxy personnel (optionnel — ex. Cloudflare Worker)</label>
-      <input type="url" id="urlProxyPerso" placeholder="https://ton-worker.ton-compte.workers.dev">
-      <button type="button" id="btnSauverUrls">Enregistrer les sources</button>
-      <button type="button" id="btnResetUrls">Rétablir les sources par défaut</button>
-      <button type="button" id="btnRechargerLimites">Recharger les limites maintenant</button>
+      <dl class="fiche-robot" id="ficheRobot"></dl>
+      <a class="bouton-lien" id="lienWorkflow" href="#" target="_blank" rel="noopener">Lancer une relève maintenant (GitHub)</a>
       <button type="button" id="btnResetManuel">Effacer les limites saisies manuellement</button>
       <button type="button" id="btnDeconnexion">Se déconnecter</button>
-      <p style="margin-top:10px;color:var(--texte-3)">Les limites sont fixes pour la saison : une fois lues, elles sont conservées 7 jours. « Actualiser » ne recharge que les statistiques des matchs, ce qui est plus rapide et plus fiable.</p>
+      <p style="margin-top:12px;color:var(--texte-3)">Le robot passe deux fois par jour, vers 8 h 20 et 18 h 20 (7 h 20 et 17 h 20 en hiver). Sur la page du workflow, « Run workflow » lance une relève immédiate (environ une minute), puis « Actualiser » ici l'affiche.</p>
     </div>
   </details>
 
@@ -339,7 +369,7 @@
 <div id="voileAdmin" role="dialog" aria-modal="true" aria-labelledby="titreAdmin">
   <div class="boite-admin">
     <h2 id="titreAdmin">Administration</h2>
-    <p>Réservé à la gestion des liens de sources de données.</p>
+    <p>Réservé au suivi du robot de relève.</p>
     <label for="champUtilisateur">Nom d'utilisateur</label>
     <input type="text" id="champUtilisateur" autocomplete="username">
     <label for="champMdp">Mot de passe</label>
@@ -357,34 +387,38 @@
 
 /* =====================================================================
    CONFIGURATION
+   Les données viennent toutes de data/gardiens.json, produit deux fois par
+   jour par le robot GitHub Actions (scripts/releve-gardiens.mjs). Même
+   origine que l'interface : ni CORS ni relais public, donc fiable sur mobile.
 ===================================================================== */
-const DEFAUTS = {
-  urlStats: "https://ushl.ca/ushl/menu_sim/USHL-pro/jamesishot/StatsGoalies.php?seasonId=&seasonType=PLF",
-  urlScoringSecours: "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL21PLFTeamScoring.html",
-  urlLimites: "https://ushl.ca/ushl/menu_ushl/gestion_dg/gestion_gardiens/y21/gestiongardiensy21.htm",
-  fichierLimitesJson: "limites.json", // produit par le robot GitHub Actions, lu sans proxy
-  proxyPerso: ""
+const CONFIG = {
+  fichier: "data/gardiens.json",
+  workflow: "releve-gardiens.yml",
+  seuilAlerte: 5,          // matchs restants
+  fraicheurMaxHeures: 36   // au-delà, le robot ne passe peut-être plus
 };
-const CLE_CACHE = "ushl_gardiens_cache_v2";
-const CLE_URLS = "ushl_gardiens_urls_v1";
+const CLE_CACHE = "ushl_gardiens_cache_v3";
 const CLE_MANUEL = "ushl_gardiens_limites_manuelles_v1";
 const CLE_COLLAGE = "ushl_gardiens_limites_collees_v1";
-const SEUIL_ALERTE = 5; // matchs restants
+const CLES_OBSOLETES = [
+  "ushl_gardiens_cache_v2", "ushl_gardiens_urls_v1", "ushl_gardiens_proxy_prefere_v1",
+  "ushl_gardiens_url_scoring_v1", "ushl_gardiens_limites_cache_v1"
+];
+const AUTRES = "_AUTRES";
 
 const etat = {
+  donnees: null,
+  origine: null,      // « fichier » ou « cache »
   gardiens: [],
-  equipes: {},
-  limites: [],        // [{nom, nomNorm, limite, brut}]
   nonAssocies: [],
-  asOf: null,
-  horodatage: null,
   filtre: "tous",
   recherche: "",
-  tri: "equipe"
+  tri: "equipe",
+  erreur: null
 };
 
 /* =====================================================================
-   JOURNAL
+   OUTILS
 ===================================================================== */
 const journalEl = document.getElementById("journal");
 function log(msg, type) {
@@ -395,264 +429,133 @@ function log(msg, type) {
   journalEl.appendChild(span);
   journalEl.scrollTop = journalEl.scrollHeight;
 }
-
-/* =====================================================================
-   RÉCUPÉRATION RÉSEAU — chaîne de proxys CORS avec repli
-===================================================================== */
-const CLE_PROXY = "ushl_gardiens_proxy_prefere_v1";
-let derniereRequete = 0;
-function pause(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-function canaux(url) {
-  const enc = encodeURIComponent(url);
-  const liste = [
-    { nom: "direct", url: url, json: false },
-    { nom: "allorigins", url: "https://api.allorigins.win/raw?url=" + enc, json: false },
-    { nom: "allorigins-get", url: "https://api.allorigins.win/get?url=" + enc, json: true },
-    { nom: "codetabs", url: "https://api.codetabs.com/v1/proxy?quest=" + enc, json: false },
-    { nom: "corsproxy.io", url: "https://corsproxy.io/?url=" + enc, json: false },
-    { nom: "cors.workers.dev", url: "https://test.cors.workers.dev/?" + url, json: false }
-  ];
-  // Proxy « collant » : celui qui a fonctionné récemment passe en premier
-  const prefere = localStorage.getItem(CLE_PROXY);
-  if (prefere) liste.sort((a, b) => (a.nom === prefere ? -1 : 0) - (b.nom === prefere ? -1 : 0));
-  // Proxy personnel (ex. Cloudflare Worker) : toujours en tête s'il est configuré
-  const perso = urlsCourantes().proxyPerso;
-  if (perso) {
-    const p = perso.trim();
-    const urlPerso = /[?&]url=$|=$/i.test(p) ? p + enc
-      : p.includes("?") ? p + "&url=" + enc
-      : p.replace(/\/+$/, "") + "/?url=" + enc;
-    liste.unshift({ nom: "perso", url: urlPerso, json: false });
-  }
-  return liste;
+function lireStockage(cle, defaut) {
+  try { const v = localStorage.getItem(cle); return v === null ? defaut : JSON.parse(v); }
+  catch (e) { return defaut; }
 }
-
-function decoderTexte(buffer) {
-  let texte = new TextDecoder("utf-8").decode(buffer);
-  // Détection d'un mauvais décodage (pages Excel souvent en windows-1252)
-  if (/\uFFFD|Ã[©¨´¢«»‰€]|â€™/.test(texte)) {
-    try { texte = new TextDecoder("windows-1252").decode(buffer); } catch (e) {}
-  }
-  return texte;
+function ecrireStockage(cle, valeur) {
+  try { localStorage.setItem(cle, JSON.stringify(valeur)); return true; } catch (e) { return false; }
 }
-
-async function recupererTexte(urlCible) {
-  const cible = urlCible + (urlCible.includes("?") ? "&" : "?") + "_anticache=" + Date.now();
-  let derniereErreur = null;
-  for (let passe = 0; passe < 2; passe++) {
-    if (passe > 0) { log("Nouvelle passe dans 2 s…", "info"); await pause(2000); }
-    for (const p of canaux(cible)) {
-      try {
-        // Espacer les requêtes pour ne pas déclencher les limites de débit des proxys
-        const ecart = Date.now() - derniereRequete;
-        if (ecart < 450) await pause(450 - ecart);
-        derniereRequete = Date.now();
-        log("Tentative (" + p.nom + ") : " + urlCible);
-        const ctrl = new AbortController();
-        const minuterie = setTimeout(() => ctrl.abort(), 20000);
-        const rep = await fetch(p.url, { signal: ctrl.signal, cache: "no-store" });
-        clearTimeout(minuterie);
-        if (!rep.ok) throw new Error("HTTP " + rep.status);
-        let texte;
-        if (p.json) {
-          const j = await rep.json();
-          texte = j && j.contents ? String(j.contents) : "";
-        } else {
-          texte = decoderTexte(await rep.arrayBuffer());
-        }
-        if (texte.length < 50) throw new Error("réponse vide");
-        localStorage.setItem(CLE_PROXY, p.nom);
-        log("Réussi via " + p.nom + " (" + texte.length + " caractères)", "ok");
-        return texte;
-      } catch (e) {
-        derniereErreur = e;
-        log("Échec (" + p.nom + ") : " + (e.name === "AbortError" ? "délai dépassé" : e.message), "err");
-      }
-    }
-  }
-  throw new Error("Impossible de récupérer " + urlCible + " — " + (derniereErreur ? derniereErreur.message : ""));
+function retirerStockage(cle) {
+  try { localStorage.removeItem(cle); } catch (e) {}
+}
+function echapper(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+function dateLisible(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return "?";
+  return d.toLocaleString("fr-CA", { dateStyle: "medium", timeStyle: "short" });
 }
 
 /* =====================================================================
-   ANALYSE DES STATISTIQUES (blocs GOALTENDING)
-   Matchs joués = V + D + N — jamais la colonne GP.
+   NOMS (mêmes règles que le robot)
 ===================================================================== */
-function texteDepuisHtml(html) {
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  doc.querySelectorAll("script,style").forEach(n => n.remove());
-  return doc.body ? doc.body.innerText || doc.body.textContent || "" : "";
-}
-
-function parseGardiens(texte) {
-  const gardiens = [];
-  const equipes = {};
-  const lignes = texte.split(/\r?\n/);
-  let dansGoaltending = false;
-  for (const brut of lignes) {
-    const ligne = brut.replace(/\u00a0/g, " ");
-    if (/^\s*GOALTENDING\s*$/.test(ligne)) { dansGoaltending = true; continue; }
-    if (/^\s*SCORING\s*$/.test(ligne)) { dansGoaltending = false; continue; }
-    const tot = ligne.match(/^([A-Z][A-Z\.\-]+)\s+Totals\s+([A-Z]{1,4})\s/);
-    if (tot) { equipes[tot[2]] = tot[1]; if (dansGoaltending) dansGoaltending = false; continue; }
-    if (!dansGoaltending) continue;
-    const tokens = ligne.trim().split(/\s+/);
-    if (tokens.length < 15) continue;
-    if (!/^\d+$/.test(tokens[0])) continue;
-    const equipe = tokens[tokens.length - 13];
-    if (!/^[A-Z]{1,4}$/.test(equipe)) continue;
-    const nums = tokens.slice(-12); // GP MIN AVG W L T SO GA SA PCT PIM AS
-    let partiesNom = tokens.slice(1, tokens.length - 13);
-    let recrue = false;
-    if (partiesNom[0] && partiesNom[0].startsWith("*")) {
-      recrue = true;
-      partiesNom[0] = partiesNom[0].slice(1);
-      if (partiesNom[0] === "") partiesNom.shift();
-    }
-    const v = parseInt(nums[3], 10), d = parseInt(nums[4], 10), n = parseInt(nums[5], 10);
-    if ([v, d, n].some(isNaN) || partiesNom.length === 0) continue;
-    gardiens.push({
-      nom: partiesNom.join(" "),
-      recrue,
-      equipe,
-      v, d, n,
-      mj: v + d + n
-    });
-  }
-  return { gardiens, equipes };
-}
-
-/* =====================================================================
-   ANALYSE DE LA PAGE DES LIMITES (export Excel avec cadres)
-===================================================================== */
-function extraireSrcCadres(html) {
-  const srcs = [];
-  // frames et iframes, avec ou sans guillemets
-  const re = /<i?frame[^>]+src\s*=\s*(?:["']([^"']+)["']|([^\s>"']+))/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) srcs.push(m[1] || m[2]);
-  return srcs;
-}
-
-function extraireLiensHtm(html) {
-  const liens = [];
-  const re = /<a[^>]+href\s*=\s*(?:["']([^"']+)["']|([^\s>"']+))/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const h = (m[1] || m[2] || "").split("#")[0];
-    if (/\.html?($|\?)/i.test(h)) liens.push(h);
-  }
-  return liens;
-}
-
-function resoudreUrl(base, relative) {
-  try { return new URL(relative, base).href; } catch (e) { return null; }
-}
-
 function normaliserNom(nom) {
-  return String(nom)
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z]/g, "");
+  return String(nom).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z]/g, "");
 }
-
 // Décompose « Jacob Markstrom », « Markstrom, Jacob », « J. Markstrom », « J.Markstrom »
 function decomposerNom(nom) {
-  let t = String(nom).replace(/\u00a0/g, " ").trim();
+  const t = String(nom).replace(/ /g, " ").trim();
   if (t.includes(",")) {
     const [fam, pre] = t.split(",").map(s => s.trim());
     if (fam && pre) return { prenom: pre, famille: fam };
   }
-  const mDot = t.match(/^([A-Za-zÀ-ÿ])\.\s*([A-Za-zÀ-ÿ'\-]{2,}(?:\s+[A-Za-zÀ-ÿ'\-]+)*)$/);
-  if (mDot) return { prenom: mDot[1], famille: mDot[2] };
+  const mPoint = t.match(/^([A-Za-zÀ-ÿ])\.\s*([A-Za-zÀ-ÿ'\-]{2,}(?:\s+[A-Za-zÀ-ÿ'\-]+)*)$/);
+  if (mPoint) return { prenom: mPoint[1], famille: mPoint[2] };
   const mots = t.split(/\s+/).filter(Boolean);
   if (mots.length >= 2) return { prenom: mots[0], famille: mots.slice(1).join(" ") };
   return { prenom: "", famille: t };
 }
-
 function clesNom(nom) {
   const { prenom, famille } = decomposerNom(nom);
   const cles = new Set();
   const complet = normaliserNom(prenom + famille);
   const inverse = normaliserNom(famille + prenom);
   if (complet.length > 2) { cles.add(complet); cles.add(inverse); }
-  if (prenom && famille) cles.add(normaliserNom(prenom[0]) + normaliserNom(famille)); // « j » + famille
-  return { cles: Array.from(cles), famille: normaliserNom(famille) };
+  const initiale = normaliserNom(prenom).charAt(0);
+  if (initiale && famille) cles.add(initiale + normaliserNom(famille));
+  return { cles: Array.from(cles), famille: normaliserNom(famille), initiale };
+}
+// Nom complet, puis initiale + nom, puis nom de famille seul s'il est unique des deux côtés
+function apparieur(liste, nomDe, nomsAutreCote) {
+  const parCle = new Map(), parFamille = new Map(), autres = new Map();
+  for (const x of liste) {
+    const { cles, famille } = clesNom(nomDe(x));
+    for (const c of cles) if (!parCle.has(c)) parCle.set(c, x);
+    if (famille) parFamille.set(famille, parFamille.has(famille) ? null : x);
+  }
+  for (const n of nomsAutreCote || []) {
+    const f = clesNom(n).famille;
+    if (f) autres.set(f, (autres.get(f) || 0) + 1);
+  }
+  return nom => {
+    const { cles, famille, initiale } = clesNom(nom);
+    for (const c of cles) if (parCle.has(c)) return parCle.get(c);
+    const x = famille ? parFamille.get(famille) : null;
+    if (!x || (autres.get(famille) || 1) > 1) return null;
+    const autre = clesNom(nomDe(x)).initiale;
+    if (initiale && autre && initiale !== autre) return null;
+    return x;
+  };
 }
 
+/* =====================================================================
+   IMPORT PAR COLLAGE (tableau des limites copié depuis le navigateur)
+===================================================================== */
 function ressembleANom(texte) {
-  const t = String(texte).replace(/\u00a0/g, " ").trim();
+  const t = String(texte).replace(/ /g, " ").trim();
   if (t.length < 4 || t.length > 45) return false;
   if (/\d/.test(t)) return false;
   if (!/^[A-Za-zÀ-ÿ'.,\- ]+$/.test(t)) return false;
   const mots = t.replace(",", " ").split(/\s+/).filter(Boolean);
   if (mots.length >= 2 && mots.length <= 4) return true;
-  // « J.Markstrom » collé en un seul mot
   return /^[A-Za-zÀ-ÿ]\.[A-Za-zÀ-ÿ'\-]{3,}$/.test(t);
 }
-
 function estMotSeul(texte) {
   const t = String(texte).trim();
   if (/^[A-Z]{2,4}$/.test(t)) return false; // code d'équipe (NJ, PHI, NSH...), pas un prénom
   return t.length >= 2 && t.length <= 20 && /^[A-Za-zÀ-ÿ'.\-]+$/.test(t) && !/^\d/.test(t);
 }
-
-// Analyse générique de rangées (issues d'un tableau HTML ou d'un collage)
-function analyserRangees(rangees, journalPrefixe) {
-  // 1) Colonne « limite » repérée par mot-clé d'en-tête
-  let colLimiteEntete = -1;
+// Même logique que le robot : un en-tête ne fait foi que s'il est court, sans
+// chiffre (« Max 55 matchs » est une phrase) et que sa colonne a des valeurs
+function analyserRangees(rangees) {
+  let colEntete = -1;
   for (const r of rangees.slice(0, 40)) {
     for (let i = 0; i < r.length; i++) {
       const c = String(r[i]).toLowerCase().trim();
-      // Une vraie cellule d'en-tête est courte et sans chiffre (sinon c'est
-      // une phrase explicative comme « Max 55 matchs » qui fausse tout)
       if (c.length === 0 || c.length > 40 || /\d/.test(c)) continue;
       if (/(max|limite|nb|quota|nombre).{0,14}(match|partie|mj)|(match|partie|mj).{0,14}(max|limite|permis)|partie[s]? permise|^max$/.test(c)) {
-        colLimiteEntete = i; break;
+        colEntete = i; break;
       }
     }
-    if (colLimiteEntete >= 0) break;
+    if (colEntete >= 0) break;
   }
-
-  // 2) Rangées candidates : un nom + des cellules numériques
   const candidats = [];
   for (const r of rangees) {
-    let nomTrouve = null;
-    let idxNomFin = -1;
+    let nom = null, idxNomFin = -1;
     for (let i = 0; i < r.length; i++) {
-      if (ressembleANom(r[i])) { nomTrouve = String(r[i]).trim(); idxNomFin = i; break; }
+      if (ressembleANom(r[i])) { nom = String(r[i]).trim(); idxNomFin = i; break; }
     }
-    // Prénom et nom dans deux colonnes adjacentes
-    if (!nomTrouve) {
+    if (!nom) {
       for (let i = 0; i + 1 < r.length; i++) {
         if (estMotSeul(r[i]) && estMotSeul(r[i + 1])) {
           const joint = String(r[i]).trim() + " " + String(r[i + 1]).trim();
-          if (ressembleANom(joint)) { nomTrouve = joint; idxNomFin = i + 1; break; }
+          if (ressembleANom(joint)) { nom = joint; idxNomFin = i + 1; break; }
         }
       }
     }
-    if (!nomTrouve) continue;
+    if (!nom) continue;
     const numeriques = [];
     for (let i = 0; i < r.length; i++) {
       if (i <= idxNomFin && i >= idxNomFin - 1) continue;
       const val = String(r[i]).replace(",", ".").replace(/\s/g, "");
       if (/^\d{1,3}(\.\d+)?$/.test(val)) numeriques.push({ col: i, val: Math.round(parseFloat(val)) });
     }
-    if (numeriques.length === 0) continue;
-    candidats.push({ nom: nomTrouve, numeriques });
+    if (numeriques.length) candidats.push({ nom, numeriques });
   }
-
-  if (candidats.length === 0) {
-    // Diagnostic : montrer un échantillon brut dans le journal
-    const echantillon = rangees.filter(r => r.some(c => String(c).trim() !== "")).slice(0, 8)
-      .map(r => r.map(c => String(c).trim()).filter(Boolean).join(" | ")).join("\n    ");
-    if (echantillon) log((journalPrefixe || "") + "aucune rangée reconnue. Échantillon :\n    " + echantillon, "info");
-    return [];
-  }
-
-  // 3) Choisir la colonne de la limite
-  // Extraction pour une colonne donnée (sert aussi à valider l'en-tête)
-  const extrairePour = (col) => {
+  if (!candidats.length) return [];
+  const extrairePour = col => {
     const out = [];
     for (const c of candidats) {
       const nq = c.numeriques.find(x => x.col === col);
@@ -661,56 +564,27 @@ function analyserRangees(rangees, journalPrefixe) {
     return out;
   };
   let colChoisie = -1;
-  // L'en-tête ne fait foi que si sa colonne produit réellement des valeurs
-  if (colLimiteEntete >= 0 && extrairePour(colLimiteEntete).length >= Math.max(3, Math.floor(candidats.length / 3))) {
-    colChoisie = colLimiteEntete;
-  }
+  if (colEntete >= 0 && extrairePour(colEntete).length >= Math.max(3, Math.floor(candidats.length / 3))) colChoisie = colEntete;
   if (colChoisie < 0) {
-    // La règle USHL borne la limite entre ~30 et 66 : choisir la colonne dont
-    // le plus de valeurs tombent dans [25, 66] (à égalité : la plus à droite)
     const scores = {};
-    for (const c of candidats) {
-      for (const nq of c.numeriques) {
-        if (nq.val >= 25 && nq.val <= 66) scores[nq.col] = (scores[nq.col] || 0) + 1;
-      }
-    }
+    for (const c of candidats) for (const nq of c.numeriques) if (nq.val >= 25 && nq.val <= 66) scores[nq.col] = (scores[nq.col] || 0) + 1;
     let meilleur = -1, meilleurScore = 0;
     for (const col of Object.keys(scores)) {
       const cc = parseInt(col, 10);
-      if (scores[col] > meilleurScore || (scores[col] === meilleurScore && cc > meilleur)) {
-        meilleur = cc; meilleurScore = scores[col];
-      }
+      if (scores[col] > meilleurScore || (scores[col] === meilleurScore && cc > meilleur)) { meilleur = cc; meilleurScore = scores[col]; }
     }
     colChoisie = meilleur;
   }
-  if (colChoisie < 0) {
-    log((journalPrefixe || "") + candidats.length + " rangées avec noms, mais aucune colonne de limite plausible.", "info");
-    return [];
-  }
-
-  return extrairePour(colChoisie);
+  return colChoisie < 0 ? [] : extrairePour(colChoisie);
 }
-
-function parseLimites(htmlFeuille, journalPrefixe) {
-  const doc = new DOMParser().parseFromString(htmlFeuille, "text/html");
-  const rangees = [];
-  doc.querySelectorAll("tr").forEach(tr => {
-    const cellules = Array.from(tr.querySelectorAll("td,th"))
-      .map(td => (td.textContent || "").replace(/\u00a0/g, " ").trim());
-    if (cellules.some(c => c !== "")) rangees.push(cellules);
-  });
-  return analyserRangees(rangees, journalPrefixe);
-}
-
-// Analyse d'un collage brut (copier-coller du tableau depuis le navigateur)
 function parseCollage(texte) {
   const rangees = String(texte).split(/\r?\n/).map(ligne => {
     if (ligne.includes("\t")) return ligne.split("\t").map(c => c.trim());
     return ligne.trim().split(/\s{2,}/).map(c => c.trim());
   }).filter(r => r.some(c => c !== ""));
+  const res = analyserRangees(rangees);
+  if (res.length) return res;
   // Repli : lignes en espaces simples « Prénom Nom 58 »
-  const res = analyserRangees(rangees, "collage : ");
-  if (res.length > 0) return res;
   const secours = [];
   for (const ligne of String(texte).split(/\r?\n/)) {
     const m = ligne.trim().match(/^(.+?)\s+(\d{1,2})\s*$/);
@@ -723,58 +597,67 @@ function parseCollage(texte) {
 }
 
 /* =====================================================================
-   APPARIEMENT gardien ↔ limite
+   DONNÉES
 ===================================================================== */
-function chargerManuel() {
-  try { return JSON.parse(localStorage.getItem(CLE_MANUEL) || "{}"); } catch (e) { return {}; }
+function donneesValides(d) {
+  return !!(d && typeof d === "object" && Number.isFinite(d.saison) && Array.isArray(d.equipes));
 }
-function sauverManuel(obj) {
-  localStorage.setItem(CLE_MANUEL, JSON.stringify(obj));
-}
-function chargerCollage() {
-  try { return JSON.parse(localStorage.getItem(CLE_COLLAGE) || "[]"); } catch (e) { return []; }
+function statutLimites() {
+  return (etat.donnees && etat.donnees.limites && etat.donnees.limites.statut) || "a-venir";
 }
 
-function associerLimites() {
-  const manuel = chargerManuel();
-  // Les limites lues en ligne + celles importées par collage (le collage a priorité)
-  const sources = chargerCollage().concat(etat.limites);
-  const parCle = new Map();
-  const parFamille = new Map();
-  for (const lim of sources) {
-    const { cles, famille } = clesNom(lim.nom);
-    for (const c of cles) if (!parCle.has(c)) parCle.set(c, lim);
-    if (famille) parFamille.set(famille, parFamille.has(famille) ? null : lim); // null = ambigu
-  }
-  const utilisees = new Set();
-  for (const g of etat.gardiens) {
-    const { cles, famille } = clesNom(g.nom);
-    let lim = null;
-    for (const c of cles) { if (parCle.has(c)) { lim = parCle.get(c); break; } }
-    if (!lim && famille && parFamille.get(famille)) lim = parFamille.get(famille);
-    const cleManuel = normaliserNom(g.nom);
-    if (manuel[cleManuel] !== undefined) {
-      g.limite = manuel[cleManuel];
-      g.limiteManuelle = true;
-      if (lim) utilisees.add(lim.nomNorm);
-    } else if (lim) {
-      g.limite = lim.limite;
-      g.limiteManuelle = false;
-      utilisees.add(lim.nomNorm);
-    } else {
-      g.limite = null;
-      g.limiteManuelle = false;
+// Aplatit le relevé : une entrée par gardien, avec son équipe
+function preparer() {
+  const d = etat.donnees;
+  const liste = [];
+  for (const e of d.equipes) {
+    for (const g of e.gardiens || []) {
+      liste.push({
+        nom: g.nom, ov: g.ov, recrue: !!g.recrue, clubEcole: !!g.clubEcole, horsReleve: !!g.horsReleve,
+        equipesStats: g.equipesStats || null,
+        v: g.v | 0, d: g.d | 0, n: g.n | 0, mj: g.mj | 0,
+        limiteRobot: Number.isFinite(g.limite) ? g.limite : null,
+        equipeCode: e.code, equipeNom: e.nom || e.code, abbr: e.abbr || e.code, fiche: e.fiche || null
+      });
     }
   }
-  etat.nonAssocies = sources.filter(l => !utilisees.has(l.nomNorm));
+  for (const g of d.autres || []) {
+    liste.push({
+      nom: g.nom, ov: null, recrue: !!g.recrue, clubEcole: false, horsReleve: true, equipesStats: g.equipesStats || null,
+      v: g.v | 0, d: g.d | 0, n: g.n | 0, mj: g.mj | 0,
+      limiteRobot: Number.isFinite(g.limite) ? g.limite : null,
+      equipeCode: AUTRES, equipeNom: "Autres gardiens (matchs seulement)", abbr: g.equipeStats || "?", fiche: null
+    });
+  }
+  etat.gardiens = liste;
+  appliquerLimitesLocales();
+}
+
+// Priorité : saisie manuelle, puis collage (ce navigateur), puis robot
+function appliquerLimitesLocales() {
+  const manuel = lireStockage(CLE_MANUEL, {}) || {};
+  const collage = lireStockage(CLE_COLLAGE, []) || [];
+  const trouverCollage = apparieur(collage, l => l.nom, etat.gardiens.map(g => g.nom));
+  const collagesUtilises = new Set();
+  for (const g of etat.gardiens) {
+    const cle = normaliserNom(g.nom);
+    const c = collage.length ? trouverCollage(g.nom) : null;
+    if (c) collagesUtilises.add(c);
+    if (manuel[cle] !== undefined && Number.isFinite(manuel[cle])) { g.limite = manuel[cle]; g.origineLimite = "manuel"; }
+    else if (c) { g.limite = c.limite; g.origineLimite = "collage"; }
+    else { g.limite = g.limiteRobot; g.origineLimite = g.limiteRobot === null ? null : "robot"; }
+  }
+  const nonRobot = ((etat.donnees && etat.donnees.limitesNonAssociees) || []).map(l => ({ nom: l.nom, limite: l.limite, source: "robot" }));
+  const nonCollage = collage.filter(l => !collagesUtilises.has(l)).map(l => ({ nom: l.nom, limite: l.limite, source: "collage" }));
+  etat.nonAssocies = nonRobot.concat(nonCollage);
 }
 
 function statutGardien(g) {
-  if (g.limite === null || g.limite === undefined) return "inconnu";
+  if (g.limite === null || g.limite === undefined) return statutLimites() === "a-venir" ? "avenir" : "inconnu";
   const restants = g.limite - g.mj;
   if (restants < 0) return "depasse";
   if (restants === 0) return "lampe";
-  if (restants <= SEUIL_ALERTE) return "alerte";
+  if (restants <= CONFIG.seuilAlerte) return "alerte";
   return "ok";
 }
 
@@ -782,112 +665,157 @@ function statutGardien(g) {
    RENDU
 ===================================================================== */
 const contenuEl = document.getElementById("contenu");
+const BADGES = {
+  ok: '<span class="badge b-ok">En règle</span>',
+  alerte: '<span class="badge b-alerte">Alerte</span>',
+  lampe: '<span class="badge b-lampe">Limite atteinte</span>',
+  depasse: '<span class="badge b-depasse">Dépassement</span>',
+  inconnu: '<span class="badge b-inconnu">Limite ?</span>',
+  avenir: '<span class="badge b-avenir">Limite à venir</span>'
+};
 
-function echapper(s) {
-  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+function rendreEntete() {
+  const d = etat.donnees;
+  const saison = d ? "Y" + d.saison : "";
+  document.getElementById("etiquetteSaison").innerHTML = d ? ' · <span class="saison">' + saison + "</span>" : "";
+  document.title = "USHL · Suivi des gardiens" + (d ? " " + saison : "");
+  document.getElementById("majReleve").innerHTML = d
+    ? (d.amorce ? "Relevé initial : <b>" : "Relevé du robot : <b>") + echapper(dateLisible(d.genere)) + "</b>"
+    : "";
+  document.getElementById("majLigue").innerHTML = d && d.matchs && d.matchs.asOf
+    ? " · Ligue en date du : <b>" + echapper(d.matchs.asOf) + "</b>"
+    : "";
+}
+
+function rendreAvis() {
+  const avis = [];
+  const d = etat.donnees;
+  if (etat.erreur) {
+    avis.push(["erreur", d
+      ? "Le relevé du robot n'a pas pu être relu (" + etat.erreur + "). Les dernières données connues restent affichées."
+      : "Le relevé du robot est introuvable (" + etat.erreur + "). S'il s'agit du premier déploiement, lance le robot une fois depuis l'onglet Actions du dépôt (« Relève des gardiens USHL », puis « Run workflow »)."]);
+  }
+  if (d) {
+    const saison = "Y" + d.saison;
+    if (etat.origine === "cache") avis.push(["info", "Données en cache affichées (relevé du " + dateLisible(d.genere) + ")."]);
+    if (d.amorce) avis.push(["info", "Relevé initial préparé hors du robot : le robot prendra le relais à son premier passage."]);
+    const ageH = (Date.now() - new Date(d.genere).getTime()) / 3600000;
+    if (!d.amorce && ageH > CONFIG.fraicheurMaxHeures) {
+      avis.push(["alerte", "Le dernier relevé du robot date de " + Math.floor(ageH / 24) + " jour(s). Le robot ne passe peut-être plus : vérifie l'onglet Actions du dépôt."]);
+    }
+    const lim = d.limites || {};
+    if (lim.statut === "a-venir") {
+      avis.push(["info", "Les limites " + saison + " ne sont pas encore publiées par la ligue : chaque gardien affiche « Limite à venir ». Le robot les intégrera dès leur mise en ligne. D'ici là, tu peux saisir une limite à la main (clic sur la colonne Limite) ou importer un tableau par collage."]);
+    } else if (lim.statut === "illisible") {
+      avis.push(["alerte", "Le classeur des limites " + saison + " est en ligne, mais le robot n'a pas réussi à le lire. Les limites manquantes peuvent être saisies à la main ou importées par collage en attendant la correction."]);
+    } else if (lim.repris) {
+      avis.push(["info", "Limites " + saison + " reprises du relevé précédent : le classeur était momentanément inaccessible."]);
+    }
+    if (d.alignements && d.alignements.repris) avis.push(["info", "Gardiens par équipe repris du relevé précédent : le relevé des alignements était momentanément inaccessible."]);
+  }
+  document.getElementById("avis").innerHTML = avis.map(([type, txt]) => '<div class="avis-item ' + type + '">' + echapper(txt) + "</div>").join("");
 }
 
 function rendre() {
+  const tous = etat.gardiens;
+  const sansLimite = tous.filter(g => g.limite === null || g.limite === undefined).length;
+  document.getElementById("sGardiens").textContent = tous.length;
+  document.getElementById("sOk").textContent = tous.filter(g => statutGardien(g) === "ok").length;
+  document.getElementById("sAlerte").textContent = tous.filter(g => statutGardien(g) === "alerte").length;
+  document.getElementById("sLampe").textContent = tous.filter(g => ["lampe", "depasse"].includes(statutGardien(g))).length;
+  document.getElementById("sSansLimite").textContent = sansLimite;
+  document.getElementById("libSansLimite").textContent = statutLimites() === "a-venir" ? "Limite à venir" : "Sans limite";
+  document.getElementById("puceSansLimite").hidden = sansLimite === 0;
+  document.getElementById("sommaire").hidden = tous.length === 0;
+  document.getElementById("filtres").hidden = tous.length === 0;
+
+  if (!etat.donnees) {
+    contenuEl.innerHTML = '<div class="vide">' + (etat.erreur ? "Aucun relevé à afficher pour l'instant." : "Chargement du relevé des gardiens…") + "</div>";
+    return;
+  }
+
   const rech = etat.recherche.trim().toLowerCase();
-  let liste = etat.gardiens.filter(g => {
-    if (etat.filtre === "alerte") {
-      const s = statutGardien(g);
-      if (s !== "alerte" && s !== "lampe" && s !== "depasse") return false;
-    }
-    if (etat.filtre === "lampe") {
-      const s = statutGardien(g);
-      if (s !== "lampe" && s !== "depasse") return false;
-    }
+  let liste = tous.filter(g => {
+    const s = statutGardien(g);
+    if (etat.filtre === "alerte" && !["alerte", "lampe", "depasse"].includes(s)) return false;
+    if (etat.filtre === "lampe" && !["lampe", "depasse"].includes(s)) return false;
     if (rech) {
-      const nomEquipe = (etat.equipes[g.equipe] || "").toLowerCase();
-      if (!g.nom.toLowerCase().includes(rech) && !g.equipe.toLowerCase().includes(rech) && !nomEquipe.includes(rech)) return false;
+      const foin = [g.nom, g.equipeNom, g.equipeCode, g.abbr].join(" ").toLowerCase();
+      if (!foin.includes(rech)) return false;
     }
     return true;
   });
 
-  // Sommaire (sur l'ensemble, pas la sélection filtrée)
-  const tous = etat.gardiens;
-  const nAlerte = tous.filter(g => statutGardien(g) === "alerte").length;
-  const nLampe = tous.filter(g => ["lampe", "depasse"].includes(statutGardien(g))).length;
-  document.getElementById("sGardiens").textContent = tous.length;
-  document.getElementById("sOk").textContent = tous.filter(g => statutGardien(g) === "ok").length;
-  document.getElementById("sAlerte").textContent = nAlerte;
-  document.getElementById("sLampe").textContent = nLampe;
-  document.getElementById("sommaire").hidden = tous.length === 0;
-  document.getElementById("filtres").hidden = tous.length === 0;
-
-  if (liste.length === 0) {
-    let msgVide;
-    if (tous.length === 0) {
-      msgVide = "Aucune donnée chargée.";
-    } else if ((etat.filtre === "alerte" || etat.filtre === "lampe") &&
-               tous.every(g => g.limite === null)) {
-      msgVide = "Aucune limite de matchs n'est chargée pour l'instant : les filtres d'alerte n'ont donc rien à afficher. Reviens au filtre « Tous », puis charge les limites (Actualiser, ou « Importer les limites par collage » plus bas).";
-    } else if (etat.filtre === "alerte") {
-      msgVide = "Bonne nouvelle : aucun gardien en alerte pour le moment.";
-    } else if (etat.filtre === "lampe") {
-      msgVide = "Aucun gardien n'a atteint sa limite pour le moment.";
-    } else {
-      msgVide = "Aucun gardien ne correspond aux filtres.";
+  if (!liste.length) {
+    let msg;
+    if (!tous.length) msg = "Le relevé ne contient aucun gardien.";
+    else if ((etat.filtre === "alerte" || etat.filtre === "lampe") && tous.every(g => g.limite === null || g.limite === undefined)) {
+      msg = statutLimites() === "a-venir"
+        ? "Les limites ne sont pas encore publiées : les filtres d'alerte n'ont rien à afficher pour le moment."
+        : "Aucune limite n'est associée aux gardiens : les filtres d'alerte n'ont rien à afficher.";
     }
-    contenuEl.innerHTML = '<div class="vide">' + msgVide + "</div>";
+    else if (etat.filtre === "alerte") msg = "Bonne nouvelle : aucun gardien en alerte pour le moment.";
+    else if (etat.filtre === "lampe") msg = "Aucun gardien n'a atteint sa limite pour le moment.";
+    else msg = "Aucun gardien ne correspond à la recherche.";
+    contenuEl.innerHTML = '<div class="vide">' + msg + "</div>";
     return;
   }
 
-  // Tri
+  const restants = g => (g.limite === null || g.limite === undefined) ? Infinity : g.limite - g.mj;
+  const parDefaut = (a, b) => b.mj - a.mj || (b.ov || 0) - (a.ov || 0) || a.nom.localeCompare(b.nom, "fr");
+  const nomEquipe = g => (g.equipeCode === AUTRES ? "￿" : g.equipeNom);
   const cmp = {
-    equipe: (a, b) => a.equipe.localeCompare(b.equipe) || b.mj - a.mj,
-    restants: (a, b) => {
-      const ra = a.limite === null ? Infinity : a.limite - a.mj;
-      const rb = b.limite === null ? Infinity : b.limite - b.mj;
-      return ra - rb;
-    },
-    mj: (a, b) => b.mj - a.mj
-  }[etat.tri];
+    equipe: (a, b) => nomEquipe(a).localeCompare(nomEquipe(b), "fr") || parDefaut(a, b),
+    restants: (a, b) => restants(a) - restants(b) || parDefaut(a, b),
+    mj: (a, b) => parDefaut(a, b)
+  }[etat.tri] || ((a, b) => 0);
   liste = liste.slice().sort(cmp);
 
-  // Regroupement par équipe (ordre = premier gardien rencontré après tri)
+  // Regroupement par équipe (ordre = premier gardien rencontré après tri; les « autres » à la fin)
   const groupes = new Map();
   for (const g of liste) {
-    if (!groupes.has(g.equipe)) groupes.set(g.equipe, []);
-    groupes.get(g.equipe).push(g);
+    if (!groupes.has(g.equipeCode)) groupes.set(g.equipeCode, []);
+    groupes.get(g.equipeCode).push(g);
   }
+  if (groupes.has(AUTRES)) { const a = groupes.get(AUTRES); groupes.delete(AUTRES); groupes.set(AUTRES, a); }
 
   let html = '<div class="grille">';
-  for (const [abbr, gardiens] of groupes) {
-    const nomComplet = etat.equipes[abbr] || "";
-    html += '<div class="equipe">';
-    html += '<div class="equipe-tete"><span class="abbr">' + echapper(abbr) + '</span><span class="nom">' + echapper(nomComplet) + "</span></div>";
+  for (const [code, gardiens] of groupes) {
+    const premier = gardiens[0];
+    html += '<div class="equipe" data-equipe="' + echapper(code) + '">';
+    html += '<div class="equipe-tete">' +
+      (code === AUTRES ? "" : '<span class="abbr">' + echapper(premier.abbr) + "</span>") +
+      '<span class="nom">' + echapper(premier.equipeNom) + "</span>" +
+      (premier.fiche ? '<span class="fiche-equipe num">Fiche ' + echapper(premier.fiche) + "</span>" : "") + "</div>";
     html += '<div class="table-scroll"><table><thead><tr>' +
-      "<th>Gardien</th><th class=\"centre\">V-D-N</th><th class=\"centre\">MJ</th>" +
-      "<th class=\"centre\">Limite</th><th class=\"centre\">Restants</th><th class=\"piste-cell\">Utilisation</th>" +
+      '<th>Gardien</th><th class="centre col-vdn">V-D-N</th><th class="centre">MJ</th>' +
+      '<th class="centre">Limite</th><th class="centre">Restants</th><th class="piste-cell">Utilisation</th>' +
       "</tr></thead><tbody>";
     for (const g of gardiens) {
       const statut = statutGardien(g);
-      const restants = g.limite === null ? null : g.limite - g.mj;
+      const reste = (g.limite === null || g.limite === undefined) ? null : g.limite - g.mj;
       const pc = g.limite ? Math.min(100, Math.max(0, (g.mj / g.limite) * 100)) : 0;
       const classeRempli = statut === "alerte" ? "n-alerte" : (statut === "lampe" || statut === "depasse") ? "n-lampe" : "";
-      const badge = {
-        ok: '<span class="badge b-ok">En règle</span>',
-        alerte: '<span class="badge b-alerte">Alerte</span>',
-        lampe: '<span class="badge b-lampe">Limite atteinte</span>',
-        depasse: '<span class="badge b-depasse">Dépassement</span>',
-        inconnu: '<span class="badge b-inconnu">Limite ?</span>'
-      }[statut];
-      html += "<tr>" +
+      const tags =
+        (g.clubEcole ? '<span class="tag" title="Sans contrat ou club-école (table séparée de la page de la ligue)">hors alignement</span>' : "") +
+        (g.horsReleve ? '<span class="tag" title="Présent dans les matchs, absent du relevé des alignements">absent du relevé</span>' : "");
+      const note = g.equipesStats ? '<span class="note">MJ additionnés : ' + echapper(g.equipesStats.join(" + ")) + "</span>" : "";
+      const etiquetteOrigine = g.origineLimite === "manuel" ? '<span class="tag-manuel">man.</span>'
+        : g.origineLimite === "collage" ? '<span class="tag-manuel">coll.</span>' : "";
+      const couleurReste = reste === null ? "var(--texte-3)" : reste <= 0 ? "var(--lampe)" : reste <= CONFIG.seuilAlerte ? "var(--alerte)" : "var(--ok)";
+      html += '<tr data-statut="' + statut + '">' +
         '<td class="g-nom">' + echapper(g.nom) + (g.recrue ? '<span class="recrue">R</span>' : "") +
-          "<br>" + badge + "</td>" +
-        '<td class="centre fiche num">' + g.v + "-" + g.d + "-" + g.n + "</td>" +
+          '<br><span class="ligne-2">' + BADGES[statut] + tags + "</span>" + note +
+          '<span class="vdn-mobile num">V-D-N ' + g.v + "-" + g.d + "-" + g.n + "</span></td>" +
+        '<td class="centre fiche num col-vdn">' + g.v + "-" + g.d + "-" + g.n + "</td>" +
         '<td class="centre num" style="font-weight:700">' + g.mj + "</td>" +
         '<td class="centre num limite-cell" data-nom="' + echapper(g.nom) + '" title="Cliquer pour corriger la limite manuellement">' +
-          '<span class="limite-val">' + (g.limite === null ? "—" : g.limite) + "</span>" +
-          (g.limiteManuelle ? '<span class="tag-manuel">man.</span>' : "") + "</td>" +
-        '<td class="centre num" style="font-weight:700;color:' +
-          (restants === null ? "var(--texte-3)" : restants < 0 ? "var(--lampe)" : restants === 0 ? "var(--lampe)" : restants <= SEUIL_ALERTE ? "var(--alerte)" : "var(--ok)") + '">' +
-          (restants === null ? "—" : restants) + "</td>" +
+          '<span class="limite-val">' + (reste === null ? "-" : g.limite) + "</span>" + etiquetteOrigine + "</td>" +
+        '<td class="centre num" style="font-weight:700;color:' + couleurReste + '">' + (reste === null ? "-" : reste) + "</td>" +
         '<td class="piste-cell"><div class="piste"><div class="ligne-centre"></div>' +
           (g.limite ? '<div class="rempli ' + classeRempli + '" style="width:' + pc.toFixed(1) + '%"></div>' : "") +
-          '</div><div class="piste-txt num">' + (g.limite ? g.mj + " / " + g.limite + " matchs" : "limite inconnue") + "</div></td>" +
+          '</div><div class="piste-txt num">' +
+          (g.limite ? g.mj + " / " + g.limite + " matchs" : statut === "avenir" ? "limite à venir" : "limite inconnue") + "</div></td>" +
         "</tr>";
     }
     html += "</tbody></table></div></div>";
@@ -895,7 +823,7 @@ function rendre() {
   html += "</div>";
   contenuEl.innerHTML = html;
 
-  // Correction manuelle des limites
+  // Correction manuelle des limites (ce navigateur seulement)
   contenuEl.querySelectorAll(".limite-cell").forEach(td => {
     td.addEventListener("click", () => {
       const nom = td.getAttribute("data-nom");
@@ -903,321 +831,132 @@ function rendre() {
       if (!g) return;
       const rep = prompt(
         "Limite de matchs pour " + nom + "\n(laisser vide pour revenir à la valeur automatique) :",
-        g.limite === null ? "" : String(g.limite)
+        g.origineLimite === "manuel" ? String(g.limite) : ""
       );
       if (rep === null) return;
-      const manuel = chargerManuel();
+      const manuel = lireStockage(CLE_MANUEL, {}) || {};
       const cle = normaliserNom(nom);
-      if (rep.trim() === "") {
-        delete manuel[cle];
-      } else {
+      if (rep.trim() === "") delete manuel[cle];
+      else {
         const val = parseInt(rep.trim(), 10);
         if (isNaN(val) || val < 0 || val > 99) { alert("Valeur invalide."); return; }
         manuel[cle] = val;
       }
-      sauverManuel(manuel);
-      associerLimites();
-      rendre();
-      rendreNonAssocies();
-      sauverCache();
+      ecrireStockage(CLE_MANUEL, manuel);
+      appliquerLimitesLocales();
+      rendreTout();
     });
   });
 }
 
 function rendreNonAssocies() {
   const panneau = document.getElementById("panneauNonAssocies");
-  const corps = document.getElementById("corpsNonAssocies");
-  const totalSources = etat.limites.length + chargerCollage().length;
   document.getElementById("nbNonAssocies").textContent = etat.nonAssocies.length;
-  if (etat.nonAssocies.length === 0 && totalSources > 0) {
-    panneau.hidden = true;
-    return;
-  }
-  panneau.hidden = totalSources === 0;
-  corps.innerHTML = etat.nonAssocies.length === 0 ? "" :
-    "<p>Ces entrées du tableau des limites n’ont pas trouvé de gardien correspondant dans les statistiques (souvent : gardiens qui n’ont pas encore joué) :</p>" +
+  panneau.hidden = etat.nonAssocies.length === 0;
+  document.getElementById("corpsNonAssocies").innerHTML = etat.nonAssocies.length === 0 ? "" :
+    "<p>Ces entrées du tableau des limites n’ont trouvé aucun gardien correspondant dans le relevé (souvent : nom écrit autrement, ou gardien qui n'est plus dans la ligue). Tu peux saisir la limite à la main sur la bonne ligne :</p>" +
     "<p style='margin-top:8px'>" +
-    etat.nonAssocies.map(l => echapper(l.nom) + " <span class='num' style='color:var(--bleu)'>(" + l.limite + ")</span>").join(" · ") +
-    "</p>";
+    etat.nonAssocies.map(l => echapper(l.nom) + " <span class='num' style='color:var(--bleu)'>(" + l.limite + ")</span>" +
+      (l.source === "collage" ? " <span class='tag-manuel'>coll.</span>" : "")).join(" · ") + "</p>";
 }
 
-function rendreHorodatage() {
-  document.getElementById("majDonnees").innerHTML = etat.horodatage
-    ? "Dernière actualisation : <b>" + new Date(etat.horodatage).toLocaleString("fr-CA") + "</b>"
-    : "";
-  document.getElementById("majSource").innerHTML = etat.asOf
-    ? " · Données de la ligue en date du : <b>" + echapper(etat.asOf) + "</b>"
-    : "";
+function rendreAvertissements() {
+  const liste = (etat.donnees && etat.donnees.avertissements) || [];
+  document.getElementById("panneauAvertissements").hidden = liste.length === 0;
+  document.getElementById("nbAvertissements").textContent = liste.length;
+  document.getElementById("listeAvertissements").innerHTML = liste.map(a => "<li>" + echapper(a) + "</li>").join("");
 }
 
-function afficherMessage(txt, type) {
-  const m = document.getElementById("message");
-  if (!txt) { m.className = ""; m.textContent = ""; return; }
-  m.className = "visible " + type;
-  m.textContent = txt;
+function urlWorkflow() {
+  const d = etat.donnees;
+  let depot = d && d.depot;
+  if (!depot) {
+    const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+    const seg = location.pathname.split("/").filter(Boolean)[0];
+    if (m && seg) depot = m[1] + "/" + seg;
+  }
+  return depot ? "https://github.com/" + depot + "/actions/workflows/" + CONFIG.workflow : null;
+}
+
+function rendreRobot() {
+  const d = etat.donnees;
+  const lien = (url, txt) => url ? '<a href="' + echapper(url) + '" target="_blank" rel="noopener">' + echapper(txt || url) + "</a>" : "aucune";
+  const rangs = [];
+  if (d) {
+    const lim = d.limites || {};
+    const etiquettes = { "a-venir": "à venir (classeur pas encore publié)", publiees: "publiées", illisible: "classeur illisible" };
+    rangs.push(["Saison", "Y" + d.saison]);
+    rangs.push([d.amorce ? "Relevé initial" : "Dernier relevé", dateLisible(d.genere)]);
+    rangs.push(["Matchs", (d.matchs ? lien(d.matchs.source, "page des matchs") + " · en date du " + echapper(d.matchs.asOf || "?") + " · " + (d.matchs.lignes || 0) + " ligne(s) de gardien" : "?")]);
+    rangs.push(["Alignements", d.alignements ? lien(d.alignements.source, "relevé des 32 clubs") + " du " + echapper(d.alignements.maj || "?") + (d.alignements.repris ? " (repris)" : "") : "?"]);
+    rangs.push(["Limites", echapper(etiquettes[lim.statut] || lim.statut || "?") + (lim.nombre ? " · " + lim.nombre + " limites" : "") +
+      (lim.source ? " · " + lien(lim.source, "classeur") : "") + (lim.repris ? " (reprises)" : "")]);
+  } else {
+    rangs.push(["Relevé", "aucun fichier lu pour l'instant"]);
+  }
+  document.getElementById("ficheRobot").innerHTML = rangs.map(([k, v]) => "<dt>" + echapper(k) + "</dt><dd>" + v + "</dd>").join("");
+  const url = urlWorkflow();
+  const a = document.getElementById("lienWorkflow");
+  a.hidden = !url;
+  if (url) a.href = url;
+}
+
+function rendreTout() {
+  rendreEntete();
+  rendreAvis();
+  rendre();
+  rendreNonAssocies();
+  rendreAvertissements();
+  rendreRobot();
 }
 
 /* =====================================================================
-   CACHE LOCAL
+   CHARGEMENT
 ===================================================================== */
-function sauverCache() {
-  try {
-    localStorage.setItem(CLE_CACHE, JSON.stringify({
-      gardiens: etat.gardiens, equipes: etat.equipes, limites: etat.limites,
-      asOf: etat.asOf, horodatage: etat.horodatage
-    }));
-  } catch (e) {}
+function sauverCache(d) {
+  ecrireStockage(CLE_CACHE, d);
 }
 function chargerCache() {
-  try {
-    const c = JSON.parse(localStorage.getItem(CLE_CACHE) || "null");
-    if (!c || !Array.isArray(c.gardiens) || c.gardiens.length === 0) return false;
-    etat.gardiens = c.gardiens;
-    etat.equipes = c.equipes || {};
-    etat.limites = c.limites || [];
-    etat.asOf = c.asOf || null;
-    etat.horodatage = c.horodatage || null;
-    associerLimites();
-    return true;
-  } catch (e) { return false; }
+  const c = lireStockage(CLE_CACHE, null);
+  return donneesValides(c) ? c : null;
 }
 
-/* =====================================================================
-   URLS CONFIGURABLES
-===================================================================== */
-function urlsCourantes() {
-  try {
-    const u = JSON.parse(localStorage.getItem(CLE_URLS) || "null");
-    if (u && u.urlStats && u.urlLimites) {
-      if (u.proxyPerso === undefined) u.proxyPerso = "";
-      return u;
-    }
-  } catch (e) {}
-  return { urlStats: DEFAUTS.urlStats, urlLimites: DEFAUTS.urlLimites, proxyPerso: DEFAUTS.proxyPerso };
-}
-function initChampsUrls() {
-  const u = urlsCourantes();
-  document.getElementById("urlStats").value = u.urlStats;
-  document.getElementById("urlLimites").value = u.urlLimites;
-  document.getElementById("urlProxyPerso").value = u.proxyPerso || "";
-}
-
-/* =====================================================================
-   ACTUALISATION
-===================================================================== */
-const CLE_LIMITES_CACHE = "ushl_gardiens_limites_cache_v1";
-const CLE_SCORING_URL = "ushl_gardiens_url_scoring_v1";
-const DUREE_CACHE_LIMITES = 7 * 24 * 3600 * 1000; // les limites sont fixes pour la saison
-const DUREE_CACHE_SCORING = 24 * 3600 * 1000;
-
-// limites.json est produit par le robot GitHub Actions et servi par la même
-// origine que l'interface : aucune barrière CORS, aucun proxy, fiable à 100 %.
-async function limitesDepuisJson() {
-  try {
-    const rep = await fetch(DEFAUTS.fichierLimitesJson + "?_anticache=" + Date.now(), { cache: "no-store" });
-    if (!rep.ok) throw new Error("HTTP " + rep.status);
-    const j = await rep.json();
-    if (j && Array.isArray(j.limites) && j.limites.length > 0) {
-      log("limites.json lu : " + j.limites.length + " limites (généré le " +
-          (j.horodatage ? new Date(j.horodatage).toLocaleString("fr-CA") : "?") + ").", "ok");
-      return j.limites
-        .filter(l => l && l.nom && Number.isFinite(Number(l.limite)))
-        .map(l => ({ nom: String(l.nom), nomNorm: normaliserNom(l.nom), limite: Math.round(Number(l.limite)) }));
-    }
-    throw new Error("fichier vide");
-  } catch (e) {
-    log("limites.json indisponible (" + e.message + ") — autres méthodes.", "info");
-    return null;
-  }
-}
-
-function limitesEnCache() {
-  try {
-    const c = JSON.parse(localStorage.getItem(CLE_LIMITES_CACHE) || "null");
-    if (c && Array.isArray(c.limites) && c.limites.length > 0 &&
-        Date.now() - c.horodatage < DUREE_CACHE_LIMITES) return c.limites;
-  } catch (e) {}
-  return null;
-}
-
-async function chargerLimitesEnLigne(urls) {
-  const limites = [];
-  const htmlCadres = await recupererTexte(urls.urlLimites);
-  const feuilles = new Set();
-  const tabstrips = [];
-  for (const src of extraireSrcCadres(htmlCadres)) {
-    const abs = resoudreUrl(urls.urlLimites, src);
-    if (!abs || !/\.html?($|\?)/i.test(abs)) continue; // ignorer tout ce qui n'est pas une page .htm
-    if (/tabstrip/i.test(abs)) tabstrips.push(abs);
-    else feuilles.add(abs);
-  }
-  // La barre d'onglets liste TOUTES les pages du classeur
-  let tabstripLu = false;
-  for (const t of tabstrips) {
-    try {
-      const htmlTab = await recupererTexte(t);
-      tabstripLu = true;
-      for (const lien of extraireLiensHtm(htmlTab)) {
-        const abs = resoudreUrl(t, lien);
-        if (abs && !/tabstrip/i.test(abs) && /\.html?($|\?)/i.test(abs)) feuilles.add(abs);
-      }
-    } catch (e) {
-      log("Barre d'onglets inaccessible : " + t, "err");
-    }
-  }
-  // Sondage séquentiel prudent, seulement si la barre d'onglets n'a rien donné
-  if (!tabstripLu && feuilles.size <= 1) {
-    const modele = Array.from(feuilles).find(f => /sheet0*\d+\.html?/i.test(f));
-    if (modele) {
-      const m = modele.match(/sheet0*(\d+)(\.html?)/i);
-      const base = modele.slice(0, modele.search(/sheet0*\d+\.html?/i));
-      for (let n = parseInt(m[1], 10) + 1; n <= parseInt(m[1], 10) + 4; n++) {
-        const candidate = base + "sheet" + String(n).padStart(3, "0") + m[2];
-        try {
-          const htmlF = await recupererTexte(candidate);
-          if (/<table|<tr/i.test(htmlF)) feuilles.add(candidate);
-          else break;
-        } catch (e) { break; }
-      }
-    }
-  }
-  if (feuilles.size === 0) feuilles.add(urls.urlLimites); // la page contient peut-être directement le tableau
-
-  log(feuilles.size + " feuille(s) du classeur à lire.", "info");
-  for (const f of feuilles) {
-    try {
-      const htmlFeuille = f === urls.urlLimites ? htmlCadres : await recupererTexte(f);
-      const lims = parseLimites(htmlFeuille, "feuille " + f.split("/").pop().split("?")[0] + " : ");
-      log(lims.length + " limites extraites de " + f.split("/").pop().split("?")[0], lims.length ? "ok" : "info");
-      for (const l of lims) limites.push(l);
-    } catch (e) {
-      log("Feuille inaccessible : " + f, "err");
-    }
-  }
-  // Dédoublonnage par nom normalisé
-  const vues = new Set();
-  return limites.filter(l => {
-    if (vues.has(l.nomNorm)) return false;
-    vues.add(l.nomNorm); return true;
-  });
-}
-
-async function actualiser(forcerLimites) {
+async function chargerDonnees() {
   const btn = document.getElementById("btnActualiser");
   btn.disabled = true;
   btn.classList.add("chargement");
-  afficherMessage("", "");
-  const urls = urlsCourantes();
-
   try {
-    /* --- 1. Statistiques des gardiens --- */
-    let urlScoring = null;
-
-    // URL « Originale » mémorisée pour éviter une requête inutile à chaque actualisation
-    try {
-      const cs = JSON.parse(localStorage.getItem(CLE_SCORING_URL) || "null");
-      if (cs && cs.url && Date.now() - cs.horodatage < DUREE_CACHE_SCORING) urlScoring = cs.url;
-    } catch (e) {}
-
-    // Sinon, la page PHP charge son tableau en JavaScript : on y repère plutôt
-    // le lien « Originale » vers la page texte de la saison en cours.
-    if (!urlScoring) {
-      try {
-        const htmlPhp = await recupererTexte(urls.urlStats);
-        const m = htmlPhp.match(/href\s*=\s*["']([^"']*TeamScoring[^"']*\.html?[^"']*)["']/i);
-        if (m) {
-          urlScoring = resoudreUrl(urls.urlStats, m[1].split("#")[0]);
-          log("Page « Originale » repérée : " + urlScoring, "info");
-        }
-      } catch (e) {
-        log("Page PHP inaccessible, passage à la page de secours.", "info");
-      }
-    }
-    if (!urlScoring) urlScoring = DEFAUTS.urlScoringSecours;
-
-    let htmlScoring;
-    try {
-      htmlScoring = await recupererTexte(urlScoring);
-    } catch (e) {
-      // L'URL mémorisée est peut-être périmée : on la redécouvre une fois
-      localStorage.removeItem(CLE_SCORING_URL);
-      if (urlScoring !== DEFAUTS.urlScoringSecours) {
-        urlScoring = DEFAUTS.urlScoringSecours;
-        htmlScoring = await recupererTexte(urlScoring);
-      } else throw e;
-    }
-    localStorage.setItem(CLE_SCORING_URL, JSON.stringify({ url: urlScoring, horodatage: Date.now() }));
-
-    const texteBrut = /<html|<body|<pre/i.test(htmlScoring) ? texteDepuisHtml(htmlScoring) : htmlScoring;
-    const resStats = parseGardiens(texteBrut);
-    if (resStats.gardiens.length === 0) {
-      throw new Error("Aucun gardien trouvé dans la page des statistiques. Le format de la page a peut-être changé.");
-    }
-    log(resStats.gardiens.length + " gardiens extraits, " + Object.keys(resStats.equipes).length + " équipes.", "ok");
-
-    const mDate = texteBrut.match(/\(As of ([^)]+)\)/i);
-    etat.asOf = mDate ? mDate[1].trim() : null;
-    etat.gardiens = resStats.gardiens;
-    etat.equipes = resStats.equipes;
-
-    /* --- 2. Limites : 1) limites.json (robot), 2) cache 7 jours, 3) lecture en ligne --- */
-    const limitesJson = await limitesDepuisJson();
-    if (limitesJson) {
-      etat.limites = limitesJson;
-      localStorage.setItem(CLE_LIMITES_CACHE, JSON.stringify({ limites: etat.limites, horodatage: Date.now() }));
-    } else {
-      const enCache = forcerLimites ? null : limitesEnCache();
-      if (enCache) {
-        etat.limites = enCache;
-        log("Limites lues du cache local (" + enCache.length + ") — utilisez « Recharger les limites » pour forcer une relecture.", "info");
-      } else {
-        etat.limites = [];
-        try {
-          etat.limites = await chargerLimitesEnLigne(urls);
-          log("Total : " + etat.limites.length + " limites uniques.", etat.limites.length ? "ok" : "info");
-          if (etat.limites.length > 0) {
-            localStorage.setItem(CLE_LIMITES_CACHE, JSON.stringify({ limites: etat.limites, horodatage: Date.now() }));
-          }
-        } catch (e) {
-          log("Page des limites inaccessible : " + e.message, "err");
-        }
-      }
-    }
-
-    associerLimites();
-    etat.horodatage = Date.now();
-    sauverCache();
-    rendre();
-    rendreNonAssocies();
-    rendreHorodatage();
-
-    if (etat.limites.length === 0) {
-      afficherMessage("Statistiques chargées, mais le tableau des limites n’a pas pu être lu. Tu peux saisir les limites manuellement en cliquant sur la colonne « Limite ».", "info");
-    } else {
-      const sansLimite = etat.gardiens.filter(g => g.limite === null).length;
-      if (sansLimite > 0) {
-        afficherMessage(sansLimite + " gardien(s) sans limite associée automatiquement — clique sur « — » dans la colonne Limite pour les saisir.", "info");
-      }
-    }
+    const rep = await fetch(CONFIG.fichier + "?_=" + Date.now(), { cache: "no-store" });
+    if (!rep.ok) throw new Error("HTTP " + rep.status);
+    const d = await rep.json();
+    if (!donneesValides(d)) throw new Error("fichier incomplet");
+    etat.donnees = d;
+    etat.origine = "fichier";
+    etat.erreur = null;
+    sauverCache(d);
+    preparer();
+    log("Relevé lu : Y" + d.saison + ", " + d.equipes.length + " équipes, " + etat.gardiens.length +
+        " gardiens, limites " + ((d.limites && d.limites.statut) || "?") + " (relevé du " + dateLisible(d.genere) + ").", "ok");
   } catch (e) {
-    log("ERREUR : " + e.message, "err");
-    afficherMessage("Actualisation impossible : " + e.message + " Les dernières données en cache restent affichées.", "erreur");
+    etat.erreur = e.message;
+    log("Relevé du robot illisible : " + e.message, "err");
+    if (!etat.donnees) {
+      const c = chargerCache();
+      if (c) { etat.donnees = c; etat.origine = "cache"; preparer(); log("Données en cache affichées.", "info"); }
+    }
   } finally {
     btn.disabled = false;
     btn.classList.remove("chargement");
+    rendreTout();
   }
 }
 
 /* =====================================================================
    ÉVÉNEMENTS
 ===================================================================== */
-document.getElementById("btnActualiser").addEventListener("click", () => actualiser(false));
-
-document.getElementById("recherche").addEventListener("input", e => {
-  etat.recherche = e.target.value;
-  rendre();
-});
-// Délégation : les filtres fonctionnent instantanément, sans aucune actualisation réseau
+document.getElementById("btnActualiser").addEventListener("click", () => chargerDonnees());
+document.getElementById("recherche").addEventListener("input", e => { etat.recherche = e.target.value; rendre(); });
+// Délégation : les filtres fonctionnent instantanément, sans aucune requête réseau
 document.getElementById("filtres").addEventListener("click", e => {
   const b = e.target.closest(".filtre-btn");
   if (!b) return;
@@ -1226,60 +965,34 @@ document.getElementById("filtres").addEventListener("click", e => {
   etat.filtre = b.getAttribute("data-filtre");
   rendre();
 });
-document.getElementById("tri").addEventListener("change", e => {
-  etat.tri = e.target.value;
-  rendre();
-});
-document.getElementById("btnRechargerLimites").addEventListener("click", () => {
-  localStorage.removeItem(CLE_LIMITES_CACHE);
-  actualiser(true);
-});
-document.getElementById("btnSauverUrls").addEventListener("click", () => {
-  const u = {
-    urlStats: document.getElementById("urlStats").value.trim() || DEFAUTS.urlStats,
-    urlLimites: document.getElementById("urlLimites").value.trim() || DEFAUTS.urlLimites,
-    proxyPerso: document.getElementById("urlProxyPerso").value.trim()
-  };
-  localStorage.setItem(CLE_URLS, JSON.stringify(u));
-  initChampsUrls();
-  afficherMessage("Sources enregistrées. Clique sur « Actualiser » pour recharger.", "info");
-});
-document.getElementById("btnResetUrls").addEventListener("click", () => {
-  localStorage.removeItem(CLE_URLS);
-  initChampsUrls();
-  afficherMessage("Sources par défaut rétablies.", "info");
-});
+document.getElementById("tri").addEventListener("change", e => { etat.tri = e.target.value; rendre(); });
 document.getElementById("btnResetManuel").addEventListener("click", () => {
-  if (!confirm("Effacer toutes les limites saisies manuellement ?")) return;
-  localStorage.removeItem(CLE_MANUEL);
-  associerLimites();
-  rendre();
-  rendreNonAssocies();
+  if (!confirm("Effacer toutes les limites saisies manuellement dans ce navigateur ?")) return;
+  retirerStockage(CLE_MANUEL);
+  if (etat.donnees) appliquerLimitesLocales();
+  rendreTout();
 });
 document.getElementById("btnImporterCollage").addEventListener("click", () => {
-  const texte = document.getElementById("zoneCollage").value;
   const resultat = document.getElementById("resultatCollage");
-  const lims = parseCollage(texte);
-  if (lims.length === 0) {
+  const lims = parseCollage(document.getElementById("zoneCollage").value);
+  if (!lims.length) {
     resultat.textContent = "Aucune limite reconnue dans le texte collé.";
     resultat.style.color = "var(--lampe)";
     return;
   }
-  localStorage.setItem(CLE_COLLAGE, JSON.stringify(lims));
+  ecrireStockage(CLE_COLLAGE, lims);
   resultat.textContent = lims.length + " limites importées.";
   resultat.style.color = "var(--ok)";
-  associerLimites();
-  rendre();
-  rendreNonAssocies();
-  sauverCache();
+  if (etat.donnees) appliquerLimitesLocales();
+  rendreTout();
 });
 document.getElementById("btnEffacerCollage").addEventListener("click", () => {
-  localStorage.removeItem(CLE_COLLAGE);
-  document.getElementById("resultatCollage").textContent = "Limites importées effacées.";
-  document.getElementById("resultatCollage").style.color = "var(--texte-2)";
-  associerLimites();
-  rendre();
-  rendreNonAssocies();
+  retirerStockage(CLE_COLLAGE);
+  const resultat = document.getElementById("resultatCollage");
+  resultat.textContent = "Limites importées effacées.";
+  resultat.style.color = "var(--texte-2)";
+  if (etat.donnees) appliquerLimitesLocales();
+  rendreTout();
 });
 document.getElementById("btnCopierJournal").addEventListener("click", async () => {
   try {
@@ -1287,12 +1000,12 @@ document.getElementById("btnCopierJournal").addEventListener("click", async () =
     document.getElementById("btnCopierJournal").textContent = "Journal copié !";
     setTimeout(() => { document.getElementById("btnCopierJournal").textContent = "Copier le journal"; }, 2000);
   } catch (e) {
-    alert("Copie impossible — sélectionne le texte du journal manuellement.");
+    alert("Copie impossible : sélectionne le texte du journal manuellement.");
   }
 });
 
 /* =====================================================================
-   ADMINISTRATION — accès au panneau des sources
+   ADMINISTRATION : accès au panneau du robot
    Les identifiants ne sont jamais stockés en clair : seules leurs
    empreintes SHA-256 salées figurent ici et sont comparées à la saisie.
 ===================================================================== */
@@ -1305,18 +1018,18 @@ async function empreinte(texte) {
   const h = await crypto.subtle.digest("SHA-256", donnees);
   return Array.from(new Uint8Array(h)).map(o => o.toString(16).padStart(2, "0")).join("");
 }
-function estAdmin() { return sessionStorage.getItem(CLE_SESSION_ADMIN) === "1"; }
-
+function estAdmin() {
+  try { return sessionStorage.getItem(CLE_SESSION_ADMIN) === "1"; } catch (e) { return false; }
+}
 function majAffichageAdmin() {
   const admin = estAdmin();
-  const panneau = document.getElementById("panneauSources");
+  const panneau = document.getElementById("panneauRobot");
   panneau.hidden = !admin;
   if (!admin) panneau.open = false;
   const lien = document.getElementById("lienAdmin");
   lien.textContent = admin ? "Admin ✓" : "Admin";
   lien.classList.toggle("connecte", admin);
 }
-
 function ouvrirConnexion() {
   document.getElementById("erreurConnexion").textContent = "";
   document.getElementById("champUtilisateur").value = "";
@@ -1327,7 +1040,11 @@ function ouvrirConnexion() {
 function fermerConnexion() {
   document.getElementById("voileAdmin").classList.remove("visible");
 }
-
+function ouvrirPanneauRobot() {
+  const panneau = document.getElementById("panneauRobot");
+  panneau.open = true;
+  if (panneau.scrollIntoView) panneau.scrollIntoView({ behavior: "smooth", block: "center" });
+}
 async function tenterConnexion() {
   const u = document.getElementById("champUtilisateur").value;
   const m = document.getElementById("champMdp").value;
@@ -1335,12 +1052,10 @@ async function tenterConnexion() {
   try {
     const [hu, hm] = await Promise.all([empreinte(u), empreinte(m)]);
     if (hu === EMPREINTE_UTILISATEUR && hm === EMPREINTE_MDP) {
-      sessionStorage.setItem(CLE_SESSION_ADMIN, "1");
+      try { sessionStorage.setItem(CLE_SESSION_ADMIN, "1"); } catch (e) {}
       fermerConnexion();
       majAffichageAdmin();
-      const panneau = document.getElementById("panneauSources");
-      panneau.open = true;
-      panneau.scrollIntoView({ behavior: "smooth", block: "center" });
+      ouvrirPanneauRobot();
     } else {
       erreur.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
       document.getElementById("champMdp").value = "";
@@ -1349,24 +1064,15 @@ async function tenterConnexion() {
     erreur.textContent = "Vérification impossible : ouvre la page en https (ou localhost). " + e.message;
   }
 }
-
 document.getElementById("lienAdmin").addEventListener("click", () => {
-  if (estAdmin()) {
-    const panneau = document.getElementById("panneauSources");
-    panneau.open = true;
-    panneau.scrollIntoView({ behavior: "smooth", block: "center" });
-  } else {
-    ouvrirConnexion();
-  }
+  if (estAdmin()) ouvrirPanneauRobot(); else ouvrirConnexion();
 });
 document.getElementById("btnConnexion").addEventListener("click", tenterConnexion);
 document.getElementById("btnAnnulerConnexion").addEventListener("click", fermerConnexion);
 document.getElementById("voileAdmin").addEventListener("click", e => {
   if (e.target === document.getElementById("voileAdmin")) fermerConnexion();
 });
-document.getElementById("champMdp").addEventListener("keydown", e => {
-  if (e.key === "Enter") tenterConnexion();
-});
+document.getElementById("champMdp").addEventListener("keydown", e => { if (e.key === "Enter") tenterConnexion(); });
 document.getElementById("champUtilisateur").addEventListener("keydown", e => {
   if (e.key === "Enter") document.getElementById("champMdp").focus();
 });
@@ -1374,22 +1080,24 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape" && document.getElementById("voileAdmin").classList.contains("visible")) fermerConnexion();
 });
 document.getElementById("btnDeconnexion").addEventListener("click", () => {
-  sessionStorage.removeItem(CLE_SESSION_ADMIN);
+  try { sessionStorage.removeItem(CLE_SESSION_ADMIN); } catch (e) {}
   majAffichageAdmin();
-  afficherMessage("Session admin terminée.", "info");
 });
 
 /* =====================================================================
-   DÉMARRAGE
+   DÉMARRAGE : affichage immédiat du cache, puis relecture automatique
 ===================================================================== */
-initChampsUrls();
+for (const cle of CLES_OBSOLETES) retirerStockage(cle);
 majAffichageAdmin();
-if (chargerCache()) {
-  rendre();
-  rendreNonAssocies();
-  rendreHorodatage();
-  afficherMessage("Données en cache affichées — clique sur « Actualiser » pour la mise à jour en ligne.", "info");
-}
+(function demarrer() {
+  const c = chargerCache();
+  if (c) { etat.donnees = c; etat.origine = "cache"; preparer(); }
+  rendreTout();
+  chargerDonnees();
+})();
+
+// Accès pour le banc d'essai (valide.js)
+window.__GARDIENS__ = { etat, CONFIG, chargerDonnees, statutGardien, normaliserNom, clesNom, apparieur, parseCollage, appliquerLimitesLocales, rendreTout };
 </script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{
+  "name": "gestiongardiens",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Suivi des gardiens USHL : matchs joués (V + D + N) et limites d'utilisation, relevés par GitHub Actions",
+  "scripts": {
+    "test": "node valide.js",
+    "releve": "node scripts/releve-gardiens.mjs",
+    "alertes": "node scripts/alertes-gardiens.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

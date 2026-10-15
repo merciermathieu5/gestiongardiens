@@ -1,0 +1,7 @@
+# Fichiers de travail du robot d'alertes (jamais commités)
+courriel-alerte.html
+alertes-etat-candidat.json
+
+# Dépendances des tests locaux (npm install)
+node_modules/
+package-lock.json

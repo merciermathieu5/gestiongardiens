@@ -1,0 +1,1409 @@
+{
+ "version": 1,
+ "genere": "2026-10-15T02:11:07.764Z",
+ "saison": 22,
+ "depot": "merciermathieu5/gestiongardiens",
+ "amorce": true,
+ "matchs": {
+  "source": "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL22TeamScoring.html",
+  "asOf": "mardi, oct 13 2026",
+  "lignes": 0
+ },
+ "alignements": {
+  "source": "https://raw.githubusercontent.com/merciermathieu5/Sharks/main/data/rosters.json",
+  "maj": "oct 13 2026",
+  "repris": false
+ },
+ "limites": {
+  "statut": "a-venir",
+  "source": null,
+  "nombre": 0,
+  "depuis": null,
+  "repris": false
+ },
+ "equipes": [
+  {
+   "code": "ANAHEIM",
+   "nom": "Anaheim",
+   "abbr": "ANA",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Michael McNiven",
+     "ov": 83,
+     "age": 29,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Cole Brady",
+     "ov": 79,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "BOSTON",
+   "nom": "Boston",
+   "abbr": "BOS",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Joel Blomqvist",
+     "ov": 81,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Matthew Thiessen",
+     "ov": 77,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Joel Hofer",
+     "ov": 78,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "BUFFALO",
+   "nom": "Buffalo",
+   "abbr": "BUF",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Will Cranley",
+     "ov": 76,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "David Rittich",
+     "ov": 78,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Ilya Sorokin",
+     "ov": 84,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "CALGARY",
+   "nom": "Calgary",
+   "abbr": "CGY",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Samuel Montembeault",
+     "ov": 81,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Dustin Wolf",
+     "ov": 78,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Jesper Wallstedt",
+     "ov": 80,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "CAROLINA",
+   "nom": "Caroline",
+   "abbr": "CAR",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Gage Alexander",
+     "ov": 77,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Pyotr Kochetkov",
+     "ov": 80,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Yaroslav Askarov",
+     "ov": 81,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "CHICAGO",
+   "nom": "Chicago",
+   "abbr": "CHI",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Thatcher Demko",
+     "ov": 83,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Vadim Zherenko",
+     "ov": 76,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Filip Gustavsson",
+     "ov": 80,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "COLORADO",
+   "nom": "Colorado",
+   "abbr": "COL",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Alex Lyon",
+     "ov": 79,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Benjamin Gaudreau",
+     "ov": 76,
+     "age": 23,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Spencer Knight",
+     "ov": 80,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "COLUMBUS",
+   "nom": "Columbus",
+   "abbr": "CBJ",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Ales Stezka",
+     "ov": 82,
+     "age": 29,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Casey DeSmith",
+     "ov": 79,
+     "age": 35,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "DALLAS",
+   "nom": "Dallas",
+   "abbr": "DAL",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Calle Clang",
+     "ov": 79,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Eric Comrie",
+     "ov": 78,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Mack Blackwood",
+     "ov": 81,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "DETROIT",
+   "nom": "Détroit",
+   "abbr": "DET",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Stuart Skinner",
+     "ov": 80,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Filip Lindberg",
+     "ov": 78,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Scott Wedgewood",
+     "ov": 82,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "EDMONTON",
+   "nom": "Edmonton",
+   "abbr": "EDM",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Dennis Hildeby",
+     "ov": 77,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Frederik Andersen",
+     "ov": 83,
+     "age": 36,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Vitek Vanecek",
+     "ov": 78,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "FLORIDE",
+   "nom": "Floride",
+   "abbr": "FLA",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Filip Larsson",
+     "ov": 73,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Dan Vladar",
+     "ov": 79,
+     "age": 29,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Jordan Binnington",
+     "ov": 80,
+     "age": 33,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "ISLANDERS",
+   "nom": "NY Islanders",
+   "abbr": "NYI",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Connor Hellebuyck",
+     "ov": 83,
+     "age": 33,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Anton Forsberg",
+     "ov": 79,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Jiri Patera",
+     "ov": 78,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "LOSANGELES",
+   "nom": "Los Angeles",
+   "abbr": "LA",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Tristan Jarry",
+     "ov": 83,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Joey Daccord",
+     "ov": 80,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Matt Murray",
+     "ov": 78,
+     "age": 32,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "MINNESOTA",
+   "nom": "Minnesota",
+   "abbr": "MIN",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Linus Ullmark",
+     "ov": 81,
+     "age": 33,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Charlie Lindgren",
+     "ov": 79,
+     "age": 33,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Joonas Korpisalo",
+     "ov": 78,
+     "age": 32,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "MONTREAL",
+   "nom": "Montréal",
+   "abbr": "MTL",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Erik Portillo",
+     "ov": 79,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Magnus Chrona",
+     "ov": 81,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Petr Mrazek",
+     "ov": 78,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "NASHVILLE",
+   "nom": "Nashville",
+   "abbr": "NSH",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Ilya Samsonov",
+     "ov": 86,
+     "age": 29,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Philipp Grubauer",
+     "ov": 79,
+     "age": 35,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Connor Ingram",
+     "ov": 77,
+     "age": 29,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "NEWJERSEY",
+   "nom": "New Jersey",
+   "abbr": "NJ",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Topias Leinonen",
+     "ov": 78,
+     "age": 22,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Hugo Hanefelt",
+     "ov": 80,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Samuel Ersson",
+     "ov": 79,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "NYRANGERS",
+   "nom": "NY Rangers",
+   "abbr": "NYR",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Remi Poirier",
+     "ov": 77,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Igor Shestyorkin",
+     "ov": 80,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Daniil Tarasov",
+     "ov": 80,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "OTTAWA",
+   "nom": "Ottawa",
+   "abbr": "OTT",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Carter Hart",
+     "ov": 83,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Samuel Jonsson",
+     "ov": 77,
+     "age": 23,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Ukko-Pekka Luukkonen",
+     "ov": 77,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "PHILLY",
+   "nom": "Philadelphie",
+   "abbr": "PHI",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Devon Levi",
+     "ov": 80,
+     "age": 25,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Drew Commesso",
+     "ov": 78,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Joseph Woll",
+     "ov": 80,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "PITTSBURGH",
+   "nom": "Pittsburgh",
+   "abbr": "PIT",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Jeremy Swayman",
+     "ov": 80,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Tristan Lennox",
+     "ov": 75,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Karel Vejmelka",
+     "ov": 82,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "SANJOSE",
+   "nom": "San Jose",
+   "abbr": "SJ",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Philippe Desrosiers",
+     "ov": 83,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Rasmus Korhonen",
+     "ov": 78,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Tyler Wall",
+     "ov": 76,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "SEATTLE",
+   "nom": "Seattle",
+   "abbr": "SEA",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Alexei Kolosov",
+     "ov": 78,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Olivier Rodrigue",
+     "ov": 83,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "ST.LOUIS",
+   "nom": "St. Louis",
+   "abbr": "STL",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Elvis Merzlikins",
+     "ov": 79,
+     "age": 32,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Ilya Nabokov",
+     "ov": 76,
+     "age": 23,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Juuse Saros",
+     "ov": 81,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "TAMPABAY",
+   "nom": "Tampa Bay",
+   "abbr": "TB",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Oscar Dansk",
+     "ov": 83,
+     "age": 32,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Jakub Malek",
+     "ov": 77,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Trey Augustine",
+     "ov": 76,
+     "age": 21,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "TORONTO",
+   "nom": "Toronto",
+   "abbr": "TOR",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Chris Gibson",
+     "ov": 83,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Michael Hrabal",
+     "ov": 76,
+     "age": 21,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Kevin Lankinen",
+     "ov": 79,
+     "age": 31,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "UTAH",
+   "nom": "Utah",
+   "abbr": "UTA",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Jake Oettinger",
+     "ov": 85,
+     "age": 28,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Adam Gajan",
+     "ov": 76,
+     "age": 22,
+     "clubEcole": true,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "VANCOUVER",
+   "nom": "Vancouver",
+   "abbr": "VAN",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Jan Bednar",
+     "ov": 79,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Lukas Dostal",
+     "ov": 80,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "VEGAS",
+   "nom": "Vegas",
+   "abbr": "VGK",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Sebastian Cossa",
+     "ov": 76,
+     "age": 24,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Logan Thompson",
+     "ov": 80,
+     "age": 29,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Adin Hill",
+     "ov": 80,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "WASHINGTON",
+   "nom": "Washington",
+   "abbr": "WSH",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "John Gibson",
+     "ov": 80,
+     "age": 33,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Andrey Vasilevskiy",
+     "ov": 85,
+     "age": 32,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Cayden Primeau",
+     "ov": 78,
+     "age": 27,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  },
+  {
+   "code": "WINNIPEG",
+   "nom": "Winnipeg",
+   "abbr": "WPG",
+   "fiche": "0-0-0",
+   "matchs": 0,
+   "gardiens": [
+    {
+     "nom": "Alex Nedeljkovic",
+     "ov": 83,
+     "age": 30,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Isaiah Saville",
+     "ov": 79,
+     "age": 26,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    },
+    {
+     "nom": "Calvin Pickard",
+     "ov": 77,
+     "age": 34,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "limite": null
+    }
+   ]
+  }
+ ],
+ "autres": [],
+ "limitesNonAssociees": [],
+ "avertissements": []
+}
