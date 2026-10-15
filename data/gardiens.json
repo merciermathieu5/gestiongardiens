@@ -1,6 +1,6 @@
 {
- "version": 1,
- "genere": "2026-10-15T02:34:21.022Z",
+ "version": 2,
+ "genere": "2026-10-15T02:55:52.490Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
@@ -14,11 +14,17 @@
   "repris": false
  },
  "limites": {
-  "statut": "a-venir",
-  "source": null,
-  "nombre": 0,
-  "depuis": null,
-  "repris": false
+  "statut": "calculees",
+  "regle": "(EN + DU) / 3, arrondi à l'entier le plus proche (0,5 vers le haut), maximum 66 (article 4.10.2)",
+  "nombre": 91,
+  "figees": false,
+  "tableau": {
+   "statut": "a-venir",
+   "source": null,
+   "nombre": 0,
+   "repris": false,
+   "liste": []
+  }
  },
  "equipes": [
   {
@@ -32,25 +38,33 @@
      "nom": "Michael McNiven",
      "ov": 83,
      "age": 29,
+     "en": 96,
+     "du": 92,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 63,
+     "limite": 63,
+     "origine": "formule"
     },
     {
      "nom": "Cole Brady",
      "ov": 79,
      "age": 25,
+     "en": 90,
+     "du": 87,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 59,
+     "limite": 59,
+     "origine": "formule"
     }
    ]
   },
@@ -65,37 +79,49 @@
      "nom": "Joel Blomqvist",
      "ov": 81,
      "age": 24,
+     "en": 94,
+     "du": 92,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     },
     {
      "nom": "Matthew Thiessen",
      "ov": 77,
      "age": 26,
+     "en": 83,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Joel Hofer",
      "ov": 78,
      "age": 26,
+     "en": 88,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     }
    ]
   },
@@ -110,37 +136,49 @@
      "nom": "Will Cranley",
      "ov": 76,
      "age": 24,
+     "en": 79,
+     "du": 79,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 53,
+     "limite": 53,
+     "origine": "formule"
     },
     {
      "nom": "David Rittich",
      "ov": 78,
      "age": 34,
+     "en": 81,
+     "du": 82,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 54,
+     "limite": 54,
+     "origine": "formule"
     },
     {
      "nom": "Ilya Sorokin",
      "ov": 84,
      "age": 31,
+     "en": 93,
+     "du": 89,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 61,
+     "limite": 61,
+     "origine": "formule"
     }
    ]
   },
@@ -155,37 +193,49 @@
      "nom": "Samuel Montembeault",
      "ov": 81,
      "age": 30,
+     "en": 86,
+     "du": 90,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 59,
+     "limite": 59,
+     "origine": "formule"
     },
     {
      "nom": "Dustin Wolf",
      "ov": 78,
      "age": 25,
+     "en": 87,
+     "du": 77,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Jesper Wallstedt",
      "ov": 80,
      "age": 24,
+     "en": 88,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     }
    ]
   },
@@ -200,37 +250,49 @@
      "nom": "Gage Alexander",
      "ov": 77,
      "age": 24,
+     "en": 89,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     },
     {
      "nom": "Pyotr Kochetkov",
      "ov": 80,
      "age": 27,
+     "en": 93,
+     "du": 94,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     },
     {
      "nom": "Yaroslav Askarov",
      "ov": 81,
      "age": 24,
+     "en": 93,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 59,
+     "limite": 59,
+     "origine": "formule"
     }
    ]
   },
@@ -245,37 +307,49 @@
      "nom": "Thatcher Demko",
      "ov": 83,
      "age": 31,
+     "en": 92,
+     "du": 84,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 59,
+     "limite": 59,
+     "origine": "formule"
     },
     {
      "nom": "Vadim Zherenko",
      "ov": 76,
      "age": 25,
+     "en": 82,
+     "du": 82,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Filip Gustavsson",
      "ov": 80,
      "age": 28,
+     "en": 92,
+     "du": 95,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     }
    ]
   },
@@ -290,37 +364,49 @@
      "nom": "Alex Lyon",
      "ov": 79,
      "age": 34,
+     "en": 86,
+     "du": 87,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Benjamin Gaudreau",
      "ov": 76,
      "age": 23,
+     "en": 82,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Spencer Knight",
      "ov": 80,
      "age": 25,
+     "en": 89,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     }
    ]
   },
@@ -335,25 +421,33 @@
      "nom": "Ales Stezka",
      "ov": 82,
      "age": 29,
+     "en": 84,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Casey DeSmith",
      "ov": 79,
      "age": 35,
+     "en": 81,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     }
    ]
   },
@@ -368,37 +462,49 @@
      "nom": "Calle Clang",
      "ov": 79,
      "age": 24,
+     "en": 88,
+     "du": 90,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 59,
+     "limite": 59,
+     "origine": "formule"
     },
     {
      "nom": "Eric Comrie",
      "ov": 78,
      "age": 31,
+     "en": 78,
+     "du": 78,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 52,
+     "limite": 52,
+     "origine": "formule"
     },
     {
      "nom": "Mack Blackwood",
      "ov": 81,
      "age": 30,
+     "en": 97,
+     "du": 89,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     }
    ]
   },
@@ -413,37 +519,49 @@
      "nom": "Stuart Skinner",
      "ov": 80,
      "age": 28,
+     "en": 85,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Filip Lindberg",
      "ov": 78,
      "age": 27,
+     "en": 84,
+     "du": 84,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Scott Wedgewood",
      "ov": 82,
      "age": 34,
+     "en": 83,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     }
    ]
   },
@@ -458,37 +576,49 @@
      "nom": "Dennis Hildeby",
      "ov": 77,
      "age": 25,
+     "en": 83,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Frederik Andersen",
      "ov": 83,
      "age": 36,
+     "en": 95,
+     "du": 92,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     },
     {
      "nom": "Vitek Vanecek",
      "ov": 78,
      "age": 30,
+     "en": 86,
+     "du": 82,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     }
    ]
   },
@@ -503,37 +633,49 @@
      "nom": "Filip Larsson",
      "ov": 73,
      "age": 28,
+     "en": 77,
+     "du": 75,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 51,
+     "limite": 51,
+     "origine": "formule"
     },
     {
      "nom": "Dan Vladar",
      "ov": 79,
      "age": 29,
+     "en": 85,
+     "du": 84,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Jordan Binnington",
      "ov": 80,
      "age": 33,
+     "en": 89,
+     "du": 90,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     }
    ]
   },
@@ -548,37 +690,49 @@
      "nom": "Connor Hellebuyck",
      "ov": 83,
      "age": 33,
+     "en": 93,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 61,
+     "limite": 61,
+     "origine": "formule"
     },
     {
      "nom": "Anton Forsberg",
      "ov": 79,
      "age": 34,
+     "en": 84,
+     "du": 82,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Jiri Patera",
      "ov": 78,
      "age": 27,
+     "en": 85,
+     "du": 88,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     }
    ]
   },
@@ -593,37 +747,49 @@
      "nom": "Tristan Jarry",
      "ov": 83,
      "age": 31,
+     "en": 90,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Joey Daccord",
      "ov": 80,
      "age": 30,
+     "en": 86,
+     "du": 88,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Matt Murray",
      "ov": 78,
      "age": 32,
+     "en": 74,
+     "du": 70,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 48,
+     "limite": 48,
+     "origine": "formule"
     }
    ]
   },
@@ -638,37 +804,49 @@
      "nom": "Linus Ullmark",
      "ov": 81,
      "age": 33,
+     "en": 85,
+     "du": 78,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 54,
+     "limite": 54,
+     "origine": "formule"
     },
     {
      "nom": "Charlie Lindgren",
      "ov": 79,
      "age": 33,
+     "en": 83,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Joonas Korpisalo",
      "ov": 78,
      "age": 32,
+     "en": 82,
+     "du": 86,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     }
    ]
   },
@@ -683,37 +861,49 @@
      "nom": "Erik Portillo",
      "ov": 79,
      "age": 26,
+     "en": 83,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Magnus Chrona",
      "ov": 81,
      "age": 26,
+     "en": 94,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     },
     {
      "nom": "Petr Mrazek",
      "ov": 78,
      "age": 34,
+     "en": 81,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     }
    ]
   },
@@ -728,37 +918,49 @@
      "nom": "Ilya Samsonov",
      "ov": 86,
      "age": 29,
+     "en": 99,
+     "du": 97,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 65,
+     "limite": 65,
+     "origine": "formule"
     },
     {
      "nom": "Philipp Grubauer",
      "ov": 79,
      "age": 35,
+     "en": 83,
+     "du": 80,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 54,
+     "limite": 54,
+     "origine": "formule"
     },
     {
      "nom": "Connor Ingram",
      "ov": 77,
      "age": 29,
+     "en": 82,
+     "du": 81,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 54,
+     "limite": 54,
+     "origine": "formule"
     }
    ]
   },
@@ -773,37 +975,49 @@
      "nom": "Topias Leinonen",
      "ov": 78,
      "age": 22,
+     "en": 87,
+     "du": 82,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Hugo Hanefelt",
      "ov": 80,
      "age": 25,
+     "en": 89,
+     "du": 84,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Samuel Ersson",
      "ov": 79,
      "age": 27,
+     "en": 90,
+     "du": 80,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     }
    ]
   },
@@ -818,37 +1032,49 @@
      "nom": "Remi Poirier",
      "ov": 77,
      "age": 25,
+     "en": 91,
+     "du": 89,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     },
     {
      "nom": "Igor Shestyorkin",
      "ov": 80,
      "age": 31,
+     "en": 84,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Daniil Tarasov",
      "ov": 80,
      "age": 27,
+     "en": 96,
+     "du": 94,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 63,
+     "limite": 63,
+     "origine": "formule"
     }
    ]
   },
@@ -863,37 +1089,49 @@
      "nom": "Carter Hart",
      "ov": 83,
      "age": 28,
+     "en": 93,
+     "du": 90,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 61,
+     "limite": 61,
+     "origine": "formule"
     },
     {
      "nom": "Samuel Jonsson",
      "ov": 77,
      "age": 23,
+     "en": 78,
+     "du": 76,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 51,
+     "limite": 51,
+     "origine": "formule"
     },
     {
      "nom": "Ukko-Pekka Luukkonen",
      "ov": 77,
      "age": 27,
+     "en": 89,
+     "du": 92,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     }
    ]
   },
@@ -908,37 +1146,49 @@
      "nom": "Devon Levi",
      "ov": 80,
      "age": 25,
+     "en": 90,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Drew Commesso",
      "ov": 78,
      "age": 24,
+     "en": 86,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     },
     {
      "nom": "Joseph Woll",
      "ov": 80,
      "age": 28,
+     "en": 90,
+     "du": 95,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 62,
+     "limite": 62,
+     "origine": "formule"
     }
    ]
   },
@@ -953,37 +1203,49 @@
      "nom": "Jeremy Swayman",
      "ov": 80,
      "age": 28,
+     "en": 85,
+     "du": 96,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     },
     {
      "nom": "Tristan Lennox",
      "ov": 75,
      "age": 26,
+     "en": 83,
+     "du": 81,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     },
     {
      "nom": "Karel Vejmelka",
      "ov": 82,
      "age": 30,
+     "en": 87,
+     "du": 90,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 59,
+     "limite": 59,
+     "origine": "formule"
     }
    ]
   },
@@ -998,37 +1260,49 @@
      "nom": "Philippe Desrosiers",
      "ov": 83,
      "age": 31,
+     "en": 96,
+     "du": 98,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 65,
+     "limite": 65,
+     "origine": "formule"
     },
     {
      "nom": "Rasmus Korhonen",
      "ov": 78,
      "age": 24,
+     "en": 91,
+     "du": 93,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 61,
+     "limite": 61,
+     "origine": "formule"
     },
     {
      "nom": "Tyler Wall",
      "ov": 76,
      "age": 28,
+     "en": 79,
+     "du": 77,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 52,
+     "limite": 52,
+     "origine": "formule"
     }
    ]
   },
@@ -1043,25 +1317,33 @@
      "nom": "Alexei Kolosov",
      "ov": 78,
      "age": 24,
+     "en": 86,
+     "du": 89,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Olivier Rodrigue",
      "ov": 83,
      "age": 26,
+     "en": 97,
+     "du": 99,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 65,
+     "limite": 65,
+     "origine": "formule"
     }
    ]
   },
@@ -1076,37 +1358,49 @@
      "nom": "Elvis Merzlikins",
      "ov": 79,
      "age": 32,
+     "en": 88,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Ilya Nabokov",
      "ov": 76,
      "age": 23,
+     "en": 87,
+     "du": 84,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     },
     {
      "nom": "Juuse Saros",
      "ov": 81,
      "age": 31,
+     "en": 88,
+     "du": 91,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     }
    ]
   },
@@ -1121,37 +1415,49 @@
      "nom": "Oscar Dansk",
      "ov": 83,
      "age": 32,
+     "en": 91,
+     "du": 89,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 60,
+     "limite": 60,
+     "origine": "formule"
     },
     {
      "nom": "Jakub Malek",
      "ov": 77,
      "age": 24,
+     "en": 87,
+     "du": 88,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Trey Augustine",
      "ov": 76,
      "age": 21,
+     "en": 78,
+     "du": 79,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 52,
+     "limite": 52,
+     "origine": "formule"
     }
    ]
   },
@@ -1166,37 +1472,49 @@
      "nom": "Chris Gibson",
      "ov": 83,
      "age": 34,
+     "en": 89,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     },
     {
      "nom": "Michael Hrabal",
      "ov": 76,
      "age": 21,
+     "en": 71,
+     "du": 77,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 49,
+     "limite": 49,
+     "origine": "formule"
     },
     {
      "nom": "Kevin Lankinen",
      "ov": 79,
      "age": 31,
+     "en": 84,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     }
    ]
   },
@@ -1211,25 +1529,33 @@
      "nom": "Jake Oettinger",
      "ov": 85,
      "age": 28,
+     "en": 97,
+     "du": 98,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 65,
+     "limite": 65,
+     "origine": "formule"
     },
     {
      "nom": "Adam Gajan",
      "ov": 76,
      "age": 22,
+     "en": 80,
+     "du": 79,
      "clubEcole": true,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 53,
+     "limite": 53,
+     "origine": "formule"
     }
    ]
   },
@@ -1244,25 +1570,33 @@
      "nom": "Jan Bednar",
      "ov": 79,
      "age": 24,
+     "en": 84,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Lukas Dostal",
      "ov": 80,
      "age": 26,
+     "en": 85,
+     "du": 86,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     }
    ]
   },
@@ -1277,37 +1611,49 @@
      "nom": "Sebastian Cossa",
      "ov": 76,
      "age": 24,
+     "en": 84,
+     "du": 84,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 56,
+     "limite": 56,
+     "origine": "formule"
     },
     {
      "nom": "Logan Thompson",
      "ov": 80,
      "age": 29,
+     "en": 92,
+     "du": 92,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 61,
+     "limite": 61,
+     "origine": "formule"
     },
     {
      "nom": "Adin Hill",
      "ov": 80,
      "age": 30,
+     "en": 86,
+     "du": 85,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     }
    ]
   },
@@ -1322,37 +1668,49 @@
      "nom": "John Gibson",
      "ov": 80,
      "age": 33,
+     "en": 87,
+     "du": 86,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 58,
+     "limite": 58,
+     "origine": "formule"
     },
     {
      "nom": "Andrey Vasilevskiy",
      "ov": 85,
      "age": 32,
+     "en": 95,
+     "du": 94,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 63,
+     "limite": 63,
+     "origine": "formule"
     },
     {
      "nom": "Cayden Primeau",
      "ov": 78,
      "age": 27,
+     "en": 83,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 55,
+     "limite": 55,
+     "origine": "formule"
     }
    ]
   },
@@ -1367,37 +1725,49 @@
      "nom": "Alex Nedeljkovic",
      "ov": 83,
      "age": 30,
+     "en": 99,
+     "du": 96,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 65,
+     "limite": 65,
+     "origine": "formule"
     },
     {
      "nom": "Isaiah Saville",
      "ov": 79,
      "age": 26,
+     "en": 88,
+     "du": 83,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 57,
+     "limite": 57,
+     "origine": "formule"
     },
     {
      "nom": "Calvin Pickard",
      "ov": 77,
      "age": 34,
+     "en": 81,
+     "du": 81,
      "clubEcole": false,
      "recrue": false,
      "v": 0,
      "d": 0,
      "n": 0,
      "mj": 0,
-     "limite": null
+     "formule": 54,
+     "limite": 54,
+     "origine": "formule"
     }
    ]
   }
