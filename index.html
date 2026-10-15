@@ -155,12 +155,14 @@
   .fiche { color: var(--texte-2); white-space: nowrap; }
   .table-scroll { overflow-x: auto; }
   .g-nom .ligne-2 { white-space: normal; }
-  .g-nom .vdn-mobile { display: none; font-size: 11px; font-weight: 400; color: var(--texte-2); margin-top: 4px; }
+  .g-nom .details { display: block; font-size: 11px; font-weight: 400; color: var(--texte-3); margin-top: 4px; }
+  .g-nom .details.mobile-seulement, .g-nom .vdn-mobile { display: none; }
   @media (max-width: 540px) {
     .col-vdn, .piste-cell { display: none; }
     thead th, tbody td { padding-left: 7px; padding-right: 7px; }
     .g-nom { white-space: normal; }
-    .g-nom .vdn-mobile { display: block; }
+    .g-nom .details.mobile-seulement { display: block; }
+    .g-nom .vdn-mobile { display: inline; color: var(--texte-2); }
     .equipe-tete { padding: 11px 12px; }
   }
 
@@ -209,6 +211,7 @@
   .limite-cell:hover .limite-val { text-decoration: underline dotted; }
   .limite-val { font-weight: 700; }
   .tag-manuel { font-size: 9.5px; color: var(--bleu); text-transform: uppercase; letter-spacing: .08em; margin-left: 4px; }
+  .limite-cell .tag-manuel { display: block; margin: 2px 0 0; }
 
   /* ---------- Admin ---------- */
   #lienAdmin {
@@ -337,7 +340,7 @@
   <details class="panneau">
     <summary>Importer les limites par collage</summary>
     <div class="panneau-corps">
-      <p>Pour essayer des limites avant que le robot les lise, ou si sa lecture échoue : sélectionne le tableau des limites sur la page de gestion des gardiens (Ctrl+A, Ctrl+C), colle-le ici, puis clique sur « Importer ». Les limites importées restent dans ce navigateur seulement et ont priorité sur celles du robot.</p>
+      <p>Pour remplacer les limites du robot dans ce navigateur, par exemple par un tableau de la ligue : sélectionne le tableau sur la page de gestion des gardiens (Ctrl+A, Ctrl+C), colle-le ici, puis clique sur « Importer ». Les limites importées restent dans ce navigateur seulement et ont priorité sur celles du robot.</p>
       <label for="zoneCollage">Contenu collé du tableau des limites</label>
       <textarea id="zoneCollage" rows="8" style="width:100%;background:var(--glace-2);border:1px solid var(--ligne);color:var(--texte);border-radius:6px;padding:8px 10px;font-size:12.5px;font-family:ui-monospace,monospace;"></textarea>
       <button type="button" id="btnImporterCollage">Importer ces limites</button>
@@ -616,7 +619,10 @@ function preparer() {
         nom: g.nom, ov: g.ov, recrue: !!g.recrue, clubEcole: !!g.clubEcole, horsReleve: !!g.horsReleve,
         equipesStats: g.equipesStats || null,
         v: g.v | 0, d: g.d | 0, n: g.n | 0, mj: g.mj | 0,
+        en: Number.isFinite(g.en) ? g.en : null, du: Number.isFinite(g.du) ? g.du : null,
+        formule: Number.isFinite(g.formule) ? g.formule : null,
         limiteRobot: Number.isFinite(g.limite) ? g.limite : null,
+        origineRobot: g.origine || (Number.isFinite(g.limite) ? "tableau" : null),
         equipeCode: e.code, equipeNom: e.nom || e.code, abbr: e.abbr || e.code, fiche: e.fiche || null
       });
     }
@@ -624,8 +630,9 @@ function preparer() {
   for (const g of d.autres || []) {
     liste.push({
       nom: g.nom, ov: null, recrue: !!g.recrue, clubEcole: false, horsReleve: true, equipesStats: g.equipesStats || null,
-      v: g.v | 0, d: g.d | 0, n: g.n | 0, mj: g.mj | 0,
+      v: g.v | 0, d: g.d | 0, n: g.n | 0, mj: g.mj | 0, en: null, du: null, formule: null,
       limiteRobot: Number.isFinite(g.limite) ? g.limite : null,
+      origineRobot: g.origine || (Number.isFinite(g.limite) ? "tableau" : null),
       equipeCode: AUTRES, equipeNom: "Autres gardiens (matchs seulement)", abbr: g.equipeStats || "?", fiche: null
     });
   }
@@ -633,7 +640,7 @@ function preparer() {
   appliquerLimitesLocales();
 }
 
-// Priorité : saisie manuelle, puis collage (ce navigateur), puis robot
+// Priorité : saisie manuelle, puis collage (ce navigateur), puis robot (tableau officiel ou règle 4.10.2)
 function appliquerLimitesLocales() {
   const manuel = lireStockage(CLE_MANUEL, {}) || {};
   const collage = lireStockage(CLE_COLLAGE, []) || [];
@@ -645,7 +652,7 @@ function appliquerLimitesLocales() {
     if (c) collagesUtilises.add(c);
     if (manuel[cle] !== undefined && Number.isFinite(manuel[cle])) { g.limite = manuel[cle]; g.origineLimite = "manuel"; }
     else if (c) { g.limite = c.limite; g.origineLimite = "collage"; }
-    else { g.limite = g.limiteRobot; g.origineLimite = g.limiteRobot === null ? null : "robot"; }
+    else { g.limite = g.limiteRobot; g.origineLimite = g.limiteRobot === null ? null : g.origineRobot; }
   }
   const nonRobot = ((etat.donnees && etat.donnees.limitesNonAssociees) || []).map(l => ({ nom: l.nom, limite: l.limite, source: "robot" }));
   const nonCollage = collage.filter(l => !collagesUtilises.has(l)).map(l => ({ nom: l.nom, limite: l.limite, source: "collage" }));
@@ -704,16 +711,44 @@ function rendreAvis() {
       avis.push(["alerte", "Le dernier relevé du robot date de " + Math.floor(ageH / 24) + " jour(s). Le robot ne passe peut-être plus : vérifie l'onglet Actions du dépôt."]);
     }
     const lim = d.limites || {};
-    if (lim.statut === "a-venir") {
-      avis.push(["info", "Les limites " + saison + " ne sont pas encore publiées par la ligue : chaque gardien affiche « Limite à venir ». Le robot les intégrera dès leur mise en ligne. D'ici là, tu peux saisir une limite à la main (clic sur la colonne Limite) ou importer un tableau par collage."]);
+    const tab = lim.tableau || {};
+    if (lim.statut === "calculees") {
+      avis.push(["info", "Limites " + saison + " calculées par la règle 4.10.2 : (EN + DU) / 3, arrondi, maximum 66. " +
+        (lim.figees ? "Elles sont figées depuis le premier match de la saison." : "Elles se figeront au premier match de la saison.") +
+        " Si la ligue publie son tableau officiel, il aura le dernier mot."]);
+    } else if (lim.statut === "publiees") {
+      const calculees = etat.gardiens.filter(g => g.origineRobot === "formule").length;
+      avis.push(["info", "Limites " + saison + " du tableau officiel de la ligue." +
+        (calculees ? " " + calculees + " gardien(s) absent(s) du tableau ont leur limite calculée par la règle 4.10.2 (étiquette « calc. »)." : "")]);
+    } else if (lim.statut === "a-venir") {
+      avis.push(["info", "Les limites " + saison + " ne sont pas encore disponibles : chaque gardien affiche « Limite à venir ». D'ici là, tu peux saisir une limite à la main (clic sur la colonne Limite) ou importer un tableau par collage."]);
     } else if (lim.statut === "illisible") {
-      avis.push(["alerte", "Le classeur des limites " + saison + " est en ligne, mais le robot n'a pas réussi à le lire. Les limites manquantes peuvent être saisies à la main ou importées par collage en attendant la correction."]);
-    } else if (lim.repris) {
-      avis.push(["info", "Limites " + saison + " reprises du relevé précédent : le classeur était momentanément inaccessible."]);
+      avis.push(["alerte", "Le classeur des limites " + saison + " est en ligne, mais le robot n'a pas réussi à le lire."]);
+    }
+    if (tab.statut === "illisible") {
+      avis.push(["alerte", "Le tableau officiel " + saison + " est en ligne, mais le robot n'a pas réussi à le lire : les limites calculées par la règle 4.10.2 restent en vigueur."]);
+    } else if (tab.repris || lim.repris) {
+      avis.push(["info", "Tableau officiel " + saison + " repris du relevé précédent : le dossier de la ligue était momentanément inaccessible."]);
     }
     if (d.alignements && d.alignements.repris) avis.push(["info", "Gardiens par équipe repris du relevé précédent : le relevé des alignements était momentanément inaccessible."]);
   }
   document.getElementById("avis").innerHTML = avis.map(([type, txt]) => '<div class="avis-item ' + type + '">' + echapper(txt) + "</div>").join("");
+}
+
+// Infobulle de la colonne Limite : d'où vient la valeur
+function explicationLimite(g) {
+  const fr = x => String(Math.round(x * 100) / 100).replace(".", ",");
+  let txt;
+  if (g.origineLimite === "manuel") txt = "Saisie à la main dans ce navigateur.";
+  else if (g.origineLimite === "collage") txt = "Importée par collage dans ce navigateur.";
+  else if (g.origineLimite === "tableau") txt = "Tableau officiel de la ligue." + (g.formule !== null && g.formule !== g.limiteRobot ? " La règle 4.10.2 donnerait " + g.formule + "." : "");
+  else if (g.origineLimite === "formule") {
+    txt = (g.en !== null && g.du !== null && Math.min(66, Math.floor((2 * (g.en + g.du) + 3) / 6)) === g.formule)
+      ? "Règle 4.10.2 : (" + g.en + " + " + g.du + ") / 3 = " + fr((g.en + g.du) / 3) + ", arrondi à " + g.formule + (g.formule === 66 ? " (maximum)" : "") + "."
+      : "Règle 4.10.2, calculée en début de saison : " + g.formule + ".";
+  }
+  else txt = "Aucune limite connue.";
+  return txt + " Cliquer pour corriger la limite manuellement.";
 }
 
 function rendre() {
@@ -751,7 +786,7 @@ function rendre() {
     if (!tous.length) msg = "Le relevé ne contient aucun gardien.";
     else if ((etat.filtre === "alerte" || etat.filtre === "lampe") && tous.every(g => g.limite === null || g.limite === undefined)) {
       msg = statutLimites() === "a-venir"
-        ? "Les limites ne sont pas encore publiées : les filtres d'alerte n'ont rien à afficher pour le moment."
+        ? "Les limites ne sont pas encore disponibles : les filtres d'alerte n'ont rien à afficher pour le moment."
         : "Aucune limite n'est associée aux gardiens : les filtres d'alerte n'ont rien à afficher.";
     }
     else if (etat.filtre === "alerte") msg = "Bonne nouvelle : aucun gardien en alerte pour le moment.";
@@ -801,15 +836,18 @@ function rendre() {
         (g.horsReleve ? '<span class="tag" title="Présent dans les matchs, absent du relevé des alignements">absent du relevé</span>' : "");
       const note = g.equipesStats ? '<span class="note">MJ additionnés : ' + echapper(g.equipesStats.join(" + ")) + "</span>" : "";
       const etiquetteOrigine = g.origineLimite === "manuel" ? '<span class="tag-manuel">man.</span>'
-        : g.origineLimite === "collage" ? '<span class="tag-manuel">coll.</span>' : "";
+        : g.origineLimite === "collage" ? '<span class="tag-manuel">coll.</span>'
+        : (g.origineLimite === "formule" && statutLimites() === "publiees") ? '<span class="tag-manuel">calc.</span>' : "";
+      const cotes = (g.en !== null && g.du !== null) ? "EN " + g.en + " · DU " + g.du : "";
+      const details = '<span class="details num' + (cotes ? "" : " mobile-seulement") + '"><span class="vdn-mobile">V-D-N ' +
+        g.v + "-" + g.d + "-" + g.n + (cotes ? " · " : "") + "</span>" + cotes + "</span>";
       const couleurReste = reste === null ? "var(--texte-3)" : reste <= 0 ? "var(--lampe)" : reste <= CONFIG.seuilAlerte ? "var(--alerte)" : "var(--ok)";
       html += '<tr data-statut="' + statut + '">' +
         '<td class="g-nom">' + echapper(g.nom) + (g.recrue ? '<span class="recrue">R</span>' : "") +
-          '<br><span class="ligne-2">' + BADGES[statut] + tags + "</span>" + note +
-          '<span class="vdn-mobile num">V-D-N ' + g.v + "-" + g.d + "-" + g.n + "</span></td>" +
+          '<br><span class="ligne-2">' + BADGES[statut] + tags + "</span>" + note + details + "</td>" +
         '<td class="centre fiche num col-vdn">' + g.v + "-" + g.d + "-" + g.n + "</td>" +
         '<td class="centre num" style="font-weight:700">' + g.mj + "</td>" +
-        '<td class="centre num limite-cell" data-nom="' + echapper(g.nom) + '" title="Cliquer pour corriger la limite manuellement">' +
+        '<td class="centre num limite-cell" data-nom="' + echapper(g.nom) + '" title="' + echapper(explicationLimite(g)) + '">' +
           '<span class="limite-val">' + (reste === null ? "-" : g.limite) + "</span>" + etiquetteOrigine + "</td>" +
         '<td class="centre num" style="font-weight:700;color:' + couleurReste + '">' + (reste === null ? "-" : reste) + "</td>" +
         '<td class="piste-cell"><div class="piste"><div class="ligne-centre"></div>' +
@@ -884,13 +922,20 @@ function rendreRobot() {
   const rangs = [];
   if (d) {
     const lim = d.limites || {};
-    const etiquettes = { "a-venir": "à venir (classeur pas encore publié)", publiees: "publiées", illisible: "classeur illisible" };
+    const etiquettes = { calculees: "calculées par la règle 4.10.2", publiees: "tableau officiel", "a-venir": "à venir", illisible: "classeur illisible" };
+    const etiquettesTableau = { "a-venir": "pas encore publié", publie: "publié", illisible: "illisible" };
     rangs.push(["Saison", "Y" + d.saison]);
     rangs.push([d.amorce ? "Relevé initial" : "Dernier relevé", dateLisible(d.genere)]);
     rangs.push(["Matchs", (d.matchs ? lien(d.matchs.source, "page des matchs") + " · en date du " + echapper(d.matchs.asOf || "?") + " · " + (d.matchs.lignes || 0) + " ligne(s) de gardien" : "?")]);
     rangs.push(["Alignements", d.alignements ? lien(d.alignements.source, "relevé des 32 clubs") + " du " + echapper(d.alignements.maj || "?") + (d.alignements.repris ? " (repris)" : "") : "?"]);
     rangs.push(["Limites", echapper(etiquettes[lim.statut] || lim.statut || "?") + (lim.nombre ? " · " + lim.nombre + " limites" : "") +
+      (lim.statut === "calculees" ? (lim.figees ? " · figées pour la saison" : " · recalculées jusqu'au premier match") : "") +
       (lim.source ? " · " + lien(lim.source, "classeur") : "") + (lim.repris ? " (reprises)" : "")]);
+    if (lim.tableau) {
+      const t = lim.tableau;
+      rangs.push(["Tableau officiel", echapper(etiquettesTableau[t.statut] || t.statut || "?") + (t.nombre ? " · " + t.nombre + " limites" : "") +
+        (t.source ? " · " + lien(t.source, "classeur") : "") + (t.repris ? " (repris)" : "")]);
+    }
   } else {
     rangs.push(["Relevé", "aucun fichier lu pour l'instant"]);
   }

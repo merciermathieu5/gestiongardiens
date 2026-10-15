@@ -4,9 +4,9 @@ L'interface affiche les 32 équipes avec leurs gardiens, leurs matchs joués
 (V + D + N, jamais la colonne GP) et leur limite d'utilisation pour la saison.
 
 Un robot GitHub Actions relève les données deux fois par jour, vers 8 h 20 et
-18 h 20 (7 h 20 et 17 h 20 en hiver), et les dépose dans `data/gardiens.json`. L'interface lit ce fichier
-dès l'ouverture, en même origine : aucun relais public, et ça fonctionne aussi
-sur mobile. C'est le même principe que les interfaces de DG avec
+18 h 20 (7 h 20 et 17 h 20 en hiver), et les dépose dans `data/gardiens.json`.
+L'interface lit ce fichier dès l'ouverture, en même origine : aucun relais
+public, et ça fonctionne aussi sur mobile. C'est le même principe que les interfaces de DG avec
 `data/rosters.json`.
 
 ## Fichiers
@@ -15,28 +15,45 @@ sur mobile. C'est le même principe que les interfaces de DG avec
 |---|---|
 | `index.html` | L'interface (servie à la racine de GitHub Pages) |
 | `data/gardiens.json` | Relevé produit par le robot (ne pas modifier à la main) |
-| `limites.json` | Limites de la saison en cours, même format qu'avant : les interfaces de DG le lisent |
+| `limites.json` | Limites de la saison en cours (`{ nom, limite }`) : les interfaces de DG le lisent |
 | `data/alertes-envoyees.json` | Alertes déjà envoyées (créé par le robot au premier dépassement) |
 | `scripts/releve-gardiens.mjs` | Robot de relève |
 | `scripts/alertes-gardiens.mjs` | Robot d'alerte courriel |
 | `.github/workflows/releve-gardiens.yml` | Workflow qui fait tourner les deux robots |
 | `valide.js`, `tests/fixtures/` | Banc d'essai (`npm test`) |
-| `diagnostic/` | Copies brutes, déposées seulement si le classeur des limites est illisible |
+| `diagnostic/` | Copies brutes, déposées seulement si le tableau officiel est illisible |
 
 ## D'où viennent les données
 
-1. **Gardiens par équipe** : le relevé quotidien des 32 alignements déjà
-   produit par le dépôt des Sharks (`data/rosters.json`). Aucune requête de
-   plus à ushl.ca.
+1. **Gardiens par équipe et cotes EN, DU** : le relevé quotidien des 32
+   alignements déjà produit par le dépôt des Sharks (`data/rosters.json`).
+   Aucune requête de plus à ushl.ca.
 2. **Matchs** : la page texte de la saison régulière, par exemple
    `USHL22TeamScoring.html` (blocs GOALTENDING). Le robot trouve seul la
    saison en cours : le jour où `USHL23TeamScoring.html` apparaît, il passe à
    Y23 et remet les compteurs à zéro.
-3. **Limites** : le classeur Excel publié dans `gestion_gardiens/y22/`. Tant
-   que le dossier de la saison n'existe pas, les limites sont « à venir » :
-   le robot n'applique jamais celles d'une saison précédente. Le nom du
-   fichier est lu dans l'index du dossier (il a déjà varié d'une année à
-   l'autre).
+3. **Limites** : règle 4.10.2 du règlement, calculée par le robot.
+
+## Limite d'utilisation (règle 4.10.2)
+
+- Limite = (EN + DU) / 3, arrondie à l'entier supérieur à partir de 0,5,
+  pour un maximum de 66 matchs. Exemple : Desrosiers, EN 96 et DU 98,
+  194 / 3 = 64,67, donc 65 matchs.
+- Les matchs comptés sont ceux de la fiche V-D-N de la saison régulière
+  (jamais GP ni les minutes). Aucune limite en séries.
+- Le tableau de la ligue est publié en début de saison : avant le premier
+  match, le robot recalcule à chaque passage; dès le premier match, la limite
+  de chaque gardien est figée. Si EN ou DU change ensuite, la limite reste
+  celle du début de saison et un avertissement le signale. Un gardien qui
+  arrive en cours de saison reçoit sa limite à sa première apparition.
+- Si la ligue publie son tableau officiel dans `gestion_gardiens/y22/`, il a
+  le dernier mot : le robot le lit (le nom du fichier est trouvé dans l'index
+  du dossier) et signale chaque écart avec la règle. Les gardiens absents du
+  tableau gardent leur limite calculée (étiquette « calc. » dans
+  l'interface).
+- Jamais de limite d'une saison précédente : à chaque nouvelle saison, tout
+  est recalculé.
+- La règle ne vise que les gardiens PRO; le club-école n'est pas suivi ici.
 
 ## Garde-fous
 
@@ -44,7 +61,7 @@ sur mobile. C'est le même principe que les interfaces de DG avec
   reprise réessaie cinq minutes plus tard sur un autre runner.
 - Une page des matchs qui se vide en cours de saison n'efface pas les matchs
   déjà relevés.
-- Une source momentanément inaccessible (alignements, dossier des limites) :
+- Une source momentanément inaccessible (alignements, dossier du tableau officiel) :
   les données précédentes de la même saison sont reprises et un avertissement
   apparaît dans l'interface.
 - Un gardien échangé en cours de saison : ses matchs des deux équipes sont

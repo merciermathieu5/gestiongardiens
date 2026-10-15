@@ -4,7 +4,7 @@
  "source": "ushl.ca — TeamRosters.php (PRO)",
  "nbEquipes": 32,
  "reprises": [],
- "note": "Extrait du relevé réel des Sharks (data/rosters.json, généré le 2026-10-14T15:58:36Z) : tous les gardiens, plus des patineurs pour atteindre 10 joueurs par équipe. Champs réduits à ceux que lit le robot.",
+ "note": "Extrait du relevé réel des Sharks (data/rosters.json, généré le 2026-10-14T15:58:36.019Z) : tous les gardiens, plus des patineurs pour atteindre 10 joueurs par équipe. Champs réduits à ceux que lit le robot.",
  "equipes": {
   "ANAHEIM": {
    "fiche": "ANAHEIM 0-0-0",
@@ -15,6 +15,8 @@
      "po": "G",
      "ov": 83,
      "age": 29,
+     "en": 96,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -23,6 +25,8 @@
      "po": "G",
      "ov": 79,
      "age": 25,
+     "en": 90,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -31,6 +35,8 @@
      "po": "C",
      "ov": 84,
      "age": 39,
+     "en": 80,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -39,6 +45,8 @@
      "po": "C",
      "ov": 73,
      "age": 26,
+     "en": 70,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -47,6 +55,8 @@
      "po": "C",
      "ov": 77,
      "age": 22,
+     "en": 81,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -55,6 +65,8 @@
      "po": "C",
      "ov": 77,
      "age": 25,
+     "en": 85,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -63,6 +75,8 @@
      "po": "C",
      "ov": 79,
      "age": 26,
+     "en": 79,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -71,6 +85,8 @@
      "po": "AG",
      "ov": 75,
      "age": 26,
+     "en": 73,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -79,6 +95,8 @@
      "po": "AG",
      "ov": 77,
      "age": 21,
+     "en": 72,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -87,6 +105,8 @@
      "po": "AG",
      "ov": 82,
      "age": 29,
+     "en": 88,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     }
@@ -101,6 +121,8 @@
      "po": "G",
      "ov": 81,
      "age": 24,
+     "en": 94,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -109,6 +131,8 @@
      "po": "G",
      "ov": 77,
      "age": 26,
+     "en": 83,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -117,6 +141,8 @@
      "po": "G",
      "ov": 78,
      "age": 26,
+     "en": 88,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -125,6 +151,8 @@
      "po": "C",
      "ov": 81,
      "age": 29,
+     "en": 78,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -133,6 +161,8 @@
      "po": "C",
      "ov": 80,
      "age": 28,
+     "en": 83,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -141,6 +171,8 @@
      "po": "C",
      "ov": 81,
      "age": 35,
+     "en": 78,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -149,6 +181,8 @@
      "po": "C",
      "ov": 77,
      "age": 34,
+     "en": 72,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -157,6 +191,8 @@
      "po": "AG",
      "ov": 81,
      "age": 38,
+     "en": 84,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -165,6 +201,8 @@
      "po": "AG",
      "ov": 83,
      "age": 32,
+     "en": 87,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -173,6 +211,8 @@
      "po": "AG",
      "ov": 76,
      "age": 30,
+     "en": 74,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     }
@@ -187,6 +227,8 @@
      "po": "G",
      "ov": 76,
      "age": 24,
+     "en": 79,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -195,6 +237,8 @@
      "po": "G",
      "ov": 78,
      "age": 34,
+     "en": 81,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -203,6 +247,8 @@
      "po": "G",
      "ov": 84,
      "age": 31,
+     "en": 93,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -211,6 +257,8 @@
      "po": "C",
      "ov": 83,
      "age": 33,
+     "en": 93,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -219,6 +267,8 @@
      "po": "C",
      "ov": 82,
      "age": 30,
+     "en": 85,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -227,6 +277,8 @@
      "po": "C",
      "ov": 80,
      "age": 26,
+     "en": 80,
+     "du": 72,
      "backup": false,
      "horsAlignement": false
     },
@@ -235,6 +287,8 @@
      "po": "C",
      "ov": 78,
      "age": 34,
+     "en": 75,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -243,6 +297,8 @@
      "po": "AG",
      "ov": 81,
      "age": 30,
+     "en": 93,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -251,6 +307,8 @@
      "po": "AG",
      "ov": 81,
      "age": 29,
+     "en": 80,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -259,6 +317,8 @@
      "po": "AG",
      "ov": 78,
      "age": 31,
+     "en": 78,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     }
@@ -273,6 +333,8 @@
      "po": "G",
      "ov": 81,
      "age": 30,
+     "en": 86,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -281,6 +343,8 @@
      "po": "G",
      "ov": 78,
      "age": 25,
+     "en": 87,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -289,6 +353,8 @@
      "po": "G",
      "ov": 80,
      "age": 24,
+     "en": 88,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -297,6 +363,8 @@
      "po": "C",
      "ov": 77,
      "age": 23,
+     "en": 74,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -305,6 +373,8 @@
      "po": "C",
      "ov": 78,
      "age": 24,
+     "en": 75,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -313,6 +383,8 @@
      "po": "C",
      "ov": 80,
      "age": 28,
+     "en": 84,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -321,6 +393,8 @@
      "po": "C",
      "ov": 81,
      "age": 22,
+     "en": 83,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -329,6 +403,8 @@
      "po": "AG",
      "ov": 81,
      "age": 30,
+     "en": 83,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -337,6 +413,8 @@
      "po": "AG",
      "ov": 80,
      "age": 26,
+     "en": 83,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -345,6 +423,8 @@
      "po": "AG",
      "ov": 80,
      "age": 25,
+     "en": 80,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     }
@@ -359,6 +439,8 @@
      "po": "G",
      "ov": 77,
      "age": 24,
+     "en": 89,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -367,6 +449,8 @@
      "po": "G",
      "ov": 80,
      "age": 27,
+     "en": 93,
+     "du": 94,
      "backup": false,
      "horsAlignement": false
     },
@@ -375,6 +459,8 @@
      "po": "G",
      "ov": 81,
      "age": 24,
+     "en": 93,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -383,6 +469,8 @@
      "po": "C",
      "ov": 76,
      "age": 24,
+     "en": 82,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -391,6 +479,8 @@
      "po": "C",
      "ov": 80,
      "age": 22,
+     "en": 83,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -399,6 +489,8 @@
      "po": "C",
      "ov": 83,
      "age": 31,
+     "en": 95,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -407,6 +499,8 @@
      "po": "C",
      "ov": 81,
      "age": 32,
+     "en": 91,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -415,6 +509,8 @@
      "po": "C",
      "ov": 78,
      "age": 24,
+     "en": 83,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -423,6 +519,8 @@
      "po": "AG",
      "ov": 83,
      "age": 30,
+     "en": 79,
+     "du": 97,
      "backup": false,
      "horsAlignement": false
     },
@@ -431,6 +529,8 @@
      "po": "AG",
      "ov": 82,
      "age": 34,
+     "en": 86,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     }
@@ -445,6 +545,8 @@
      "po": "G",
      "ov": 83,
      "age": 31,
+     "en": 92,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -453,6 +555,8 @@
      "po": "G",
      "ov": 76,
      "age": 25,
+     "en": 82,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -461,6 +565,8 @@
      "po": "G",
      "ov": 80,
      "age": 28,
+     "en": 92,
+     "du": 95,
      "backup": false,
      "horsAlignement": false
     },
@@ -469,6 +575,8 @@
      "po": "C",
      "ov": 79,
      "age": 24,
+     "en": 87,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -477,6 +585,8 @@
      "po": "C",
      "ov": 81,
      "age": 35,
+     "en": 81,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -485,6 +595,8 @@
      "po": "C",
      "ov": 78,
      "age": 20,
+     "en": 82,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -493,6 +605,8 @@
      "po": "C",
      "ov": 79,
      "age": 33,
+     "en": 76,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -501,6 +615,8 @@
      "po": "C",
      "ov": 78,
      "age": 33,
+     "en": 76,
+     "du": 55,
      "backup": false,
      "horsAlignement": false
     },
@@ -509,6 +625,8 @@
      "po": "AG",
      "ov": 78,
      "age": 21,
+     "en": 75,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -517,6 +635,8 @@
      "po": "AG",
      "ov": 80,
      "age": 33,
+     "en": 88,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     }
@@ -531,6 +651,8 @@
      "po": "G",
      "ov": 79,
      "age": 34,
+     "en": 86,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -539,6 +661,8 @@
      "po": "G",
      "ov": 76,
      "age": 23,
+     "en": 82,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -547,6 +671,8 @@
      "po": "G",
      "ov": 80,
      "age": 25,
+     "en": 89,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -555,6 +681,8 @@
      "po": "C",
      "ov": 79,
      "age": 25,
+     "en": 84,
+     "du": 93,
      "backup": false,
      "horsAlignement": false
     },
@@ -563,6 +691,8 @@
      "po": "C",
      "ov": 78,
      "age": 22,
+     "en": 85,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -571,6 +701,8 @@
      "po": "C",
      "ov": 86,
      "age": 29,
+     "en": 92,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -579,6 +711,8 @@
      "po": "C",
      "ov": 84,
      "age": 30,
+     "en": 92,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -587,6 +721,8 @@
      "po": "AG",
      "ov": 83,
      "age": 35,
+     "en": 96,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -595,6 +731,8 @@
      "po": "AG",
      "ov": 79,
      "age": 25,
+     "en": 84,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -603,6 +741,8 @@
      "po": "AG",
      "ov": 81,
      "age": 31,
+     "en": 81,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     }
@@ -617,6 +757,8 @@
      "po": "G",
      "ov": 82,
      "age": 29,
+     "en": 84,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -625,6 +767,8 @@
      "po": "G",
      "ov": 79,
      "age": 35,
+     "en": 81,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -633,6 +777,8 @@
      "po": "C",
      "ov": 78,
      "age": 27,
+     "en": 83,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -641,6 +787,8 @@
      "po": "C",
      "ov": 79,
      "age": 38,
+     "en": 86,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -649,6 +797,8 @@
      "po": "C",
      "ov": 82,
      "age": 28,
+     "en": 91,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -657,6 +807,8 @@
      "po": "C",
      "ov": 82,
      "age": 30,
+     "en": 84,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -665,6 +817,8 @@
      "po": "C",
      "ov": 79,
      "age": 28,
+     "en": 79,
+     "du": 94,
      "backup": false,
      "horsAlignement": false
     },
@@ -673,6 +827,8 @@
      "po": "AG",
      "ov": 80,
      "age": 31,
+     "en": 80,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -681,6 +837,8 @@
      "po": "AG",
      "ov": 83,
      "age": 27,
+     "en": 81,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -689,6 +847,8 @@
      "po": "AG",
      "ov": 81,
      "age": 27,
+     "en": 84,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     }
@@ -703,6 +863,8 @@
      "po": "G",
      "ov": 79,
      "age": 24,
+     "en": 88,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -711,6 +873,8 @@
      "po": "G",
      "ov": 78,
      "age": 31,
+     "en": 78,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -719,6 +883,8 @@
      "po": "G",
      "ov": 81,
      "age": 30,
+     "en": 97,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -727,6 +893,8 @@
      "po": "C",
      "ov": 76,
      "age": 27,
+     "en": 81,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -735,6 +903,8 @@
      "po": "C",
      "ov": 80,
      "age": 33,
+     "en": 80,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -743,6 +913,8 @@
      "po": "AG",
      "ov": 79,
      "age": 25,
+     "en": 83,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -751,6 +923,8 @@
      "po": "AG",
      "ov": 79,
      "age": 24,
+     "en": 89,
+     "du": 95,
      "backup": false,
      "horsAlignement": false
     },
@@ -759,6 +933,8 @@
      "po": "AG",
      "ov": 80,
      "age": 26,
+     "en": 78,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -767,6 +943,8 @@
      "po": "AG",
      "ov": 79,
      "age": 23,
+     "en": 81,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -775,6 +953,8 @@
      "po": "AG",
      "ov": 78,
      "age": 32,
+     "en": 72,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     }
@@ -789,6 +969,8 @@
      "po": "G",
      "ov": 80,
      "age": 28,
+     "en": 85,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -797,6 +979,8 @@
      "po": "G",
      "ov": 78,
      "age": 27,
+     "en": 84,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -805,6 +989,8 @@
      "po": "G",
      "ov": 82,
      "age": 34,
+     "en": 83,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -813,6 +999,8 @@
      "po": "C",
      "ov": 81,
      "age": 27,
+     "en": 82,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -821,6 +1009,8 @@
      "po": "C",
      "ov": 75,
      "age": 25,
+     "en": 76,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -829,6 +1019,8 @@
      "po": "C",
      "ov": 80,
      "age": 33,
+     "en": 75,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -837,6 +1029,8 @@
      "po": "C",
      "ov": 79,
      "age": 33,
+     "en": 80,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -845,6 +1039,8 @@
      "po": "C",
      "ov": 76,
      "age": 30,
+     "en": 76,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -853,6 +1049,8 @@
      "po": "C",
      "ov": 76,
      "age": 32,
+     "en": 76,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -861,6 +1059,8 @@
      "po": "C",
      "ov": 79,
      "age": 27,
+     "en": 76,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     }
@@ -875,6 +1075,8 @@
      "po": "G",
      "ov": 77,
      "age": 25,
+     "en": 83,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -883,6 +1085,8 @@
      "po": "G",
      "ov": 83,
      "age": 36,
+     "en": 95,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -891,6 +1095,8 @@
      "po": "G",
      "ov": 78,
      "age": 30,
+     "en": 86,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -899,6 +1105,8 @@
      "po": "C",
      "ov": 77,
      "age": 24,
+     "en": 78,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -907,6 +1115,8 @@
      "po": "C",
      "ov": 84,
      "age": 31,
+     "en": 83,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -915,6 +1125,8 @@
      "po": "C",
      "ov": 77,
      "age": 23,
+     "en": 77,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -923,6 +1135,8 @@
      "po": "C",
      "ov": 80,
      "age": 34,
+     "en": 84,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -931,6 +1145,8 @@
      "po": "C",
      "ov": 76,
      "age": 30,
+     "en": 77,
+     "du": 68,
      "backup": false,
      "horsAlignement": false
     },
@@ -939,6 +1155,8 @@
      "po": "C",
      "ov": 81,
      "age": 35,
+     "en": 97,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -947,6 +1165,8 @@
      "po": "AG",
      "ov": 81,
      "age": 27,
+     "en": 92,
+     "du": 88,
      "backup": false,
      "horsAlignement": false
     }
@@ -961,6 +1181,8 @@
      "po": "G",
      "ov": 73,
      "age": 28,
+     "en": 77,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -969,6 +1191,8 @@
      "po": "G",
      "ov": 79,
      "age": 29,
+     "en": 85,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -977,6 +1201,8 @@
      "po": "G",
      "ov": 80,
      "age": 33,
+     "en": 89,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -985,6 +1211,8 @@
      "po": "C",
      "ov": 82,
      "age": 31,
+     "en": 87,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -993,6 +1221,8 @@
      "po": "C",
      "ov": 83,
      "age": 29,
+     "en": 86,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1001,6 +1231,8 @@
      "po": "C",
      "ov": 75,
      "age": 23,
+     "en": 76,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -1009,6 +1241,8 @@
      "po": "C",
      "ov": 79,
      "age": 35,
+     "en": 76,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1017,6 +1251,8 @@
      "po": "C",
      "ov": 78,
      "age": 31,
+     "en": 75,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -1025,6 +1261,8 @@
      "po": "AG",
      "ov": 77,
      "age": 24,
+     "en": 86,
+     "du": 68,
      "backup": false,
      "horsAlignement": false
     },
@@ -1033,6 +1271,8 @@
      "po": "AG",
      "ov": 78,
      "age": 34,
+     "en": 93,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     }
@@ -1047,6 +1287,8 @@
      "po": "G",
      "ov": 83,
      "age": 33,
+     "en": 93,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -1055,6 +1297,8 @@
      "po": "G",
      "ov": 79,
      "age": 34,
+     "en": 84,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1063,6 +1307,8 @@
      "po": "G",
      "ov": 78,
      "age": 27,
+     "en": 85,
+     "du": 88,
      "backup": false,
      "horsAlignement": false
     },
@@ -1071,6 +1317,8 @@
      "po": "C",
      "ov": 83,
      "age": 25,
+     "en": 91,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -1079,6 +1327,8 @@
      "po": "C",
      "ov": 76,
      "age": 20,
+     "en": 73,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -1087,6 +1337,8 @@
      "po": "C",
      "ov": 80,
      "age": 30,
+     "en": 83,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -1095,6 +1347,8 @@
      "po": "C",
      "ov": 78,
      "age": 31,
+     "en": 79,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -1103,6 +1357,8 @@
      "po": "AG",
      "ov": 81,
      "age": 25,
+     "en": 83,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1111,6 +1367,8 @@
      "po": "AG",
      "ov": 79,
      "age": 21,
+     "en": 81,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -1119,6 +1377,8 @@
      "po": "AG",
      "ov": 78,
      "age": 27,
+     "en": 71,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     }
@@ -1133,6 +1393,8 @@
      "po": "G",
      "ov": 83,
      "age": 31,
+     "en": 90,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -1141,6 +1403,8 @@
      "po": "G",
      "ov": 80,
      "age": 30,
+     "en": 86,
+     "du": 88,
      "backup": false,
      "horsAlignement": false
     },
@@ -1149,6 +1413,8 @@
      "po": "G",
      "ov": 78,
      "age": 32,
+     "en": 74,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -1157,6 +1423,8 @@
      "po": "C",
      "ov": 76,
      "age": 21,
+     "en": 82,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -1165,6 +1433,8 @@
      "po": "C",
      "ov": 82,
      "age": 25,
+     "en": 97,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1173,6 +1443,8 @@
      "po": "C",
      "ov": 76,
      "age": 19,
+     "en": 74,
+     "du": 72,
      "backup": false,
      "horsAlignement": false
     },
@@ -1181,6 +1453,8 @@
      "po": "C",
      "ov": 75,
      "age": 32,
+     "en": 72,
+     "du": 72,
      "backup": false,
      "horsAlignement": false
     },
@@ -1189,6 +1463,8 @@
      "po": "C",
      "ov": 82,
      "age": 24,
+     "en": 90,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1197,6 +1473,8 @@
      "po": "AG",
      "ov": 80,
      "age": 24,
+     "en": 84,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -1205,6 +1483,8 @@
      "po": "AG",
      "ov": 81,
      "age": 25,
+     "en": 88,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     }
@@ -1219,6 +1499,8 @@
      "po": "G",
      "ov": 81,
      "age": 33,
+     "en": 85,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -1227,6 +1509,8 @@
      "po": "G",
      "ov": 79,
      "age": 33,
+     "en": 83,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -1235,6 +1519,8 @@
      "po": "G",
      "ov": 78,
      "age": 32,
+     "en": 82,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -1243,6 +1529,8 @@
      "po": "C",
      "ov": 78,
      "age": 24,
+     "en": 80,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -1251,6 +1539,8 @@
      "po": "C",
      "ov": 79,
      "age": 25,
+     "en": 81,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -1259,6 +1549,8 @@
      "po": "C",
      "ov": 78,
      "age": 34,
+     "en": 76,
+     "du": 46,
      "backup": false,
      "horsAlignement": false
     },
@@ -1267,6 +1559,8 @@
      "po": "AG",
      "ov": 79,
      "age": 25,
+     "en": 85,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1275,6 +1569,8 @@
      "po": "AG",
      "ov": 76,
      "age": 22,
+     "en": 77,
+     "du": 62,
      "backup": false,
      "horsAlignement": false
     },
@@ -1283,6 +1579,8 @@
      "po": "AG",
      "ov": 78,
      "age": 29,
+     "en": 76,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1291,6 +1589,8 @@
      "po": "AG",
      "ov": 78,
      "age": 30,
+     "en": 72,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     }
@@ -1305,6 +1605,8 @@
      "po": "G",
      "ov": 79,
      "age": 26,
+     "en": 83,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -1313,6 +1615,8 @@
      "po": "G",
      "ov": 81,
      "age": 26,
+     "en": 94,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -1321,6 +1625,8 @@
      "po": "G",
      "ov": 78,
      "age": 34,
+     "en": 81,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -1329,6 +1635,8 @@
      "po": "C",
      "ov": 80,
      "age": 36,
+     "en": 92,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -1337,6 +1645,8 @@
      "po": "C",
      "ov": 75,
      "age": 25,
+     "en": 81,
+     "du": 72,
      "backup": false,
      "horsAlignement": false
     },
@@ -1345,6 +1655,8 @@
      "po": "C",
      "ov": 76,
      "age": 20,
+     "en": 77,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -1353,6 +1665,8 @@
      "po": "C",
      "ov": 79,
      "age": 24,
+     "en": 85,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1361,6 +1675,8 @@
      "po": "C",
      "ov": 80,
      "age": 22,
+     "en": 86,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -1369,6 +1685,8 @@
      "po": "AG",
      "ov": 81,
      "age": 29,
+     "en": 82,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     },
@@ -1377,6 +1695,8 @@
      "po": "AG",
      "ov": 81,
      "age": 30,
+     "en": 81,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     }
@@ -1391,6 +1711,8 @@
      "po": "G",
      "ov": 86,
      "age": 29,
+     "en": 99,
+     "du": 97,
      "backup": false,
      "horsAlignement": false
     },
@@ -1399,6 +1721,8 @@
      "po": "G",
      "ov": 79,
      "age": 35,
+     "en": 83,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1407,6 +1731,8 @@
      "po": "G",
      "ov": 77,
      "age": 29,
+     "en": 82,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -1415,6 +1741,8 @@
      "po": "C",
      "ov": 79,
      "age": 35,
+     "en": 78,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1423,6 +1751,8 @@
      "po": "C",
      "ov": 81,
      "age": 24,
+     "en": 89,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1431,6 +1761,8 @@
      "po": "C",
      "ov": 79,
      "age": 29,
+     "en": 83,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -1439,6 +1771,8 @@
      "po": "C",
      "ov": 82,
      "age": 29,
+     "en": 80,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1447,6 +1781,8 @@
      "po": "AG",
      "ov": 79,
      "age": 31,
+     "en": 90,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -1455,6 +1791,8 @@
      "po": "AG",
      "ov": 79,
      "age": 28,
+     "en": 77,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1463,6 +1801,8 @@
      "po": "AG",
      "ov": 80,
      "age": 26,
+     "en": 85,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     }
@@ -1477,6 +1817,8 @@
      "po": "G",
      "ov": 78,
      "age": 22,
+     "en": 87,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1485,6 +1827,8 @@
      "po": "G",
      "ov": 80,
      "age": 25,
+     "en": 89,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -1493,6 +1837,8 @@
      "po": "G",
      "ov": 79,
      "age": 27,
+     "en": 90,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1501,6 +1847,8 @@
      "po": "C",
      "ov": 82,
      "age": 27,
+     "en": 80,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -1509,6 +1857,8 @@
      "po": "C",
      "ov": 77,
      "age": 26,
+     "en": 77,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -1517,6 +1867,8 @@
      "po": "C",
      "ov": 79,
      "age": 32,
+     "en": 75,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -1525,6 +1877,8 @@
      "po": "C",
      "ov": 78,
      "age": 27,
+     "en": 81,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -1533,6 +1887,8 @@
      "po": "AG",
      "ov": 82,
      "age": 26,
+     "en": 86,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -1541,6 +1897,8 @@
      "po": "AG",
      "ov": 83,
      "age": 29,
+     "en": 87,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1549,6 +1907,8 @@
      "po": "AG",
      "ov": 80,
      "age": 23,
+     "en": 81,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     }
@@ -1563,6 +1923,8 @@
      "po": "G",
      "ov": 77,
      "age": 25,
+     "en": 91,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -1571,6 +1933,8 @@
      "po": "G",
      "ov": 80,
      "age": 31,
+     "en": 84,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -1579,6 +1943,8 @@
      "po": "G",
      "ov": 80,
      "age": 27,
+     "en": 96,
+     "du": 94,
      "backup": false,
      "horsAlignement": false
     },
@@ -1587,6 +1953,8 @@
      "po": "C",
      "ov": 76,
      "age": 21,
+     "en": 75,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -1595,6 +1963,8 @@
      "po": "C",
      "ov": 81,
      "age": 25,
+     "en": 84,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -1603,6 +1973,8 @@
      "po": "C",
      "ov": 78,
      "age": 24,
+     "en": 81,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -1611,6 +1983,8 @@
      "po": "C",
      "ov": 79,
      "age": 21,
+     "en": 80,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -1619,6 +1993,8 @@
      "po": "AG",
      "ov": 84,
      "age": 30,
+     "en": 87,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -1627,6 +2003,8 @@
      "po": "AG",
      "ov": 81,
      "age": 29,
+     "en": 87,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1635,6 +2013,8 @@
      "po": "AG",
      "ov": 76,
      "age": 25,
+     "en": 79,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     }
@@ -1649,6 +2029,8 @@
      "po": "G",
      "ov": 83,
      "age": 28,
+     "en": 93,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -1657,6 +2039,8 @@
      "po": "G",
      "ov": 77,
      "age": 23,
+     "en": 78,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -1665,6 +2049,8 @@
      "po": "G",
      "ov": 77,
      "age": 27,
+     "en": 89,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -1673,6 +2059,8 @@
      "po": "C",
      "ov": 83,
      "age": 27,
+     "en": 89,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -1681,6 +2069,8 @@
      "po": "C",
      "ov": 80,
      "age": 32,
+     "en": 83,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -1689,6 +2079,8 @@
      "po": "C",
      "ov": 78,
      "age": 25,
+     "en": 81,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1697,6 +2089,8 @@
      "po": "C",
      "ov": 80,
      "age": 28,
+     "en": 97,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -1705,6 +2099,8 @@
      "po": "AG",
      "ov": 77,
      "age": 22,
+     "en": 78,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -1713,6 +2109,8 @@
      "po": "AG",
      "ov": 77,
      "age": 28,
+     "en": 92,
+     "du": 93,
      "backup": false,
      "horsAlignement": false
     },
@@ -1721,6 +2119,8 @@
      "po": "AG",
      "ov": 79,
      "age": 27,
+     "en": 90,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     }
@@ -1735,6 +2135,8 @@
      "po": "G",
      "ov": 80,
      "age": 25,
+     "en": 90,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -1743,6 +2145,8 @@
      "po": "G",
      "ov": 78,
      "age": 24,
+     "en": 86,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -1751,6 +2155,8 @@
      "po": "G",
      "ov": 80,
      "age": 28,
+     "en": 90,
+     "du": 95,
      "backup": false,
      "horsAlignement": false
     },
@@ -1759,6 +2165,8 @@
      "po": "C",
      "ov": 84,
      "age": 29,
+     "en": 94,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -1767,6 +2175,8 @@
      "po": "C",
      "ov": 84,
      "age": 29,
+     "en": 85,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -1775,6 +2185,8 @@
      "po": "C",
      "ov": 77,
      "age": 32,
+     "en": 75,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -1783,6 +2195,8 @@
      "po": "AG",
      "ov": 79,
      "age": 22,
+     "en": 79,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -1791,6 +2205,8 @@
      "po": "AG",
      "ov": 86,
      "age": 27,
+     "en": 91,
+     "du": 97,
      "backup": false,
      "horsAlignement": false
     },
@@ -1799,6 +2215,8 @@
      "po": "AG",
      "ov": 82,
      "age": 34,
+     "en": 87,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -1807,6 +2225,8 @@
      "po": "AG",
      "ov": 77,
      "age": 33,
+     "en": 70,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     }
@@ -1821,6 +2241,8 @@
      "po": "G",
      "ov": 80,
      "age": 28,
+     "en": 85,
+     "du": 96,
      "backup": false,
      "horsAlignement": false
     },
@@ -1829,6 +2251,8 @@
      "po": "G",
      "ov": 75,
      "age": 26,
+     "en": 83,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -1837,6 +2261,8 @@
      "po": "G",
      "ov": 82,
      "age": 30,
+     "en": 87,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -1845,6 +2271,8 @@
      "po": "C",
      "ov": 80,
      "age": 33,
+     "en": 83,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -1853,6 +2281,8 @@
      "po": "C",
      "ov": 78,
      "age": 24,
+     "en": 88,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -1861,6 +2291,8 @@
      "po": "C",
      "ov": 77,
      "age": 22,
+     "en": 79,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -1869,6 +2301,8 @@
      "po": "AG",
      "ov": 76,
      "age": 21,
+     "en": 73,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -1877,6 +2311,8 @@
      "po": "AG",
      "ov": 78,
      "age": 24,
+     "en": 78,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -1885,6 +2321,8 @@
      "po": "AG",
      "ov": 80,
      "age": 30,
+     "en": 82,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -1893,6 +2331,8 @@
      "po": "AG",
      "ov": 84,
      "age": 30,
+     "en": 92,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     }
@@ -1907,6 +2347,8 @@
      "po": "G",
      "ov": 83,
      "age": 31,
+     "en": 96,
+     "du": 98,
      "backup": false,
      "horsAlignement": false
     },
@@ -1915,6 +2357,8 @@
      "po": "G",
      "ov": 78,
      "age": 24,
+     "en": 91,
+     "du": 93,
      "backup": false,
      "horsAlignement": false
     },
@@ -1923,6 +2367,8 @@
      "po": "G",
      "ov": 76,
      "age": 28,
+     "en": 79,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -1931,6 +2377,8 @@
      "po": "C",
      "ov": 82,
      "age": 26,
+     "en": 89,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -1939,6 +2387,8 @@
      "po": "C",
      "ov": 76,
      "age": 22,
+     "en": 73,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -1947,6 +2397,8 @@
      "po": "C",
      "ov": 81,
      "age": 35,
+     "en": 84,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -1955,6 +2407,8 @@
      "po": "C",
      "ov": 81,
      "age": 34,
+     "en": 90,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -1963,6 +2417,8 @@
      "po": "AG",
      "ov": 77,
      "age": 23,
+     "en": 80,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -1971,6 +2427,8 @@
      "po": "AG",
      "ov": 80,
      "age": 25,
+     "en": 89,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -1979,6 +2437,8 @@
      "po": "AG",
      "ov": 82,
      "age": 25,
+     "en": 84,
+     "du": 98,
      "backup": false,
      "horsAlignement": false
     }
@@ -1993,6 +2453,8 @@
      "po": "G",
      "ov": 78,
      "age": 24,
+     "en": 86,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -2001,6 +2463,8 @@
      "po": "G",
      "ov": 83,
      "age": 26,
+     "en": 97,
+     "du": 99,
      "backup": false,
      "horsAlignement": false
     },
@@ -2009,6 +2473,8 @@
      "po": "C",
      "ov": 81,
      "age": 34,
+     "en": 88,
+     "du": 63,
      "backup": false,
      "horsAlignement": false
     },
@@ -2017,6 +2483,8 @@
      "po": "C",
      "ov": 81,
      "age": 25,
+     "en": 87,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -2025,6 +2493,8 @@
      "po": "C",
      "ov": 80,
      "age": 34,
+     "en": 80,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -2033,6 +2503,8 @@
      "po": "C",
      "ov": 78,
      "age": 23,
+     "en": 73,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -2041,6 +2513,8 @@
      "po": "C",
      "ov": 78,
      "age": 34,
+     "en": 77,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -2049,6 +2523,8 @@
      "po": "AG",
      "ov": 77,
      "age": 22,
+     "en": 75,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -2057,6 +2533,8 @@
      "po": "AG",
      "ov": 76,
      "age": 22,
+     "en": 69,
+     "du": 66,
      "backup": false,
      "horsAlignement": false
     },
@@ -2065,6 +2543,8 @@
      "po": "AG",
      "ov": 82,
      "age": 33,
+     "en": 81,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     }
@@ -2079,6 +2559,8 @@
      "po": "G",
      "ov": 79,
      "age": 32,
+     "en": 88,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -2087,6 +2569,8 @@
      "po": "G",
      "ov": 76,
      "age": 23,
+     "en": 87,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -2095,6 +2579,8 @@
      "po": "G",
      "ov": 81,
      "age": 31,
+     "en": 88,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     },
@@ -2103,6 +2589,8 @@
      "po": "C",
      "ov": 80,
      "age": 29,
+     "en": 83,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -2111,6 +2599,8 @@
      "po": "C",
      "ov": 76,
      "age": 23,
+     "en": 81,
+     "du": 70,
      "backup": false,
      "horsAlignement": false
     },
@@ -2119,6 +2609,8 @@
      "po": "C",
      "ov": 79,
      "age": 30,
+     "en": 79,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -2127,6 +2619,8 @@
      "po": "C",
      "ov": 82,
      "age": 24,
+     "en": 92,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -2135,6 +2629,8 @@
      "po": "C",
      "ov": 77,
      "age": 22,
+     "en": 76,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -2143,6 +2639,8 @@
      "po": "AG",
      "ov": 82,
      "age": 31,
+     "en": 89,
+     "du": 99,
      "backup": false,
      "horsAlignement": false
     },
@@ -2151,6 +2649,8 @@
      "po": "AG",
      "ov": 81,
      "age": 32,
+     "en": 87,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     }
@@ -2165,6 +2665,8 @@
      "po": "G",
      "ov": 83,
      "age": 32,
+     "en": 91,
+     "du": 89,
      "backup": false,
      "horsAlignement": false
     },
@@ -2173,6 +2675,8 @@
      "po": "G",
      "ov": 77,
      "age": 24,
+     "en": 87,
+     "du": 88,
      "backup": false,
      "horsAlignement": false
     },
@@ -2181,6 +2685,8 @@
      "po": "G",
      "ov": 76,
      "age": 21,
+     "en": 78,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -2189,6 +2695,8 @@
      "po": "C",
      "ov": 82,
      "age": 31,
+     "en": 85,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -2197,6 +2705,8 @@
      "po": "C",
      "ov": 82,
      "age": 31,
+     "en": 84,
+     "du": 99,
      "backup": false,
      "horsAlignement": false
     },
@@ -2205,6 +2715,8 @@
      "po": "AG",
      "ov": 82,
      "age": 24,
+     "en": 88,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -2213,6 +2725,8 @@
      "po": "AG",
      "ov": 77,
      "age": 21,
+     "en": 73,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -2221,6 +2735,8 @@
      "po": "AG",
      "ov": 80,
      "age": 25,
+     "en": 79,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -2229,6 +2745,8 @@
      "po": "AG",
      "ov": 77,
      "age": 21,
+     "en": 76,
+     "du": 64,
      "backup": false,
      "horsAlignement": false
     },
@@ -2237,6 +2755,8 @@
      "po": "AG",
      "ov": 81,
      "age": 24,
+     "en": 87,
+     "du": 95,
      "backup": false,
      "horsAlignement": false
     }
@@ -2251,6 +2771,8 @@
      "po": "G",
      "ov": 83,
      "age": 34,
+     "en": 89,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2259,6 +2781,8 @@
      "po": "G",
      "ov": 76,
      "age": 21,
+     "en": 71,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -2267,6 +2791,8 @@
      "po": "G",
      "ov": 79,
      "age": 31,
+     "en": 84,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2275,6 +2801,8 @@
      "po": "C",
      "ov": 81,
      "age": 29,
+     "en": 85,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2283,6 +2811,8 @@
      "po": "C",
      "ov": 78,
      "age": 22,
+     "en": 78,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -2291,6 +2821,8 @@
      "po": "C",
      "ov": 81,
      "age": 26,
+     "en": 88,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     },
@@ -2299,6 +2831,8 @@
      "po": "AG",
      "ov": 80,
      "age": 25,
+     "en": 92,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -2307,6 +2841,8 @@
      "po": "AG",
      "ov": 77,
      "age": 22,
+     "en": 74,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -2315,6 +2851,8 @@
      "po": "AG",
      "ov": 78,
      "age": 32,
+     "en": 75,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -2323,6 +2861,8 @@
      "po": "AG",
      "ov": 82,
      "age": 21,
+     "en": 83,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     }
@@ -2337,6 +2877,8 @@
      "po": "G",
      "ov": 85,
      "age": 28,
+     "en": 97,
+     "du": 98,
      "backup": false,
      "horsAlignement": false
     },
@@ -2345,6 +2887,8 @@
      "po": "G",
      "ov": 76,
      "age": 22,
+     "en": 80,
+     "du": 79,
      "backup": false,
      "horsAlignement": true
     },
@@ -2353,6 +2897,8 @@
      "po": "C",
      "ov": 82,
      "age": 27,
+     "en": 83,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -2361,6 +2907,8 @@
      "po": "C",
      "ov": 81,
      "age": 24,
+     "en": 83,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -2369,6 +2917,8 @@
      "po": "C",
      "ov": 77,
      "age": 28,
+     "en": 81,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     },
@@ -2377,6 +2927,8 @@
      "po": "C",
      "ov": 82,
      "age": 31,
+     "en": 86,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -2385,6 +2937,8 @@
      "po": "AG",
      "ov": 81,
      "age": 28,
+     "en": 83,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -2393,6 +2947,8 @@
      "po": "AG",
      "ov": 78,
      "age": 26,
+     "en": 77,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -2401,6 +2957,8 @@
      "po": "AG",
      "ov": 78,
      "age": 27,
+     "en": 71,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -2409,6 +2967,8 @@
      "po": "AG",
      "ov": 77,
      "age": 25,
+     "en": 82,
+     "du": 91,
      "backup": false,
      "horsAlignement": false
     }
@@ -2423,6 +2983,8 @@
      "po": "G",
      "ov": 79,
      "age": 24,
+     "en": 84,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2431,6 +2993,8 @@
      "po": "G",
      "ov": 80,
      "age": 26,
+     "en": 85,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -2439,6 +3003,8 @@
      "po": "C",
      "ov": 82,
      "age": 26,
+     "en": 85,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -2447,6 +3013,8 @@
      "po": "C",
      "ov": 77,
      "age": 24,
+     "en": 79,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -2455,6 +3023,8 @@
      "po": "C",
      "ov": 82,
      "age": 40,
+     "en": 81,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -2463,6 +3033,8 @@
      "po": "C",
      "ov": 79,
      "age": 34,
+     "en": 76,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -2471,6 +3043,8 @@
      "po": "C",
      "ov": 79,
      "age": 22,
+     "en": 78,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -2479,6 +3053,8 @@
      "po": "AG",
      "ov": 79,
      "age": 22,
+     "en": 76,
+     "du": 73,
      "backup": false,
      "horsAlignement": false
     },
@@ -2487,6 +3063,8 @@
      "po": "AG",
      "ov": 77,
      "age": 22,
+     "en": 85,
+     "du": 80,
      "backup": false,
      "horsAlignement": false
     },
@@ -2495,6 +3073,8 @@
      "po": "AG",
      "ov": 76,
      "age": 21,
+     "en": 76,
+     "du": 82,
      "backup": false,
      "horsAlignement": false
     }
@@ -2509,6 +3089,8 @@
      "po": "G",
      "ov": 76,
      "age": 24,
+     "en": 84,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -2517,6 +3099,8 @@
      "po": "G",
      "ov": 80,
      "age": 29,
+     "en": 92,
+     "du": 92,
      "backup": false,
      "horsAlignement": false
     },
@@ -2525,6 +3109,8 @@
      "po": "G",
      "ov": 80,
      "age": 30,
+     "en": 86,
+     "du": 85,
      "backup": false,
      "horsAlignement": false
     },
@@ -2533,6 +3119,8 @@
      "po": "C",
      "ov": 75,
      "age": 20,
+     "en": 79,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -2541,6 +3129,8 @@
      "po": "C",
      "ov": 84,
      "age": 30,
+     "en": 84,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -2549,6 +3139,8 @@
      "po": "C",
      "ov": 82,
      "age": 29,
+     "en": 93,
+     "du": 95,
      "backup": false,
      "horsAlignement": false
     },
@@ -2557,6 +3149,8 @@
      "po": "AG",
      "ov": 76,
      "age": 27,
+     "en": 71,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -2565,6 +3159,8 @@
      "po": "AG",
      "ov": 77,
      "age": 22,
+     "en": 86,
+     "du": 71,
      "backup": false,
      "horsAlignement": false
     },
@@ -2573,6 +3169,8 @@
      "po": "AG",
      "ov": 74,
      "age": 23,
+     "en": 74,
+     "du": 76,
      "backup": false,
      "horsAlignement": false
     },
@@ -2581,6 +3179,8 @@
      "po": "AG",
      "ov": 78,
      "age": 28,
+     "en": 77,
+     "du": 77,
      "backup": false,
      "horsAlignement": false
     }
@@ -2595,6 +3195,8 @@
      "po": "G",
      "ov": 80,
      "age": 33,
+     "en": 87,
+     "du": 86,
      "backup": false,
      "horsAlignement": false
     },
@@ -2603,6 +3205,8 @@
      "po": "G",
      "ov": 85,
      "age": 32,
+     "en": 95,
+     "du": 94,
      "backup": false,
      "horsAlignement": false
     },
@@ -2611,6 +3215,8 @@
      "po": "G",
      "ov": 78,
      "age": 27,
+     "en": 83,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2619,6 +3225,8 @@
      "po": "C",
      "ov": 81,
      "age": 31,
+     "en": 86,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -2627,6 +3235,8 @@
      "po": "C",
      "ov": 77,
      "age": 28,
+     "en": 77,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2635,6 +3245,8 @@
      "po": "C",
      "ov": 77,
      "age": 20,
+     "en": 74,
+     "du": 69,
      "backup": false,
      "horsAlignement": false
     },
@@ -2643,6 +3255,8 @@
      "po": "C",
      "ov": 81,
      "age": 27,
+     "en": 81,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2651,6 +3265,8 @@
      "po": "C",
      "ov": 76,
      "age": 22,
+     "en": 74,
+     "du": 72,
      "backup": false,
      "horsAlignement": false
     },
@@ -2659,6 +3275,8 @@
      "po": "C",
      "ov": 84,
      "age": 33,
+     "en": 88,
+     "du": 84,
      "backup": false,
      "horsAlignement": false
     },
@@ -2667,6 +3285,8 @@
      "po": "AG",
      "ov": 81,
      "age": 27,
+     "en": 86,
+     "du": 98,
      "backup": false,
      "horsAlignement": false
     }
@@ -2681,6 +3301,8 @@
      "po": "G",
      "ov": 83,
      "age": 30,
+     "en": 99,
+     "du": 96,
      "backup": false,
      "horsAlignement": false
     },
@@ -2689,6 +3311,8 @@
      "po": "G",
      "ov": 79,
      "age": 26,
+     "en": 88,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2697,6 +3321,8 @@
      "po": "G",
      "ov": 77,
      "age": 34,
+     "en": 81,
+     "du": 81,
      "backup": false,
      "horsAlignement": false
     },
@@ -2705,6 +3331,8 @@
      "po": "C",
      "ov": 82,
      "age": 30,
+     "en": 91,
+     "du": 90,
      "backup": false,
      "horsAlignement": false
     },
@@ -2713,6 +3341,8 @@
      "po": "C",
      "ov": 82,
      "age": 27,
+     "en": 84,
+     "du": 74,
      "backup": false,
      "horsAlignement": false
     },
@@ -2721,6 +3351,8 @@
      "po": "C",
      "ov": 83,
      "age": 28,
+     "en": 88,
+     "du": 87,
      "backup": false,
      "horsAlignement": false
     },
@@ -2729,6 +3361,8 @@
      "po": "C",
      "ov": 80,
      "age": 32,
+     "en": 83,
+     "du": 79,
      "backup": false,
      "horsAlignement": false
     },
@@ -2737,6 +3371,8 @@
      "po": "AG",
      "ov": 80,
      "age": 30,
+     "en": 84,
+     "du": 75,
      "backup": false,
      "horsAlignement": false
     },
@@ -2745,6 +3381,8 @@
      "po": "AG",
      "ov": 82,
      "age": 35,
+     "en": 83,
+     "du": 83,
      "backup": false,
      "horsAlignement": false
     },
@@ -2753,6 +3391,8 @@
      "po": "AG",
      "ov": 78,
      "age": 23,
+     "en": 78,
+     "du": 78,
      "backup": false,
      "horsAlignement": false
     }

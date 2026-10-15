@@ -14,9 +14,12 @@
  *  2. Matchs : la page texte STHS de la saison régulière,
  *     USHL{N}TeamScoring.html (blocs GOALTENDING). La saison N est trouvée en
  *     sondant ces pages : la plus récente qui existe est la saison en cours.
- *  3. Limites : le classeur Excel publié dans gestion_gardiens/y{N}/. Tant que
- *     le dossier de la saison en cours n'existe pas, les limites sont « à
- *     venir » : on n'applique jamais les limites d'une saison précédente.
+ *  3. Limites : règle 4.10.2 du règlement, (EN + DU) / 3 arrondi à l'entier
+ *     le plus proche (0,5 vers le haut), maximum 66, sur les cotes du relevé
+ *     des alignements. Le tableau étant publié « en début de saison », la
+ *     limite est figée dès le premier match. Si la ligue publie son tableau
+ *     dans gestion_gardiens/y{N}/, il a le dernier mot (écarts signalés).
+ *     Jamais de limite d'une saison précédente.
  *
  * Écrit data/gardiens.json (interface et alertes) et limites.json (même format
  * qu'avant : les interfaces de DG le lisent pour l'utilisation des gardiens).
@@ -588,7 +591,10 @@ export async function determinerSaison({ connue, forcee, recuperer, modele }) {
    ALIGNEMENTS (relevé des Sharks)
    ===================================================================== */
 
-/** Gardiens par équipe d'un data/rosters.json de DG. Lance une erreur si le relevé est incomplet. */
+const nombreOuNul = v => (Number.isFinite(v) ? v : null);
+
+/** Gardiens par équipe d'un data/rosters.json de DG, avec leurs cotes EN et DU.
+    Lance une erreur si le relevé est incomplet. */
 export function gardiensDesAlignements(data) {
   if (!data || typeof data !== 'object' || !data.equipes) throw new Error('fichier sans équipes');
   const equipes = [];
@@ -596,12 +602,30 @@ export function gardiensDesAlignements(data) {
     if (!e || !Array.isArray(e.joueurs) || e.joueurs.length < MIN_JOUEURS) continue;
     const gardiens = e.joueurs
       .filter(j => j && j.po === 'G' && !j.backup && j.nom)
-      .map(j => ({ nom: String(j.nom).trim(), ov: Number.isFinite(j.ov) ? j.ov : null, age: Number.isFinite(j.age) ? j.age : null, clubEcole: !!j.horsAlignement }));
+      .map(j => ({
+        nom: String(j.nom).trim(), ov: nombreOuNul(j.ov), age: nombreOuNul(j.age),
+        en: nombreOuNul(j.en), du: nombreOuNul(j.du), clubEcole: !!j.horsAlignement
+      }));
     const mFiche = String(e.fiche || '').match(/(\d+)-(\d+)-(\d+)\s*$/);
     equipes.push({ code, fiche: mFiche ? `${mFiche[1]}-${mFiche[2]}-${mFiche[3]}` : null, gardiens });
   }
   if (equipes.length < MIN_EQUIPES) throw new Error(`${equipes.length} équipes exploitables (< ${MIN_EQUIPES})`);
   return { maj: data.maj || null, equipes };
+}
+
+/* =====================================================================
+   LIMITE D'UTILISATION (règlement, article 4.10.2)
+   ===================================================================== */
+
+export const LIMITE_MAX = 66;
+export const REGLE_LIMITE = "(EN + DU) / 3, arrondi à l'entier le plus proche (0,5 vers le haut), maximum 66 (article 4.10.2)";
+
+/** Nombre maximal de matchs d'un gardien PRO : (EN + DU) / 3, arrondi à
+    l'entier supérieur à partir de 0,5, au plus 66. Calcul en entiers :
+    floor((2 × (EN + DU) + 3) / 6) vaut exactement cet arrondi. */
+export function limiteFormule(en, du) {
+  if (!Number.isFinite(en) || !Number.isFinite(du)) return null;
+  return Math.min(LIMITE_MAX, Math.floor((2 * (en + du) + 3) / 6));
 }
 
 /* =====================================================================
@@ -614,12 +638,16 @@ function matchsDeFiche(fiche) {
 }
 
 /**
- * Réunit alignements, matchs et limites. Les lignes de matchs d'un même
- * gardien (échangé en cours de saison) sont additionnées. Un gardien présent
- * dans les matchs mais absent des alignements est rangé avec l'équipe de sa
- * dernière ligne de matchs (signalé « absent du relevé »).
+ * Réunit alignements, matchs et limites.
+ *  - Les lignes de matchs d'un même gardien (échangé en cours de saison) sont
+ *    additionnées. Un gardien présent dans les matchs mais absent des
+ *    alignements est rangé avec l'équipe de sa dernière ligne de matchs.
+ *  - Limite : règle 4.10.2 sur les cotes EN et DU. Le tableau est publié « en
+ *    début de saison » : dès le premier match, la limite calculée avant la
+ *    saison est conservée même si EN ou DU change ensuite (precedentes).
+ *  - Le tableau officiel de la ligue, s'il est publié, a le dernier mot.
  */
-export function fusionner({ alignements, matchs, limites }) {
+export function fusionner({ alignements, matchs, tableau = [], precedentes = new Map(), saisonCommencee = false }) {
   const avertissements = [];
   const codeVersAbbr = {};
   for (const [abbr, code] of Object.entries(matchs.abbrVersCode || {})) codeVersAbbr[code] = abbr;
@@ -649,8 +677,10 @@ export function fusionner({ alignements, matchs, limites }) {
         const s = trouverStats(g.nom);
         if (s) utilisees.add(s);
         const gardien = {
-          nom: g.nom, ov: g.ov, age: g.age, clubEcole: !!g.clubEcole, recrue: !!s?.recrue,
-          v: s ? s.v : 0, d: s ? s.d : 0, n: s ? s.n : 0, mj: s ? s.mj : 0, limite: null
+          nom: g.nom, ov: g.ov ?? null, age: g.age ?? null, en: g.en ?? null, du: g.du ?? null,
+          clubEcole: !!g.clubEcole, recrue: !!s?.recrue,
+          v: s ? s.v : 0, d: s ? s.d : 0, n: s ? s.n : 0, mj: s ? s.mj : 0,
+          formule: null, limite: null, origine: null
         };
         if (s && s.equipes.length > 1) gardien.equipesStats = s.equipes.slice();
         return gardien;
@@ -665,7 +695,10 @@ export function fusionner({ alignements, matchs, limites }) {
     if (utilisees.has(s)) continue;
     const abbr = s.equipes[s.equipes.length - 1];
     const code = matchs.abbrVersCode?.[abbr];
-    const g = { nom: s.nom, ov: null, age: null, clubEcole: false, recrue: s.recrue, horsReleve: true, v: s.v, d: s.d, n: s.n, mj: s.mj, limite: null };
+    const g = {
+      nom: s.nom, ov: null, age: null, en: null, du: null, clubEcole: false, recrue: s.recrue, horsReleve: true,
+      v: s.v, d: s.d, n: s.n, mj: s.mj, formule: null, limite: null, origine: null
+    };
     if (s.equipes.length > 1) g.equipesStats = s.equipes.slice();
     if (code && parCode.has(code)) parCode.get(code).gardiens.push(g);
     else autres.push({ ...g, equipeStats: abbr || null });
@@ -674,13 +707,32 @@ export function fusionner({ alignements, matchs, limites }) {
 
   // 4) Limites
   const tous = [...equipes.flatMap(e => e.gardiens), ...autres];
-  const trouverLimite = apparieur(limites, l => l.nom, tous.map(g => g.nom));
-  const limitesUtilisees = new Set();
+  const trouverTableau = tableau.length ? apparieur(tableau, l => l.nom, tous.map(g => g.nom)) : () => null;
+  const tableauUtilise = new Set();
   for (const g of tous) {
-    const l = trouverLimite(g.nom);
-    if (l) { g.limite = l.limite; limitesUtilisees.add(l); }
+    let formule = limiteFormule(g.en, g.du);
+    const avant = precedentes.get(normaliserNom(g.nom));
+    if (saisonCommencee && avant && Number.isFinite(avant.formule)) {
+      if (formule !== null && formule !== avant.formule) {
+        avertissements.push(`${g.nom} : EN ou DU a changé en cours de saison (la règle donnerait ${formule}); la limite de début de saison (${avant.formule}) est conservée.`);
+      }
+      formule = avant.formule;
+    }
+    g.formule = formule;
+    const t = trouverTableau(g.nom);
+    if (t) {
+      tableauUtilise.add(t);
+      if (formule !== null && t.limite !== formule) {
+        avertissements.push(`${g.nom} : ${t.limite} au tableau officiel, ${formule} selon la règle (EN ${g.en ?? '?'}, DU ${g.du ?? '?'}). Le tableau a le dernier mot.`);
+      }
+      g.limite = t.limite;
+      g.origine = 'tableau';
+    } else {
+      g.limite = formule;
+      g.origine = formule === null ? null : 'formule';
+    }
   }
-  const limitesNonAssociees = limites.filter(l => !limitesUtilisees.has(l)).map(({ nom, limite }) => ({ nom, limite }));
+  const limitesNonAssociees = tableau.filter(l => !tableauUtilise.has(l)).map(({ nom, limite }) => ({ nom, limite }));
 
   for (const g of tous) {
     if (g.equipesStats) avertissements.push(`${g.nom} : matchs additionnés de ${g.equipesStats.join(' + ')} (échange en cours de saison).`);
@@ -736,6 +788,7 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
   const forcee = env.SAISON ? parseInt(env.SAISON, 10) : null;
   const { saison, page } = await determinerSaison({ connue, forcee, recuperer, modele: urls.matchs });
   if (existant?.saison && saison < existant.saison) throw new ErreurReleve(`saison Y${saison} antérieure au relevé existant (Y${existant.saison})`);
+  const memeSaison = existant?.saison === saison;
   journal(`Saison en cours : Y${saison} (${page.url})`);
 
   // 2) Matchs
@@ -751,12 +804,14 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
     alignements = gardiensDesAlignements(JSON.parse(r.texte));
     journal(`Alignements : ${alignements.equipes.length} équipes, relevé du ${alignements.maj || '?'}`);
   } catch (e) {
-    if (existant && Array.isArray(existant.equipes) && existant.equipes.length >= MIN_EQUIPES && existant.saison === saison) {
+    if (memeSaison && Array.isArray(existant.equipes) && existant.equipes.length >= MIN_EQUIPES) {
       alignements = {
         maj: existant.alignements?.maj || null,
         equipes: existant.equipes.map(eq => ({
           code: eq.code, fiche: eq.fiche || null,
-          gardiens: eq.gardiens.filter(g => !g.horsReleve).map(g => ({ nom: g.nom, ov: g.ov ?? null, age: g.age ?? null, clubEcole: !!g.clubEcole }))
+          gardiens: eq.gardiens.filter(g => !g.horsReleve).map(g => ({
+            nom: g.nom, ov: g.ov ?? null, age: g.age ?? null, en: g.en ?? null, du: g.du ?? null, clubEcole: !!g.clubEcole
+          }))
         }))
       };
       alignementsRepris = true;
@@ -772,24 +827,23 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
     if (matchs.totauxAvecMatchs > 0) {
       throw new ErreurReleve(`la page des matchs montre ${matchs.totauxAvecMatchs} équipe(s) avec des matchs, mais aucune ligne de gardien n'a été lue (format changé?)`);
     }
-    const avaitDesMatchs = existant?.saison === saison && (existant.equipes || []).some(e => (e.gardiens || []).some(g => g.mj > 0));
+    const avaitDesMatchs = memeSaison && (existant.equipes || []).some(e => (e.gardiens || []).some(g => g.mj > 0));
     if (avaitDesMatchs) throw new ErreurReleve('la page des matchs ne contient plus aucun gardien alors que le relevé précédent en avait');
     if (alignements.equipes.some(e => matchsDeFiche(e.fiche) > 0)) {
       avertissements.push("Les fiches d'équipes montrent des matchs joués, mais la page des matchs n'a encore aucune ligne de gardien.");
     }
   }
 
-  // 5) Limites de la saison en cours
-  let limites = { statut: 'a-venir', source: null, liste: [], lues: null, repris: false };
-  const precedentes = limitesExistantes && saisonDesLimites(limitesExistantes) === saison ? limitesExistantes : null;
-  const statutPrecedent = precedentes ? (precedentes.statut || ((precedentes.limites || []).length ? 'publiees' : 'a-venir')) : null;
+  // 5) Tableau officiel de la saison (facultatif). Quand la ligue le publie dans
+  //    gestion_gardiens/y{N}/, il a le dernier mot sur la règle 4.10.2.
+  let tableau = { statut: 'a-venir', source: null, liste: [], repris: false };
+  const tableauPrecedent = memeSaison && existant.limites?.tableau?.statut === 'publie' && Array.isArray(existant.limites.tableau.liste) && existant.limites.tableau.liste.length
+    ? existant.limites.tableau : null;
   const reprendre = raison => {
-    if (precedentes && statutPrecedent === 'publiees' && (precedentes.limites || []).length) {
-      limites = { statut: 'publiees', source: precedentes.source || null, liste: precedentes.limites, lues: precedentes.horodatage || null, repris: true };
-      avertissements.push(`${raison} : limites Y${saison} reprises du relevé précédent.`);
-      return true;
-    }
-    return false;
+    if (!tableauPrecedent) return false;
+    tableau = { statut: 'publie', source: tableauPrecedent.source || null, liste: tableauPrecedent.liste, repris: true };
+    avertissements.push(`${raison} : tableau officiel Y${saison} repris du relevé précédent.`);
+    return true;
   };
   const copiesDiagnostic = {};
   let dossiers = null;
@@ -799,17 +853,17 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
     if (estPageAntiRobot(r.texte)) throw new Error('page de vérification anti-robot');
     dossiers = analyserDossiersSaisons(r.texte, urls.dossiersLimites);
     if (!dossiers.length) throw new Error('aucun dossier de saison dans la page');
-    journal(`Dossiers des limites : ${dossiers.map(d => 'y' + d.numero).join(', ')}`);
+    journal(`Dossiers des tableaux : ${dossiers.map(d => 'y' + d.numero).join(', ')}`);
   } catch (e) {
-    journal(`Dossiers des limites : ${e.message}`);
-    if (!reprendre(`Dossier des limites inaccessible (${e.message})`)) {
-      avertissements.push(`Dossier des limites inaccessible (${e.message}) : nouvelle vérification au prochain passage.`);
+    journal(`Dossiers des tableaux : ${e.message}`);
+    if (!reprendre(`Dossier des tableaux officiels inaccessible (${e.message})`)) {
+      avertissements.push(`Dossier des tableaux officiels inaccessible (${e.message}) : nouvelle vérification au prochain passage. Les limites calculées par la règle s'appliquent.`);
     }
   }
   if (dossiers) {
     const dossier = dossiers.find(d => d.numero === saison);
     if (!dossier) {
-      journal(`Limites Y${saison} : pas encore publiées (dernier dossier : y${dossiers[dossiers.length - 1].numero})`);
+      journal(`Tableau officiel Y${saison} : pas encore publié (dernier dossier : y${dossiers[dossiers.length - 1].numero})`);
     } else {
       let candidats = [];
       try {
@@ -827,46 +881,55 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
         } catch (e) { erreur = e; journal(`Classeur ${url} : ${e.message}`); }
       }
       if (lu && lu.limites.length >= MIN_LIMITES) {
-        limites = { statut: 'publiees', source: lu.url, liste: lu.limites, lues: maintenant().toISOString(), repris: false };
-        journal(`Limites Y${saison} : ${lu.limites.length} lues dans ${lu.url}`);
+        tableau = { statut: 'publie', source: lu.url, liste: lu.limites, repris: false };
+        journal(`Tableau officiel Y${saison} : ${lu.limites.length} limites lues dans ${lu.url}`);
       } else {
         if (lu) for (const [nom, html] of Object.entries(lu.copies)) copiesDiagnostic['limites-' + nom] = html;
-        const raison = lu ? `classeur Y${saison} lu mais seulement ${lu.limites.length} limite(s) reconnue(s)`
-          : `classeur Y${saison} introuvable ou illisible${erreur ? ' (' + erreur.message + ')' : ''}`;
+        const raison = lu ? `tableau Y${saison} lu mais seulement ${lu.limites.length} limite(s) reconnue(s)`
+          : `tableau Y${saison} introuvable ou illisible${erreur ? ' (' + erreur.message + ')' : ''}`;
         if (!reprendre(raison[0].toUpperCase() + raison.slice(1))) {
-          limites = { statut: 'illisible', source: lu ? lu.url : dossier.url, liste: [], lues: null, repris: false };
-          avertissements.push(`Le dossier y${saison} est en ligne, mais ${raison}. Copie brute dans ${DOSSIER_DIAGNOSTIC}/.`);
+          tableau = { statut: 'illisible', source: lu ? lu.url : dossier.url, liste: [], repris: false };
+          avertissements.push(`Le dossier y${saison} est en ligne, mais ${raison}. Les limites calculées par la règle restent en vigueur. Copie brute dans ${DOSSIER_DIAGNOSTIC}/.`);
         }
       }
     }
   }
 
-  // 6) Fusion
-  const fusion = fusionner({ alignements, matchs, limites: limites.liste });
-  avertissements.push(...fusion.avertissements);
-  if (existant?.saison === saison) {
-    const avant = new Map();
-    for (const e of existant.equipes || []) for (const g of e.gardiens || []) avant.set(normaliserNom(g.nom), g.mj);
-    for (const e of fusion.equipes) for (const g of e.gardiens) {
-      const mjAvant = avant.get(normaliserNom(g.nom));
-      if (Number.isFinite(mjAvant) && g.mj < mjAvant) avertissements.push(`${g.nom} : ${mjAvant} matchs au relevé précédent, ${g.mj} maintenant (correction de la ligue?).`);
+  // 6) Fusion. La saison est commencée dès qu'un match apparaît (page des
+  //    matchs ou fiche d'équipe) : les limites calculées sont alors figées.
+  const saisonCommencee = matchs.totauxAvecMatchs > 0 || matchs.gardiens.some(g => g.mj > 0) ||
+    alignements.equipes.some(e => matchsDeFiche(e.fiche) > 0);
+  const precedentes = new Map();
+  if (memeSaison) {
+    for (const g of [...(existant.equipes || []).flatMap(e => e.gardiens || []), ...(existant.autres || [])]) {
+      precedentes.set(normaliserNom(g.nom), { formule: g.formule, mj: g.mj });
     }
   }
+  const fusion = fusionner({ alignements, matchs, tableau: tableau.liste, precedentes, saisonCommencee });
+  avertissements.push(...fusion.avertissements);
+  for (const e of fusion.equipes) for (const g of e.gardiens) {
+    const mjAvant = precedentes.get(normaliserNom(g.nom))?.mj;
+    if (Number.isFinite(mjAvant) && g.mj < mjAvant) avertissements.push(`${g.nom} : ${mjAvant} matchs au relevé précédent, ${g.mj} maintenant (correction de la ligue?).`);
+  }
+  const tous = [...fusion.equipes.flatMap(e => e.gardiens), ...fusion.autres];
+  const avecLimite = tous.filter(g => Number.isFinite(g.limite));
+  const statut = tableau.statut === 'publie' ? 'publiees' : (avecLimite.length ? 'calculees' : 'a-venir');
 
-  // 7) Écriture. limites.json n'est réécrit que si son contenu change : son
-  //    horodatage dit alors depuis quand les limites en vigueur sont connues.
+  // 7) Écriture. limites.json (lu par les interfaces de DG) n'est réécrit que
+  //    si son contenu change : son horodatage dit depuis quand il est en vigueur.
   const horodatage = maintenant().toISOString();
   const nouvellesLimites = {
-    source: limites.source, saison, statut: limites.statut,
-    horodatage: limites.lues || horodatage,
-    nombre: limites.liste.length,
-    limites: limites.liste.map(({ nom, limite }) => ({ nom, limite }))
+    source: statut === 'publiees' ? tableau.source : 'règle 4.10.2 : (EN + DU) / 3',
+    saison, statut,
+    horodatage,
+    nombre: avecLimite.length,
+    limites: avecLimite.map(g => ({ nom: g.nom, limite: g.limite }))
   };
   const limitesEcrites = !memesLimites(nouvellesLimites, limitesExistantes);
-  if (!limitesEcrites) nouvellesLimites.horodatage = limitesExistantes.horodatage || nouvellesLimites.horodatage;
+  if (!limitesEcrites) nouvellesLimites.horodatage = limitesExistantes.horodatage || horodatage;
 
   const sortie = {
-    version: 1,
+    version: 2,
     genere: horodatage,
     saison,
     depot: env.GITHUB_REPOSITORY || existant?.depot || null,
@@ -874,8 +937,8 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
     matchs: { source: page.url, asOf: matchs.asOf, lignes: matchs.gardiens.length },
     alignements: { source: urls.alignements, maj: alignements.maj, repris: alignementsRepris },
     limites: {
-      statut: limites.statut, source: limites.source, nombre: limites.liste.length,
-      depuis: limites.statut === 'a-venir' ? null : nouvellesLimites.horodatage, repris: limites.repris
+      statut, regle: REGLE_LIMITE, nombre: avecLimite.length, figees: saisonCommencee,
+      tableau: { statut: tableau.statut, source: tableau.source, nombre: tableau.liste.length, repris: tableau.repris, liste: tableau.liste }
     },
     equipes: fusion.equipes,
     autres: fusion.autres,
@@ -892,9 +955,8 @@ export async function releve({ racine = process.cwd(), recuperer = recupererRese
     for (const [nom, html] of Object.entries(copiesDiagnostic)) await fs.writeFile(path.join(dossierDiag, nom), html, 'utf8');
   }
 
-  const nbGardiens = sortie.equipes.reduce((t, e) => t + e.gardiens.length, 0) + sortie.autres.length;
-  journal(`Écrit : ${FICHIER_GARDIENS} (Y${saison}, ${sortie.equipes.length} équipes, ${nbGardiens} gardiens, limites ${limites.statut})` +
-    (limitesEcrites ? ` et ${FICHIER_LIMITES}` : ''));
+  journal(`Écrit : ${FICHIER_GARDIENS} (Y${saison}, ${sortie.equipes.length} équipes, ${tous.length} gardiens, ` +
+    `${avecLimite.length} limites ${statut}${saisonCommencee ? ', figées' : ''})` + (limitesEcrites ? ` et ${FICHIER_LIMITES}` : ''));
   for (const a of avertissements) journal('  ! ' + a);
   return { sortie, limitesEcrites };
 }
