@@ -2,7 +2,7 @@
  "source": "règle 4.10.2 : (EN + DU) / 3",
  "saison": 22,
  "statut": "calculees",
- "horodatage": "2026-10-15T02:55:52.490Z",
+ "horodatage": "2026-10-17T15:45:20.225Z",
  "nombre": 91,
  "limites": [
   {
@@ -318,12 +318,12 @@
    "limite": 56
   },
   {
-   "nom": "Jake Oettinger",
-   "limite": 65
-  },
-  {
    "nom": "Adam Gajan",
    "limite": 53
+  },
+  {
+   "nom": "Jake Oettinger",
+   "limite": 65
   },
   {
    "nom": "Jan Bednar",

@@ -1,16 +1,16 @@
 {
  "version": 2,
- "genere": "2026-10-17T00:36:43.332Z",
+ "genere": "2026-10-17T15:45:20.225Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
   "source": "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL22TeamScoring.html",
-  "asOf": "vendredi, oct 16 2026",
+  "asOf": "samedi, oct 17 2026",
   "lignes": 0
  },
  "alignements": {
   "source": "https://raw.githubusercontent.com/merciermathieu5/Sharks/main/data/rosters.json",
-  "maj": "oct 15 2026",
+  "maj": "oct 17 2026",
   "repris": false
  },
  "limites": {
@@ -378,7 +378,7 @@
     },
     {
      "nom": "Benjamin Gaudreau",
-     "ov": 76,
+     "ov": 77,
      "age": 23,
      "en": 82,
      "du": 83,
@@ -517,7 +517,7 @@
    "gardiens": [
     {
      "nom": "Stuart Skinner",
-     "ov": 80,
+     "ov": 81,
      "age": 28,
      "en": 85,
      "du": 83,
@@ -663,7 +663,7 @@
     },
     {
      "nom": "Jordan Binnington",
-     "ov": 80,
+     "ov": 81,
      "age": 33,
      "en": 89,
      "du": 90,
@@ -916,7 +916,7 @@
    "gardiens": [
     {
      "nom": "Ilya Samsonov",
-     "ov": 86,
+     "ov": 87,
      "age": 29,
      "en": 99,
      "du": 97,
@@ -1526,6 +1526,22 @@
    "matchs": 0,
    "gardiens": [
     {
+     "nom": "Adam Gajan",
+     "ov": 77,
+     "age": 22,
+     "en": 80,
+     "du": 79,
+     "clubEcole": false,
+     "recrue": false,
+     "v": 0,
+     "d": 0,
+     "n": 0,
+     "mj": 0,
+     "formule": 53,
+     "limite": 53,
+     "origine": "formule"
+    },
+    {
      "nom": "Jake Oettinger",
      "ov": 85,
      "age": 28,
@@ -1539,22 +1555,6 @@
      "mj": 0,
      "formule": 65,
      "limite": 65,
-     "origine": "formule"
-    },
-    {
-     "nom": "Adam Gajan",
-     "ov": 76,
-     "age": 22,
-     "en": 80,
-     "du": 79,
-     "clubEcole": true,
-     "recrue": false,
-     "v": 0,
-     "d": 0,
-     "n": 0,
-     "mj": 0,
-     "formule": 53,
-     "limite": 53,
      "origine": "formule"
     }
    ]
@@ -1609,7 +1609,7 @@
    "gardiens": [
     {
      "nom": "Sebastian Cossa",
-     "ov": 76,
+     "ov": 77,
      "age": 24,
      "en": 84,
      "du": 84,
@@ -1625,7 +1625,7 @@
     },
     {
      "nom": "Logan Thompson",
-     "ov": 80,
+     "ov": 81,
      "age": 29,
      "en": 92,
      "du": 92,
@@ -1723,7 +1723,7 @@
    "gardiens": [
     {
      "nom": "Alex Nedeljkovic",
-     "ov": 83,
+     "ov": 84,
      "age": 30,
      "en": 99,
      "du": 96,
