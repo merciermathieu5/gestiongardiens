@@ -1,6 +1,6 @@
 {
  "version": 2,
- "genere": "2026-10-19T00:16:17.750Z",
+ "genere": "2026-10-19T18:45:47.545Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
@@ -10,7 +10,7 @@
  },
  "alignements": {
   "source": "https://raw.githubusercontent.com/merciermathieu5/Sharks/main/data/rosters.json",
-  "maj": "oct 17 2026",
+  "maj": "oct 18 2026",
   "repris": false
  },
  "limites": {
