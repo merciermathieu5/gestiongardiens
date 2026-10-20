@@ -1,23 +1,23 @@
 {
  "version": 2,
- "genere": "2026-10-20T01:07:27.044Z",
+ "genere": "2026-10-20T17:22:07.326Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
   "source": "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL22TeamScoring.html",
-  "asOf": "dimanche, oct 18 2026",
-  "lignes": 0
+  "asOf": "mardi, oct 20 2026",
+  "lignes": 20
  },
  "alignements": {
   "source": "https://raw.githubusercontent.com/merciermathieu5/Sharks/main/data/rosters.json",
-  "maj": "oct 18 2026",
+  "maj": "oct 20 2026",
   "repris": false
  },
  "limites": {
   "statut": "calculees",
   "regle": "(EN + DU) / 3, arrondi à l'entier le plus proche (0,5 vers le haut), maximum 66 (article 4.10.2)",
   "nombre": 91,
-  "figees": false,
+  "figees": true,
   "tableau": {
    "statut": "a-venir",
    "source": null,
@@ -72,8 +72,8 @@
    "code": "BOSTON",
    "nom": "Boston",
    "abbr": "BOS",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "1-0-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Joel Blomqvist",
@@ -83,10 +83,10 @@
      "du": 92,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 62,
      "limite": 62,
      "origine": "formule"
@@ -129,8 +129,8 @@
    "code": "BUFFALO",
    "nom": "Buffalo",
    "abbr": "BUF",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "1-0-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Will Cranley",
@@ -172,10 +172,10 @@
      "du": 89,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -243,8 +243,8 @@
    "code": "CAROLINA",
    "nom": "Caroline",
    "abbr": "CAR",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "0-1-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Gage Alexander",
@@ -287,9 +287,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 0,
-     "d": 0,
+     "d": 1,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 59,
      "limite": 59,
      "origine": "formule"
@@ -625,9 +625,9 @@
   {
    "code": "FLORIDE",
    "nom": "Floride",
-   "abbr": "FLA",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "abbr": "FLO",
+   "fiche": "1-0-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Filip Larsson",
@@ -669,10 +669,10 @@
      "du": 90,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -683,8 +683,8 @@
    "code": "ISLANDERS",
    "nom": "NY Islanders",
    "abbr": "NYI",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "1-0-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Connor Hellebuyck",
@@ -694,10 +694,10 @@
      "du": 91,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -854,8 +854,8 @@
    "code": "MONTREAL",
    "nom": "Montréal",
    "abbr": "MTL",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "0-1-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Erik Portillo",
@@ -864,7 +864,7 @@
      "en": 83,
      "du": 85,
      "clubEcole": false,
-     "recrue": false,
+     "recrue": true,
      "v": 0,
      "d": 0,
      "n": 0,
@@ -882,9 +882,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 0,
-     "d": 0,
+     "d": 1,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 62,
      "limite": 62,
      "origine": "formule"
@@ -968,8 +968,8 @@
    "code": "NEWJERSEY",
    "nom": "New Jersey",
    "abbr": "NJ",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "0-1-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Topias Leinonen",
@@ -996,9 +996,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 0,
-     "d": 0,
+     "d": 1,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -1025,8 +1025,8 @@
    "code": "NYRANGERS",
    "nom": "NY Rangers",
    "abbr": "NYR",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "2-0-0",
+   "matchs": 2,
    "gardiens": [
     {
      "nom": "Remi Poirier",
@@ -1052,10 +1052,10 @@
      "du": 83,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 2,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 2,
      "formule": 56,
      "limite": 56,
      "origine": "formule"
@@ -1082,8 +1082,8 @@
    "code": "OTTAWA",
    "nom": "Ottawa",
    "abbr": "OTT",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "0-2-0",
+   "matchs": 2,
    "gardiens": [
     {
      "nom": "Carter Hart",
@@ -1094,9 +1094,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 0,
-     "d": 0,
+     "d": 2,
      "n": 0,
-     "mj": 0,
+     "mj": 2,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -1196,8 +1196,8 @@
    "code": "PITTSBURGH",
    "nom": "Pittsburgh",
    "abbr": "PIT",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "0-2-0",
+   "matchs": 2,
    "gardiens": [
     {
      "nom": "Jeremy Swayman",
@@ -1208,9 +1208,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 0,
-     "d": 0,
+     "d": 2,
      "n": 0,
-     "mj": 0,
+     "mj": 2,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -1408,8 +1408,8 @@
    "code": "TAMPABAY",
    "nom": "Tampa Bay",
    "abbr": "TB",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "0-1-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Oscar Dansk",
@@ -1420,9 +1420,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 0,
-     "d": 0,
+     "d": 1,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -1450,7 +1450,7 @@
      "en": 78,
      "du": 79,
      "clubEcole": false,
-     "recrue": false,
+     "recrue": true,
      "v": 0,
      "d": 0,
      "n": 0,
@@ -1465,8 +1465,8 @@
    "code": "TORONTO",
    "nom": "Toronto",
    "abbr": "TOR",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "1-0-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "Chris Gibson",
@@ -1476,10 +1476,10 @@
      "du": 83,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 57,
      "limite": 57,
      "origine": "formule"
@@ -1661,8 +1661,8 @@
    "code": "WASHINGTON",
    "nom": "Washington",
    "abbr": "WSH",
-   "fiche": "0-0-0",
-   "matchs": 0,
+   "fiche": "1-0-0",
+   "matchs": 1,
    "gardiens": [
     {
      "nom": "John Gibson",
@@ -1688,10 +1688,10 @@
      "du": 94,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 63,
      "limite": 63,
      "origine": "formule"
