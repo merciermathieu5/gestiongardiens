@@ -1,11 +1,11 @@
 {
  "version": 2,
- "genere": "2026-10-26T18:44:57.051Z",
+ "genere": "2026-10-27T01:32:07.394Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
   "source": "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL22TeamScoring.html",
-  "asOf": "samedi, oct 24 2026",
+  "asOf": "mardi, oct 27 2026",
   "lignes": 56
  },
  "alignements": {
