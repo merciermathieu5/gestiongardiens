@@ -1,12 +1,12 @@
 {
  "version": 2,
- "genere": "2026-11-11T19:44:12.366Z",
+ "genere": "2026-11-12T03:09:35.272Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
   "source": "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL22TeamScoring.html",
-  "asOf": "mardi, nov 10 2026",
-  "lignes": 75
+  "asOf": "jeudi, nov 12 2026",
+  "lignes": 77
  },
  "alignements": {
   "source": "https://raw.githubusercontent.com/merciermathieu5/Sharks/main/data/rosters.json",
@@ -32,7 +32,7 @@
    "nom": "Anaheim",
    "abbr": "ANA",
    "fiche": "4-6-2",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Michael McNiven",
@@ -42,10 +42,10 @@
      "du": 92,
      "clubEcole": false,
      "recrue": false,
-     "v": 4,
+     "v": 5,
      "d": 4,
      "n": 2,
-     "mj": 10,
+     "mj": 11,
      "formule": 63,
      "limite": 63,
      "origine": "formule"
@@ -73,7 +73,7 @@
    "nom": "Boston",
    "abbr": "BOS",
    "fiche": "8-2-3",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Joel Blomqvist",
@@ -83,10 +83,10 @@
      "du": 92,
      "clubEcole": false,
      "recrue": false,
-     "v": 6,
+     "v": 7,
      "d": 2,
      "n": 2,
-     "mj": 10,
+     "mj": 11,
      "formule": 62,
      "limite": 62,
      "origine": "formule"
@@ -130,7 +130,7 @@
    "nom": "Buffalo",
    "abbr": "BUF",
    "fiche": "5-7-1",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Will Cranley",
@@ -172,10 +172,10 @@
      "du": 89,
      "clubEcole": false,
      "recrue": false,
-     "v": 3,
+     "v": 4,
      "d": 4,
      "n": 1,
-     "mj": 8,
+     "mj": 9,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -187,7 +187,7 @@
    "nom": "Calgary",
    "abbr": "CGY",
    "fiche": "4-5-3",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Samuel Montembeault",
@@ -229,10 +229,10 @@
      "du": 91,
      "clubEcole": false,
      "recrue": false,
-     "v": 2,
-     "d": 1,
+     "v": 3,
+     "d": 2,
      "n": 2,
-     "mj": 5,
+     "mj": 7,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -244,7 +244,7 @@
    "nom": "Caroline",
    "abbr": "CAR",
    "fiche": "5-7-0",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Gage Alexander",
@@ -286,10 +286,10 @@
      "du": 85,
      "clubEcole": false,
      "recrue": false,
-     "v": 1,
-     "d": 3,
+     "v": 2,
+     "d": 4,
      "n": 0,
-     "mj": 4,
+     "mj": 6,
      "formule": 59,
      "limite": 59,
      "origine": "formule"
@@ -301,7 +301,7 @@
    "nom": "Chicago",
    "abbr": "CHI",
    "fiche": "5-7-0",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Thatcher Demko",
@@ -311,10 +311,10 @@
      "du": 84,
      "clubEcole": false,
      "recrue": false,
-     "v": 4,
-     "d": 5,
+     "v": 5,
+     "d": 6,
      "n": 0,
-     "mj": 9,
+     "mj": 11,
      "formule": 59,
      "limite": 59,
      "origine": "formule"
@@ -358,7 +358,7 @@
    "nom": "Colorado",
    "abbr": "COL",
    "fiche": "6-4-2",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Alex Lyon",
@@ -400,10 +400,10 @@
      "du": 91,
      "clubEcole": false,
      "recrue": false,
-     "v": 6,
-     "d": 3,
+     "v": 7,
+     "d": 4,
      "n": 2,
-     "mj": 11,
+     "mj": 13,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -415,7 +415,7 @@
    "nom": "Columbus",
    "abbr": "CLB",
    "fiche": "8-3-1",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Ales Stezka",
@@ -426,9 +426,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 6,
-     "d": 3,
-     "n": 0,
-     "mj": 9,
+     "d": 4,
+     "n": 1,
+     "mj": 11,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -456,7 +456,7 @@
    "nom": "Dallas",
    "abbr": "DAL",
    "fiche": "7-4-1",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Calle Clang",
@@ -467,9 +467,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 3,
-     "d": 3,
+     "d": 4,
      "n": 0,
-     "mj": 6,
+     "mj": 7,
      "formule": 59,
      "limite": 59,
      "origine": "formule"
@@ -513,7 +513,7 @@
    "nom": "Détroit",
    "abbr": "DET",
    "fiche": "4-7-2",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Stuart Skinner",
@@ -524,9 +524,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 1,
-     "d": 3,
+     "d": 4,
      "n": 1,
-     "mj": 5,
+     "mj": 6,
      "formule": 56,
      "limite": 56,
      "origine": "formule"
@@ -570,7 +570,7 @@
    "nom": "Edmonton",
    "abbr": "EDM",
    "fiche": "7-5-0",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Dennis Hildeby",
@@ -597,9 +597,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 4,
-     "d": 5,
+     "d": 6,
      "n": 0,
-     "mj": 9,
+     "mj": 10,
      "formule": 62,
      "limite": 62,
      "origine": "formule"
@@ -627,7 +627,7 @@
    "nom": "Floride",
    "abbr": "FLO",
    "fiche": "8-3-1",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Filip Larsson",
@@ -670,9 +670,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 7,
-     "d": 2,
+     "d": 4,
      "n": 1,
-     "mj": 10,
+     "mj": 12,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -684,7 +684,7 @@
    "nom": "NY Islanders",
    "abbr": "NYI",
    "fiche": "8-4-2",
-   "matchs": 14,
+   "matchs": 15,
    "gardiens": [
     {
      "nom": "Connor Hellebuyck",
@@ -727,9 +727,9 @@
      "clubEcole": false,
      "recrue": true,
      "v": 0,
-     "d": 0,
+     "d": 1,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -741,7 +741,7 @@
    "nom": "Los Angeles",
    "abbr": "LA",
    "fiche": "7-5-0",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Tristan Jarry",
@@ -767,10 +767,10 @@
      "du": 88,
      "clubEcole": false,
      "recrue": false,
-     "v": 3,
-     "d": 2,
+     "v": 4,
+     "d": 3,
      "n": 0,
-     "mj": 5,
+     "mj": 7,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -798,7 +798,7 @@
    "nom": "Minnesota",
    "abbr": "MIN",
    "fiche": "3-7-2",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Linus Ullmark",
@@ -808,10 +808,10 @@
      "du": 78,
      "clubEcole": false,
      "recrue": false,
-     "v": 3,
+     "v": 5,
      "d": 6,
      "n": 2,
-     "mj": 11,
+     "mj": 13,
      "formule": 54,
      "limite": 54,
      "origine": "formule"
@@ -855,7 +855,7 @@
    "nom": "Montréal",
    "abbr": "MTL",
    "fiche": "6-6-1",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Erik Portillo",
@@ -865,10 +865,10 @@
      "du": 85,
      "clubEcole": false,
      "recrue": true,
-     "v": 1,
+     "v": 2,
      "d": 1,
      "n": 0,
-     "mj": 2,
+     "mj": 3,
      "formule": 56,
      "limite": 56,
      "origine": "formule"
@@ -912,7 +912,7 @@
    "nom": "Nashville",
    "abbr": "NSH",
    "fiche": "5-6-1",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Ilya Samsonov",
@@ -922,10 +922,10 @@
      "du": 97,
      "clubEcole": false,
      "recrue": false,
-     "v": 5,
-     "d": 4,
+     "v": 6,
+     "d": 5,
      "n": 0,
-     "mj": 9,
+     "mj": 11,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
@@ -969,7 +969,7 @@
    "nom": "New Jersey",
    "abbr": "NJ",
    "fiche": "3-10-0",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Topias Leinonen",
@@ -997,8 +997,8 @@
      "recrue": false,
      "v": 2,
      "d": 5,
-     "n": 0,
-     "mj": 7,
+     "n": 1,
+     "mj": 8,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -1026,7 +1026,7 @@
    "nom": "NY Rangers",
    "abbr": "NYR",
    "fiche": "5-5-3",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Remi Poirier",
@@ -1052,10 +1052,10 @@
      "du": 83,
      "clubEcole": false,
      "recrue": false,
-     "v": 3,
+     "v": 4,
      "d": 2,
      "n": 0,
-     "mj": 5,
+     "mj": 6,
      "formule": 56,
      "limite": 56,
      "origine": "formule"
@@ -1083,7 +1083,7 @@
    "nom": "Ottawa",
    "abbr": "OTT",
    "fiche": "2-10-1",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Carter Hart",
@@ -1110,9 +1110,9 @@
      "clubEcole": false,
      "recrue": true,
      "v": 0,
-     "d": 1,
+     "d": 2,
      "n": 0,
-     "mj": 1,
+     "mj": 2,
      "formule": 51,
      "limite": 51,
      "origine": "formule"
@@ -1140,7 +1140,7 @@
    "nom": "Philadelphie",
    "abbr": "PHI",
    "fiche": "9-3-0",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Devon Levi",
@@ -1183,9 +1183,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 5,
-     "d": 1,
+     "d": 2,
      "n": 0,
-     "mj": 6,
+     "mj": 7,
      "formule": 62,
      "limite": 62,
      "origine": "formule"
@@ -1197,7 +1197,7 @@
    "nom": "Pittsburgh",
    "abbr": "PIT",
    "fiche": "5-7-1",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Jeremy Swayman",
@@ -1209,8 +1209,8 @@
      "recrue": false,
      "v": 3,
      "d": 4,
-     "n": 1,
-     "mj": 8,
+     "n": 2,
+     "mj": 9,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -1254,7 +1254,7 @@
    "nom": "San Jose",
    "abbr": "SJ",
    "fiche": "5-5-2",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Philippe Desrosiers",
@@ -1264,10 +1264,10 @@
      "du": 98,
      "clubEcole": false,
      "recrue": false,
-     "v": 5,
+     "v": 6,
      "d": 4,
      "n": 2,
-     "mj": 11,
+     "mj": 12,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
@@ -1311,7 +1311,7 @@
    "nom": "Seattle",
    "abbr": "SEA",
    "fiche": "6-5-1",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Alexei Kolosov",
@@ -1338,9 +1338,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 4,
-     "d": 3,
+     "d": 4,
      "n": 1,
-     "mj": 8,
+     "mj": 9,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
@@ -1352,7 +1352,7 @@
    "nom": "St. Louis",
    "abbr": "STL",
    "fiche": "5-6-2",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Elvis Merzlikins",
@@ -1377,11 +1377,11 @@
      "en": 87,
      "du": 84,
      "clubEcole": false,
-     "recrue": false,
+     "recrue": true,
      "v": 0,
-     "d": 0,
+     "d": 1,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 57,
      "limite": 57,
      "origine": "formule"
@@ -1409,7 +1409,7 @@
    "nom": "Tampa Bay",
    "abbr": "TB",
    "fiche": "7-4-2",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Oscar Dansk",
@@ -1451,10 +1451,10 @@
      "du": 79,
      "clubEcole": false,
      "recrue": true,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 2,
-     "mj": 2,
+     "mj": 3,
      "formule": 52,
      "limite": 52,
      "origine": "formule"
@@ -1466,7 +1466,7 @@
    "nom": "Toronto",
    "abbr": "TOR",
    "fiche": "3-9-1",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Chris Gibson",
@@ -1492,10 +1492,10 @@
      "du": 77,
      "clubEcole": false,
      "recrue": true,
-     "v": 0,
+     "v": 1,
      "d": 6,
      "n": 1,
-     "mj": 7,
+     "mj": 8,
      "formule": 49,
      "limite": 49,
      "origine": "formule"
@@ -1523,7 +1523,7 @@
    "nom": "Utah",
    "abbr": "UTH",
    "fiche": "5-5-2",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Adam Gajan",
@@ -1550,9 +1550,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 5,
-     "d": 3,
+     "d": 4,
      "n": 2,
-     "mj": 10,
+     "mj": 11,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
@@ -1564,7 +1564,7 @@
    "nom": "Vancouver",
    "abbr": "VAN",
    "fiche": "4-8-0",
-   "matchs": 12,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "Jan Bednar",
@@ -1590,10 +1590,10 @@
      "du": 86,
      "clubEcole": false,
      "recrue": false,
-     "v": 3,
-     "d": 5,
+     "v": 4,
+     "d": 6,
      "n": 0,
-     "mj": 8,
+     "mj": 10,
      "formule": 57,
      "limite": 57,
      "origine": "formule"
@@ -1605,7 +1605,7 @@
    "nom": "Vegas",
    "abbr": "VEG",
    "fiche": "3-8-1",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Sebastian Cossa",
@@ -1647,10 +1647,10 @@
      "du": 85,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 1,
      "n": 1,
-     "mj": 2,
+     "mj": 3,
      "formule": 57,
      "limite": 57,
      "origine": "formule"
@@ -1662,7 +1662,7 @@
    "nom": "Washington",
    "abbr": "WSH",
    "fiche": "8-3-2",
-   "matchs": 13,
+   "matchs": 14,
    "gardiens": [
     {
      "nom": "John Gibson",
@@ -1674,8 +1674,8 @@
      "recrue": false,
      "v": 1,
      "d": 1,
-     "n": 1,
-     "mj": 3,
+     "n": 2,
+     "mj": 4,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -1719,7 +1719,7 @@
    "nom": "Winnipeg",
    "abbr": "WIN",
    "fiche": "8-2-2",
-   "matchs": 12,
+   "matchs": 13,
    "gardiens": [
     {
      "nom": "Alex Nedeljkovic",
@@ -1729,10 +1729,10 @@
      "du": 96,
      "clubEcole": false,
      "recrue": false,
-     "v": 6,
+     "v": 7,
      "d": 1,
      "n": 2,
-     "mj": 9,
+     "mj": 10,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
