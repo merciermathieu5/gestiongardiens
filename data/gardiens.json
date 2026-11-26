@@ -1,11 +1,11 @@
 {
  "version": 2,
- "genere": "2026-11-25T21:51:18.426Z",
+ "genere": "2026-11-26T04:12:46.360Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
   "source": "https://ushl.ca/ushl/menu_sim/USHL-pro/USHL22TeamScoring.html",
-  "asOf": "mardi, nov 24 2026",
+  "asOf": "jeudi, nov 26 2026",
   "lignes": 81
  },
  "alignements": {
@@ -73,7 +73,7 @@
    "nom": "Boston",
    "abbr": "BOS",
    "fiche": "9-6-5",
-   "matchs": 20,
+   "matchs": 21,
    "gardiens": [
     {
      "nom": "Joel Blomqvist",
@@ -115,10 +115,10 @@
      "du": 85,
      "clubEcole": false,
      "recrue": true,
-     "v": 2,
+     "v": 3,
      "d": 2,
      "n": 2,
-     "mj": 6,
+     "mj": 7,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -130,7 +130,7 @@
    "nom": "Buffalo",
    "abbr": "BUF",
    "fiche": "9-10-1",
-   "matchs": 20,
+   "matchs": 21,
    "gardiens": [
     {
      "nom": "Will Cranley",
@@ -173,9 +173,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 7,
-     "d": 5,
+     "d": 6,
      "n": 1,
-     "mj": 13,
+     "mj": 14,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -244,7 +244,7 @@
    "nom": "Caroline",
    "abbr": "CAR",
    "fiche": "11-9-0",
-   "matchs": 20,
+   "matchs": 21,
    "gardiens": [
     {
      "nom": "Gage Alexander",
@@ -271,9 +271,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 6,
-     "d": 4,
+     "d": 5,
      "n": 0,
-     "mj": 10,
+     "mj": 11,
      "formule": 62,
      "limite": 62,
      "origine": "formule"
@@ -627,7 +627,7 @@
    "nom": "Floride",
    "abbr": "FLO",
    "fiche": "10-9-1",
-   "matchs": 20,
+   "matchs": 21,
    "gardiens": [
     {
      "nom": "Filip Larsson",
@@ -670,9 +670,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 7,
-     "d": 7,
+     "d": 8,
      "n": 1,
-     "mj": 15,
+     "mj": 16,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -684,7 +684,7 @@
    "nom": "NY Islanders",
    "abbr": "NYI",
    "fiche": "11-7-2",
-   "matchs": 20,
+   "matchs": 22,
    "gardiens": [
     {
      "nom": "Connor Hellebuyck",
@@ -694,10 +694,10 @@
      "du": 91,
      "clubEcole": false,
      "recrue": false,
-     "v": 8,
+     "v": 9,
      "d": 3,
-     "n": 2,
-     "mj": 13,
+     "n": 3,
+     "mj": 15,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -969,7 +969,7 @@
    "nom": "New Jersey",
    "abbr": "NJ",
    "fiche": "5-12-3",
-   "matchs": 20,
+   "matchs": 22,
    "gardiens": [
     {
      "nom": "Topias Leinonen",
@@ -995,10 +995,10 @@
      "du": 84,
      "clubEcole": false,
      "recrue": false,
-     "v": 4,
-     "d": 7,
+     "v": 5,
+     "d": 8,
      "n": 3,
-     "mj": 14,
+     "mj": 16,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -1026,7 +1026,7 @@
    "nom": "NY Rangers",
    "abbr": "NYR",
    "fiche": "10-7-3",
-   "matchs": 20,
+   "matchs": 21,
    "gardiens": [
     {
      "nom": "Remi Poirier",
@@ -1052,10 +1052,10 @@
      "du": 83,
      "clubEcole": false,
      "recrue": false,
-     "v": 8,
+     "v": 9,
      "d": 4,
      "n": 0,
-     "mj": 12,
+     "mj": 13,
      "formule": 56,
      "limite": 56,
      "origine": "formule"
@@ -1083,7 +1083,7 @@
    "nom": "Ottawa",
    "abbr": "OTT",
    "fiche": "3-16-1",
-   "matchs": 20,
+   "matchs": 21,
    "gardiens": [
     {
      "nom": "Carter Hart",
@@ -1095,8 +1095,8 @@
      "recrue": false,
      "v": 3,
      "d": 12,
-     "n": 1,
-     "mj": 16,
+     "n": 2,
+     "mj": 17,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -1140,7 +1140,7 @@
    "nom": "Philadelphie",
    "abbr": "PHI",
    "fiche": "12-7-0",
-   "matchs": 19,
+   "matchs": 20,
    "gardiens": [
     {
      "nom": "Devon Levi",
@@ -1151,9 +1151,9 @@
      "clubEcole": false,
      "recrue": false,
      "v": 7,
-     "d": 4,
+     "d": 5,
      "n": 0,
-     "mj": 11,
+     "mj": 12,
      "formule": 58,
      "limite": 58,
      "origine": "formule"
@@ -1197,7 +1197,7 @@
    "nom": "Pittsburgh",
    "abbr": "PIT",
    "fiche": "6-11-3",
-   "matchs": 20,
+   "matchs": 22,
    "gardiens": [
     {
      "nom": "Jeremy Swayman",
@@ -1209,8 +1209,8 @@
      "recrue": false,
      "v": 4,
      "d": 6,
-     "n": 3,
-     "mj": 13,
+     "n": 4,
+     "mj": 14,
      "formule": 60,
      "limite": 60,
      "origine": "formule"
@@ -1223,10 +1223,10 @@
      "du": 81,
      "clubEcole": false,
      "recrue": false,
-     "v": 0,
+     "v": 1,
      "d": 0,
      "n": 0,
-     "mj": 0,
+     "mj": 1,
      "formule": 55,
      "limite": 55,
      "origine": "formule"
@@ -1311,7 +1311,7 @@
    "nom": "Seattle",
    "abbr": "SEA",
    "fiche": "11-7-1",
-   "matchs": 19,
+   "matchs": 20,
    "gardiens": [
     {
      "nom": "Alexei Kolosov",
@@ -1339,8 +1339,8 @@
      "recrue": false,
      "v": 9,
      "d": 5,
-     "n": 1,
-     "mj": 15,
+     "n": 2,
+     "mj": 16,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
@@ -1605,7 +1605,7 @@
    "nom": "Vegas",
    "abbr": "VEG",
    "fiche": "5-12-2",
-   "matchs": 19,
+   "matchs": 20,
    "gardiens": [
     {
      "nom": "Sebastian Cossa",
@@ -1633,8 +1633,8 @@
      "recrue": false,
      "v": 2,
      "d": 6,
-     "n": 1,
-     "mj": 9,
+     "n": 2,
+     "mj": 10,
      "formule": 61,
      "limite": 61,
      "origine": "formule"
@@ -1719,7 +1719,7 @@
    "nom": "Winnipeg",
    "abbr": "WIN",
    "fiche": "12-5-2",
-   "matchs": 19,
+   "matchs": 20,
    "gardiens": [
     {
      "nom": "Alex Nedeljkovic",
@@ -1731,8 +1731,8 @@
      "recrue": false,
      "v": 9,
      "d": 4,
-     "n": 2,
-     "mj": 15,
+     "n": 3,
+     "mj": 16,
      "formule": 65,
      "limite": 65,
      "origine": "formule"
