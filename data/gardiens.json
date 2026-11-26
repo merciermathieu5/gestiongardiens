@@ -1,6 +1,6 @@
 {
  "version": 2,
- "genere": "2026-11-26T04:12:46.360Z",
+ "genere": "2026-11-26T21:45:01.996Z",
  "saison": 22,
  "depot": "merciermathieu5/gestiongardiens",
  "matchs": {
@@ -10,7 +10,7 @@
  },
  "alignements": {
   "source": "https://raw.githubusercontent.com/merciermathieu5/Sharks/main/data/rosters.json",
-  "maj": "nov 24 2026",
+  "maj": "nov 26 2026",
   "repris": false
  },
  "limites": {
@@ -72,7 +72,7 @@
    "code": "BOSTON",
    "nom": "Boston",
    "abbr": "BOS",
-   "fiche": "9-6-5",
+   "fiche": "10-6-5",
    "matchs": 21,
    "gardiens": [
     {
@@ -129,7 +129,7 @@
    "code": "BUFFALO",
    "nom": "Buffalo",
    "abbr": "BUF",
-   "fiche": "9-10-1",
+   "fiche": "9-11-1",
    "matchs": 21,
    "gardiens": [
     {
@@ -243,7 +243,7 @@
    "code": "CAROLINA",
    "nom": "Caroline",
    "abbr": "CAR",
-   "fiche": "11-9-0",
+   "fiche": "11-10-0",
    "matchs": 21,
    "gardiens": [
     {
@@ -626,7 +626,7 @@
    "code": "FLORIDE",
    "nom": "Floride",
    "abbr": "FLO",
-   "fiche": "10-9-1",
+   "fiche": "10-10-1",
    "matchs": 21,
    "gardiens": [
     {
@@ -683,7 +683,7 @@
    "code": "ISLANDERS",
    "nom": "NY Islanders",
    "abbr": "NYI",
-   "fiche": "11-7-2",
+   "fiche": "12-7-3",
    "matchs": 22,
    "gardiens": [
     {
@@ -968,7 +968,7 @@
    "code": "NEWJERSEY",
    "nom": "New Jersey",
    "abbr": "NJ",
-   "fiche": "5-12-3",
+   "fiche": "6-13-3",
    "matchs": 22,
    "gardiens": [
     {
@@ -1025,7 +1025,7 @@
    "code": "NYRANGERS",
    "nom": "NY Rangers",
    "abbr": "NYR",
-   "fiche": "10-7-3",
+   "fiche": "11-7-3",
    "matchs": 21,
    "gardiens": [
     {
@@ -1082,7 +1082,7 @@
    "code": "OTTAWA",
    "nom": "Ottawa",
    "abbr": "OTT",
-   "fiche": "3-16-1",
+   "fiche": "3-16-2",
    "matchs": 21,
    "gardiens": [
     {
@@ -1139,7 +1139,7 @@
    "code": "PHILLY",
    "nom": "Philadelphie",
    "abbr": "PHI",
-   "fiche": "12-7-0",
+   "fiche": "12-8-0",
    "matchs": 20,
    "gardiens": [
     {
@@ -1196,7 +1196,7 @@
    "code": "PITTSBURGH",
    "nom": "Pittsburgh",
    "abbr": "PIT",
-   "fiche": "6-11-3",
+   "fiche": "7-11-4",
    "matchs": 22,
    "gardiens": [
     {
@@ -1310,7 +1310,7 @@
    "code": "SEATTLE",
    "nom": "Seattle",
    "abbr": "SEA",
-   "fiche": "11-7-1",
+   "fiche": "11-7-2",
    "matchs": 20,
    "gardiens": [
     {
@@ -1604,7 +1604,7 @@
    "code": "VEGAS",
    "nom": "Vegas",
    "abbr": "VEG",
-   "fiche": "5-12-2",
+   "fiche": "5-12-3",
    "matchs": 20,
    "gardiens": [
     {
@@ -1718,7 +1718,7 @@
    "code": "WINNIPEG",
    "nom": "Winnipeg",
    "abbr": "WIN",
-   "fiche": "12-5-2",
+   "fiche": "12-5-3",
    "matchs": 20,
    "gardiens": [
     {
